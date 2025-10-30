@@ -3,14 +3,5 @@
   "devCommand": "npm run dev",
   "installCommand": "npm install",
   "framework": "nextjs",
-  "outputDirectory": ".next",
-  "env": {
-    "NEXT_PUBLIC_BASE_URL": "@next_public_base_url",
-    "NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY": "@next_public_stripe_publishable_key",
-    "STRIPE_SECRET_KEY": "@stripe_secret_key",
-    "NEXT_PUBLIC_SHOPIFY_DOMAIN": "@next_public_shopify_domain",
-    "NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_TOKEN": "@next_public_shopify_storefront_access_token",
-    "SHOPIFY_ADMIN_ACCESS_TOKEN": "@shopify_admin_access_token",
-    "SHOPIFY_API_VERSION": "@shopify_api_version"
-  }
+  "outputDirectory": ".next"
 }
