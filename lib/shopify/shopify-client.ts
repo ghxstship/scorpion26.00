@@ -1,6 +1,6 @@
 import Client from 'shopify-buy';
 
-let shopifyClient: Client.Client | null = null;
+let shopifyClient: any = null;
 
 export const getShopifyClient = () => {
   if (!shopifyClient) {
@@ -15,6 +15,7 @@ export const getShopifyClient = () => {
     shopifyClient = Client.buildClient({
       domain,
       storefrontAccessToken,
+      apiVersion: '2024-01',
     });
   }
   
