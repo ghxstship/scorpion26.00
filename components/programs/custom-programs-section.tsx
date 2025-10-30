@@ -42,7 +42,7 @@ export default function CustomProgramsSection() {
   };
 
   return (
-    <section ref={ref} className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gradient-to-b from-muted/20 via-background to-muted/20 relative overflow-hidden">
+    <section id="custom" ref={ref} className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gradient-to-b from-muted/20 via-background to-muted/20 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 pointer-events-none" />
       

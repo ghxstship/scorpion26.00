@@ -99,29 +99,39 @@ export default function ProgramsTierColumns() {
           </Tabs>
         </motion.div>
 
-        {/* Tier Columns */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6 lg:gap-8">
-          {TIER_ORDER.map((tierId, tierIndex) => {
+        {/* Individual Program Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
+          {TIER_ORDER.map((tierId) => {
             const tierInfo = LEVELS[tierId];
             const TierIcon = tierIcons[tierId];
-            const tierPrograms = TRACK_ORDER.map(trackId => 
-              mainPrograms.find(p => p.track === trackId && p.level === tierId)
-            ).filter(Boolean);
+            
+            return TRACK_ORDER.map((trackId, trackIndex) => {
+              const program = mainPrograms.find(p => p.track === trackId && p.level === tierId);
+              if (!program) return null;
 
-            return (
-              <motion.div
-                key={tierId}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.1 * tierIndex }}
-                className="flex flex-col"
-              >
-                {/* Tier Header */}
-                <div className={`p-4 sm:p-5 md:p-6 rounded-t-xl border-2 ${
-                  tierId === 'advanced' ? 'bg-primary/10 border-primary' : 
-                  tierId === 'elite' ? 'bg-gradient-to-br from-yellow-500/10 to-amber-500/10 border-yellow-500' :
-                  'bg-muted/30 border-muted'
-                }`}>
+              const trackInfo = TRACKS[trackId];
+              const zone = gymZones[trackInfo.zone];
+              const { price, periodLabel } = getPriceDisplay(program);
+              const Icon = iconMap[trackInfo.icon as keyof typeof iconMap];
+              const cardIndex = TIER_ORDER.indexOf(tierId) * TRACK_ORDER.length + trackIndex;
+
+              return (
+                <motion.div
+                  key={program.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.4, delay: 0.05 * cardIndex }}
+                  className="flex"
+                >
+                  <Card 
+                    className="flex flex-col w-full transition-all hover:shadow-2xl border-2 group"
+                    style={{
+                      backgroundColor: `${zone.colors.base}dd`,
+                      borderColor: tierId === 'advanced' ? 'hsl(var(--primary))' :
+                                   tierId === 'elite' ? '#eab308' :
+                                   `${zone.colors.secondary}80`,
+                    }}
+                  >
                   <div className="flex items-center justify-between mb-3 sm:mb-4">
                     <div className="flex items-center gap-2 sm:gap-3">
                       <div className={`p-2 sm:p-2.5 rounded-lg ${

@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import ProgramsHeroSection from "@/components/programs/programs-hero-section";
-import ProgramsTierColumns from "@/components/programs/programs-tier-columns";
+import ProgramsCardsGrid from "@/components/programs/programs-cards-grid";
 import CustomProgramsSection from "@/components/programs/custom-programs-section";
 import BundlesSection from "@/components/programs/bundles-section";
 import GuaranteeSection from "@/components/programs/guarantee-section";
@@ -16,7 +16,7 @@ export default function ProgramsPage() {
   return (
     <>
       <ProgramsHeroSection />
-      <ProgramsTierColumns />
+      <ProgramsCardsGrid />
       <div id="bundles">
         <BundlesSection />
       </div>
