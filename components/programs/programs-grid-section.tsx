@@ -10,7 +10,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { PROGRAMS } from "@/lib/programs-list";
-import { TRACKS, LEVELS } from "@/lib/programs-data";
+import { TRACKS, LEVELS, CUSTOM_LEVEL } from "@/lib/programs-data";
 import { ProgramTrack, ProgramLevel, PricingPeriod } from "@/types/shop";
 import { gymZones } from "@/lib/gym-colors";
 
@@ -25,7 +25,7 @@ const iconMap = {
 };
 
 const levelIcons = {
-  open: Star,
+  starter: Star,
   advanced: Dumbbell,
   pro: Zap,
   fancy: Crown,
@@ -182,7 +182,7 @@ export default function ProgramsGridSection() {
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {filteredPrograms.map((program, index) => {
             const trackInfo = TRACKS[program.track];
-            const levelInfo = LEVELS[program.level];
+            const levelInfo = program.level === 'fancy' ? CUSTOM_LEVEL : LEVELS[program.level];
             const zone = gymZones[trackInfo.zone];
             const { price, periodLabel } = getPriceDisplay(program);
             const Icon = iconMap[trackInfo.icon as keyof typeof iconMap];
