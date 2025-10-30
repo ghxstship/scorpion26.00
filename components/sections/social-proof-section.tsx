@@ -111,7 +111,7 @@ export default function SocialProofSection() {
 
                   {/* Quote */}
                   <p className="mb-6 text-foreground/80">
-                    "{testimonial.quote}"
+                    &ldquo;{testimonial.quote}&rdquo;
                   </p>
 
                   {/* Profile */}

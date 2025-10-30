@@ -15,12 +15,12 @@ export default function RefundsPage() {
           
           <h2>30-Day Money-Back Guarantee</h2>
           <p>
-            We stand behind our programs with a 30-day money-back guarantee. If you're not completely satisfied with your purchase, you can request a full refund within 30 days of your purchase date.
+            We stand behind our programs with a 30-day money-back guarantee. If you&apos;re not completely satisfied with your purchase, you can request a full refund within 30 days of your purchase date.
           </p>
 
           <h2>How to Request a Refund</h2>
           <p>
-            To request a refund, simply contact our support team at support@elitefitness.com with your order number and reason for the refund request. We'll process your refund within 5-7 business days.
+            To request a refund, simply contact our support team at support@elitefitness.com with your order number and reason for the refund request. We&apos;ll process your refund within 5-7 business days.
           </p>
 
           <h2>Refund Eligibility</h2>
@@ -30,12 +30,12 @@ export default function RefundsPage() {
 
           <h2>What Happens After a Refund</h2>
           <p>
-            Once your refund is processed, your access to the program materials and community will be revoked. You'll receive a confirmation email once the refund has been completed.
+            Once your refund is processed, your access to the program materials and community will be revoked. You&apos;ll receive a confirmation email once the refund has been completed.
           </p>
 
           <h2>Questions?</h2>
           <p>
-            If you have any questions about our refund policy, please don't hesitate to contact us at support@elitefitness.com
+            If you have any questions about our refund policy, please don&apos;t hesitate to contact us at support@elitefitness.com
           </p>
         </div>
       </div>

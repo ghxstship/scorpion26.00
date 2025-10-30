@@ -62,13 +62,13 @@ export default function FounderSection() {
 
             <div className="mt-6 space-y-4 text-foreground/80">
               <p>
-                I know what it's like to feel stuck. Ten years ago, I was 60
+                I know what it&apos;s like to feel stuck. Ten years ago, I was 60
                 pounds overweight, exhausted, and had tried every fad diet
                 imaginable. Nothing worked—until I discovered the science-based
                 approach that changed everything.
               </p>
               <p>
-                Today, I've helped over 100,000 people achieve lasting
+                Today, I&apos;ve helped over 100,000 people achieve lasting
                 transformations using the same proven methods. No gimmicks, no
                 quick fixes—just sustainable results backed by science and
                 supported by an incredible community.
@@ -97,7 +97,7 @@ export default function FounderSection() {
               </p>
               <div className="mt-4 flex flex-wrap gap-6 opacity-60">
                 <div className="text-2xl font-bold">ESPN</div>
-                <div className="text-2xl font-bold">MEN'S HEALTH</div>
+                <div className="text-2xl font-bold">MEN&apos;S HEALTH</div>
                 <div className="text-2xl font-bold">SHAPE</div>
               </div>
             </div>

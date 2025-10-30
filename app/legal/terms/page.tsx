@@ -25,7 +25,7 @@ export default function TermsPage() {
 
           <h2>3. Disclaimer</h2>
           <p>
-            The materials on Elite Fitness Coaching are provided on an 'as is' basis. Elite Fitness Coaching makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.
+            The materials on Elite Fitness Coaching are provided on an &apos;as is&apos; basis. Elite Fitness Coaching makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.
           </p>
 
           <h2>4. Limitations</h2>

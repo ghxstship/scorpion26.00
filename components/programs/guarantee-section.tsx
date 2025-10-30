@@ -27,7 +27,7 @@ export default function GuaranteeSection() {
                   30-Day Money-Back Guarantee
                 </h2>
                 <p className="mb-8 text-lg text-muted-foreground">
-                  We're so confident in our programs that we offer a full refund if you're not completely satisfied within the first 30 days. No questions asked.
+                  We&apos;re so confident in our programs that we offer a full refund if you&apos;re not completely satisfied within the first 30 days. No questions asked.
                 </p>
                 
                 <div className="grid gap-6 md:grid-cols-3">

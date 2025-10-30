@@ -16,7 +16,7 @@ export default function ContactHeroSection() {
             Get In Touch
           </h1>
           <p className="mt-6 text-xl text-muted-foreground sm:text-2xl">
-            Have questions? We're here to help you start your fitness journey
+            Have questions? We&apos;re here to help you start your fitness journey
           </p>
         </motion.div>
       </div>

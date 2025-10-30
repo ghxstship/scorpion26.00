@@ -115,7 +115,7 @@ export default function TransformationGallerySection() {
                     {transformation.timeframe}
                   </p>
                   <p className="italic text-foreground/80">
-                    "{transformation.quote}"
+                    &ldquo;{transformation.quote}&rdquo;
                   </p>
                 </CardContent>
               </Card>

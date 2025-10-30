@@ -102,9 +102,9 @@ export default function MissionValuesSection() {
                 Our Training Philosophy
               </h3>
               <p className="text-center text-lg text-muted-foreground">
-                We believe fitness isn't about punishment—it's about empowerment.
-                It's not about perfection—it's about progress. And it's not about
-                doing it alone—it's about having a community that lifts you up
+                We believe fitness isn&apos;t about punishment—it&apos;s about empowerment.
+                It&apos;s not about perfection—it&apos;s about progress. And it&apos;s not about
+                doing it alone—it&apos;s about having a community that lifts you up
                 when you need it most. Every body is different, every journey is
                 unique, and every person deserves a sustainable path to their goals.
               </p>
