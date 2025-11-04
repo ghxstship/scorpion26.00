@@ -19,7 +19,7 @@ export function BrandTitle({ children, className, as: Component = 'h1' }: Typogr
   
   return (
     <Component
-      className={cn('brand-title', className)}
+      className={cn('brand-title uppercase', className)}
       style={{ fontFamily: typography.title }}
     >
       {children}
@@ -36,7 +36,7 @@ export function BrandSubtitle({ children, className, as: Component = 'p' }: Typo
   
   return (
     <Component
-      className={cn('brand-subtitle', className)}
+      className={cn('brand-subtitle uppercase', className)}
       style={{ fontFamily: typography.subtitle }}
     >
       {children}
@@ -53,7 +53,7 @@ export function BrandH1({ children, className, as: Component = 'h1' }: Typograph
   
   return (
     <Component
-      className={cn('brand-h1', className)}
+      className={cn('brand-h1 uppercase', className)}
       style={{ fontFamily: typography.heading1 }}
     >
       {children}
@@ -70,7 +70,7 @@ export function BrandH2({ children, className, as: Component = 'h2' }: Typograph
   
   return (
     <Component
-      className={cn('brand-h2', className)}
+      className={cn('brand-h2 uppercase', className)}
       style={{ fontFamily: typography.heading2 }}
     >
       {children}
@@ -87,7 +87,7 @@ export function BrandH3({ children, className, as: Component = 'h3' }: Typograph
   
   return (
     <Component
-      className={cn('brand-h3', className)}
+      className={cn('brand-h3 uppercase', className)}
       style={{ fontFamily: typography.heading3 }}
     >
       {children}
@@ -104,7 +104,7 @@ export function BrandH4({ children, className, as: Component = 'h4' }: Typograph
   
   return (
     <Component
-      className={cn('brand-h4', className)}
+      className={cn('brand-h4 uppercase', className)}
       style={{ fontFamily: typography.heading4 }}
     >
       {children}

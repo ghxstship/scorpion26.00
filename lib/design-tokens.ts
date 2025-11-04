@@ -332,17 +332,17 @@ export const spacingClasses = {
 export const typographyClasses = {
   // Display (Hero headings) - Uses title font
   display: {
-    sm: 'font-title text-4xl sm:text-5xl md:text-6xl font-bold leading-tight tracking-tight',
-    md: 'font-title text-5xl sm:text-6xl md:text-7xl font-bold leading-tight tracking-tight',
-    lg: 'font-title text-6xl sm:text-7xl md:text-8xl font-bold leading-tight tracking-tight',
+    sm: 'font-title text-4xl sm:text-5xl md:text-6xl font-bold leading-tight tracking-tight uppercase',
+    md: 'font-title text-5xl sm:text-6xl md:text-7xl font-bold leading-tight tracking-tight uppercase',
+    lg: 'font-title text-6xl sm:text-7xl md:text-8xl font-bold leading-tight tracking-tight uppercase',
   },
   // Headings - Uses heading font
-  h1: 'font-heading text-3xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight',
-  h2: 'font-heading text-2xl sm:text-3xl md:text-4xl font-bold leading-tight tracking-tight',
-  h3: 'font-heading text-xl sm:text-2xl md:text-3xl font-semibold leading-snug tracking-tight',
-  h4: 'font-heading text-lg sm:text-xl md:text-2xl font-semibold leading-snug',
-  h5: 'font-heading text-base sm:text-lg md:text-xl font-semibold leading-snug',
-  h6: 'font-heading text-sm sm:text-base md:text-lg font-semibold leading-snug',
+  h1: 'font-heading text-3xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight uppercase',
+  h2: 'font-heading text-2xl sm:text-3xl md:text-4xl font-bold leading-tight tracking-tight uppercase',
+  h3: 'font-heading text-xl sm:text-2xl md:text-3xl font-semibold leading-snug tracking-tight uppercase',
+  h4: 'font-heading text-lg sm:text-xl md:text-2xl font-semibold leading-snug uppercase',
+  h5: 'font-heading text-base sm:text-lg md:text-xl font-semibold leading-snug uppercase',
+  h6: 'font-heading text-sm sm:text-base md:text-lg font-semibold leading-snug uppercase',
   // Body text - Uses body font
   body: {
     lg: 'font-body text-lg md:text-xl leading-relaxed',

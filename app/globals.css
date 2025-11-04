@@ -86,36 +86,42 @@
     font-family: var(--font-heading-1);
     font-size: var(--text-h1);
     line-height: var(--leading-tight);
+    text-transform: uppercase;
   }
   
   h2 {
     font-family: var(--font-heading-2);
     font-size: var(--text-h2);
     line-height: var(--leading-tight);
+    text-transform: uppercase;
   }
   
   h3 {
     font-family: var(--font-heading-3);
     font-size: var(--text-h3);
     line-height: var(--leading-normal);
+    text-transform: uppercase;
   }
   
   h4 {
     font-family: var(--font-heading-4);
     font-size: var(--text-h4);
     line-height: var(--leading-normal);
+    text-transform: uppercase;
   }
   
   h5 {
     font-family: var(--font-heading-4);
     font-size: var(--text-h5);
     line-height: var(--leading-normal);
+    text-transform: uppercase;
   }
   
   h6 {
     font-family: var(--font-heading-4);
     font-size: var(--text-h6);
     line-height: var(--leading-normal);
+    text-transform: uppercase;
   }
   
   /* Apply to buttons */
