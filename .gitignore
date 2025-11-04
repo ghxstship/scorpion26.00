@@ -60,3 +60,10 @@ supabase-cli-binary
 *.tmp
 *.temp
 .cache/
+
+# Build logs and artifacts
+build-output.log
+*.log
+
+# Environment files (keep .env.example)
+.env.local

@@ -1,183 +1,192 @@
-# Supabase CLI
+# Scorpion26.00 - Enterprise Fitness Platform
 
-[![Coverage Status](https://coveralls.io/repos/github/supabase/cli/badge.svg?branch=main)](https://coveralls.io/github/supabase/cli?branch=main) [![Bitbucket Pipelines](https://img.shields.io/bitbucket/pipelines/supabase-cli/setup-cli/master?style=flat-square&label=Bitbucket%20Canary)](https://bitbucket.org/supabase-cli/setup-cli/pipelines) [![Gitlab Pipeline Status](https://img.shields.io/gitlab/pipeline-status/sweatybridge%2Fsetup-cli?label=Gitlab%20Canary)
-](https://gitlab.com/sweatybridge/setup-cli/-/pipelines)
+A comprehensive, white-label fitness platform built with Next.js 14, featuring AI-powered personalization, gamification, social features, and Apple Watch integration.
 
-[Supabase](https://supabase.io) is an open source Firebase alternative. We're building the features of Firebase using enterprise-grade open source tools.
+## 🚀 Features
 
-This repository contains all the functionality for Supabase CLI.
+### Core Platform
+- **Multi-Role Dashboard** - Admin, Collaborator, and Member portals
+- **AI Personalization** - Adaptive workout plans and coaching chatbot
+- **Gamification System** - Achievements, leaderboards, and rewards
+- **Social Features** - Community engagement and social sharing
+- **Video Streaming** - HLS-based workout video delivery
+- **E-commerce Integration** - Shopify-powered merchandise store
 
-- [x] Running Supabase locally
-- [x] Managing database migrations
-- [x] Creating and deploying Supabase Functions
-- [x] Generating types directly from your database schema
-- [x] Making authenticated HTTP requests to [Management API](https://supabase.com/docs/reference/api/introduction)
+### Health & Wearables
+- **Apple Watch App** - Native watchOS companion app
+- **Health Kit Integration** - Comprehensive health data tracking
+- **Activity Tracking** - Real-time workout and progress monitoring
 
-## Getting started
+### Technical Excellence
+- **White-Label Branding** - Fully customizable brand system
+- **Enterprise Security** - RBAC, RLS, and comprehensive auth
+- **Responsive Design** - Mobile-first, accessible UI
+- **Performance Optimized** - SSR, code splitting, image optimization
 
-### Install the CLI
+## 📋 Prerequisites
 
-Available via [NPM](https://www.npmjs.com) as dev dependency. To install:
+- Node.js 18+ and npm
+- Supabase account and project
+- Stripe account (for payments)
+- Shopify store (for e-commerce)
+- OpenAI API key (for AI features)
+
+## 🛠️ Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/ghxstship/scorpion26.00.git
+   cd scorpion26.00
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Configure environment variables**
+   ```bash
+   cp .env.example .env.local
+   ```
+   
+   Edit `.env.local` with your credentials:
+   - Supabase URL and keys
+   - Stripe keys
+   - Shopify credentials
+   - OpenAI API key
+   - Other service credentials
+
+4. **Set up the database**
+   ```bash
+   npm run supabase:migrate
+   ```
+
+5. **Run the development server**
+   ```bash
+   npm run dev
+   ```
+
+   Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## 📁 Project Structure
+
+```
+├── app/              # Next.js 14 App Router
+│   ├── (public)/     # Public pages
+│   ├── admin/        # Admin dashboard
+│   ├── collaborator/ # Collaborator portal
+│   ├── member/       # Member dashboard
+│   └── api/          # API routes
+├── components/       # React components (Atomic Design)
+│   ├── atoms/        # Basic UI elements
+│   ├── molecules/    # Component combinations
+│   ├── organisms/    # Complex sections
+│   └── ui/           # shadcn/ui components
+├── lib/              # Utilities and business logic
+│   ├── ai/           # AI personalization
+│   ├── auth/         # Authentication & RBAC
+│   ├── supabase/     # Database client
+│   └── utils/        # Helper functions
+├── hooks/            # Custom React hooks
+├── types/            # TypeScript definitions
+├── docs/             # Comprehensive documentation
+└── supabase/         # Database migrations
+```
+
+## 📚 Documentation
+
+Comprehensive documentation is available in the `/docs` directory:
+
+- **[Architecture Guide](./ARCHITECTURE.md)** - System architecture overview
+- **[Documentation Index](./docs/INDEX.md)** - Complete documentation navigation
+- **[Deployment Guide](./docs/deployment/DEPLOYMENT_GUIDE.md)** - Production deployment
+- **[API Documentation](./docs/API_DOCUMENTATION.md)** - API reference
+- **[Apple Watch Guide](./docs/APPLE_WATCH_APP_GUIDE.md)** - Wearable integration
+
+### Quick Start Guides
+- [Dashboard Quick Start](./docs/guides/DASHBOARD_QUICKSTART.md)
+- [Brand Quick Start](./docs/guides/BRAND_QUICKSTART.md)
+- [Gamification Quick Start](./docs/GAMIFICATION_QUICKSTART.md)
+- [Health Features Quick Start](./docs/HEALTH_QUICK_START.md)
+
+## 🧪 Testing
 
 ```bash
-npm i supabase --save-dev
+# Type checking
+npm run type-check
+
+# Linting
+npm run lint
+
+# Build verification
+npm run build
 ```
 
-To install the beta release channel:
+## 🚢 Deployment
 
-```bash
-npm i supabase@beta --save-dev
-```
+### Vercel (Recommended)
 
-When installing with yarn 4, you need to disable experimental fetch with the following nodejs config.
+1. Connect your GitHub repository to Vercel
+2. Configure environment variables in Vercel dashboard
+3. Deploy automatically on push to main branch
 
-```
-NODE_OPTIONS=--no-experimental-fetch yarn add supabase
-```
+See [Deployment Guide](./docs/deployment/DEPLOYMENT_GUIDE.md) for detailed instructions.
 
-> **Note**
-For Bun versions below v1.0.17, you must add `supabase` as a [trusted dependency](https://bun.sh/guides/install/trusted) before running `bun add -D supabase`.
+## 🔐 Security
 
-<details>
-  <summary><b>macOS</b></summary>
+- Row-Level Security (RLS) on all database tables
+- Role-Based Access Control (RBAC)
+- Secure API routes with middleware
+- Environment variable protection
+- Rate limiting on sensitive endpoints
 
-  Available via [Homebrew](https://brew.sh). To install:
+## 🎨 Customization
 
-  ```sh
-  brew install supabase/tap/supabase
-  ```
+### White-Label Branding
 
-  To install the beta release channel:
-  
-  ```sh
-  brew install supabase/tap/supabase-beta
-  brew link --overwrite supabase-beta
-  ```
-  
-  To upgrade:
+The platform supports complete white-labeling:
 
-  ```sh
-  brew upgrade supabase
-  ```
-</details>
+1. Configure brand settings in `/lib/branding/brand-config.ts`
+2. Update design tokens in `/lib/design-tokens.ts`
+3. Customize theme in `tailwind.config.ts`
+4. Upload brand assets to Supabase Storage
 
-<details>
-  <summary><b>Windows</b></summary>
+See [Brand Quick Start](./docs/guides/BRAND_QUICKSTART.md) for details.
 
-  Available via [Scoop](https://scoop.sh). To install:
+## 🤝 Contributing
 
-  ```powershell
-  scoop bucket add supabase https://github.com/supabase/scoop-bucket.git
-  scoop install supabase
-  ```
+This is a private enterprise project. For internal contributions:
 
-  To upgrade:
+1. Create a feature branch
+2. Make your changes
+3. Submit a pull request
+4. Ensure all tests pass
 
-  ```powershell
-  scoop update supabase
-  ```
-</details>
+## 📄 License
 
-<details>
-  <summary><b>Linux</b></summary>
+See [LICENSE](./LICENSE) file for details.
 
-  Available via [Homebrew](https://brew.sh) and Linux packages.
+## 🆘 Support
 
-  #### via Homebrew
+For technical support and documentation:
+- Review the [Documentation Index](./docs/INDEX.md)
+- Check implementation guides in `/docs/implementation`
+- Refer to troubleshooting sections in relevant guides
 
-  To install:
+## 🏗️ Built With
 
-  ```sh
-  brew install supabase/tap/supabase
-  ```
+- **Framework:** Next.js 14 (App Router)
+- **Database:** Supabase (PostgreSQL)
+- **Styling:** Tailwind CSS + shadcn/ui
+- **Authentication:** Supabase Auth
+- **Payments:** Stripe
+- **E-commerce:** Shopify
+- **AI:** OpenAI GPT-4
+- **Video:** HLS.js
+- **Analytics:** Custom implementation
+- **Monitoring:** Sentry
 
-  To upgrade:
+---
 
-  ```sh
-  brew upgrade supabase
-  ```
-
-  #### via Linux packages
-
-  Linux packages are provided in [Releases](https://github.com/supabase/cli/releases). To install, download the `.apk`/`.deb`/`.rpm`/`.pkg.tar.zst` file depending on your package manager and run the respective commands.
-
-  ```sh
-  sudo apk add --allow-untrusted <...>.apk
-  ```
-
-  ```sh
-  sudo dpkg -i <...>.deb
-  ```
-
-  ```sh
-  sudo rpm -i <...>.rpm
-  ```
-
-  ```sh
-  sudo pacman -U <...>.pkg.tar.zst
-  ```
-</details>
-
-<details>
-  <summary><b>Other Platforms</b></summary>
-
-  You can also install the CLI via [go modules](https://go.dev/ref/mod#go-install) without the help of package managers.
-
-  ```sh
-  go install github.com/supabase/cli@latest
-  ```
-
-  Add a symlink to the binary in `$PATH` for easier access:
-
-  ```sh
-  ln -s "$(go env GOPATH)/bin/cli" /usr/bin/supabase
-  ```
-
-  This works on other non-standard Linux distros.
-</details>
-
-<details>
-  <summary><b>Community Maintained Packages</b></summary>
-
-  Available via [pkgx](https://pkgx.sh/). Package script [here](https://github.com/pkgxdev/pantry/blob/main/projects/supabase.com/cli/package.yml).
-  To install in your working directory:
-
-  ```bash
-  pkgx install supabase
-  ```
-
-  Available via [Nixpkgs](https://nixos.org/). Package script [here](https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/tools/supabase-cli/default.nix).
-</details>
-
-### Run the CLI
-
-```bash
-supabase bootstrap
-```
-
-Or using npx:
-
-```bash
-npx supabase bootstrap
-```
-
-The bootstrap command will guide you through the process of setting up a Supabase project using one of the [starter](https://github.com/supabase-community/supabase-samples/blob/main/samples.json) templates.
-
-## Docs
-
-Command & config reference can be found [here](https://supabase.com/docs/reference/cli/about).
-
-## Breaking changes
-
-We follow semantic versioning for changes that directly impact CLI commands, flags, and configurations.
-
-However, due to dependencies on other service images, we cannot guarantee that schema migrations, seed.sql, and generated types will always work for the same CLI major version. If you need such guarantees, we encourage you to pin a specific version of CLI in package.json.
-
-## Developing
-
-To run from source:
-
-```sh
-# Go >= 1.22
-go run . help
-```
+**Version:** 1.0.0  
+**Last Updated:** November 4, 2025
