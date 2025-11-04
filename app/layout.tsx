@@ -6,6 +6,7 @@ import { BrandProvider } from "@/lib/branding/brand-context";
 import { Toaster } from "@/components/ui/toaster";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
+import { Providers } from "./providers";
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -76,24 +77,26 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={`${inter.variable} ${montserrat.variable}`}>
       <body className="font-sans antialiased">
-        <BrandProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="light"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <a href="#main-content" className="skip-to-main">
-              Skip to main content
-            </a>
-            <div className="relative flex min-h-screen flex-col">
-              <Header />
-              <main id="main-content" className="flex-1">{children}</main>
-              <Footer />
-            </div>
-            <Toaster />
-          </ThemeProvider>
-        </BrandProvider>
+        <Providers>
+          <BrandProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="light"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <a href="#main-content" className="skip-to-main">
+                Skip to main content
+              </a>
+              <div className="relative flex min-h-screen flex-col">
+                <Header />
+                <main id="main-content" className="flex-1">{children}</main>
+                <Footer />
+              </div>
+              <Toaster />
+            </ThemeProvider>
+          </BrandProvider>
+        </Providers>
       </body>
     </html>
   );
