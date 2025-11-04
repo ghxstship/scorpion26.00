@@ -86,7 +86,7 @@ export default function TransformationPage() {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <Heading level={2} className="text-3xl font-montserrat mb-8 text-center">
-              What's Included
+              What&apos;s Included
             </Heading>
             <div className="space-y-4">
               <Card>

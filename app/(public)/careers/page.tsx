@@ -19,7 +19,7 @@ export default function CareersPage() {
             Join Our Team
           </Heading>
           <Text variant="body-lg" className="mb-12 text-center text-muted-foreground">
-            Help us transform lives through fitness. We're always looking for passionate individuals.
+            Help us transform lives through fitness. We&apos;re always looking for passionate individuals.
           </Text>
 
           <section className="mb-16">
@@ -63,7 +63,7 @@ export default function CareersPage() {
                   </li>
                   <li className="flex items-start">
                     <span className="mr-2">✓</span>
-                    <Text variant="body-md">Make a real impact on people's lives</Text>
+                    <Text variant="body-md">Make a real impact on people&apos;s lives</Text>
                   </li>
                 </ul>
               </CardContent>
