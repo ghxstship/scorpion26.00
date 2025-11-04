@@ -123,22 +123,22 @@ export default function ProgramsCardsGrid() {
                       borderColor: `${zone.colors.secondary}80`,
                     }}
                   >
-                    {/* Tier Badge - Normalized position and styling */}
-                    <div className="absolute top-4 right-4 z-10">
-                      <Badge 
-                        className="text-xs font-medium px-2.5 py-0.5"
-                        style={{
-                          backgroundColor: tierId === 'advanced' ? 'hsl(var(--primary))' :
-                                         tierId === 'elite' ? '#eab308' :
-                                         zone.colors.primary,
-                          color: '#fff'
-                        }}
-                      >
-                        {tierId === 'advanced' ? 'Most Popular' : tierId === 'elite' ? 'Invite Only' : tierInfo.name}
-                      </Badge>
-                    </div>
+                    {/* Tier Badge - Absolute positioned, doesn't affect layout */}
+                    {(tierId === 'advanced' || tierId === 'elite') && (
+                      <div className="absolute top-4 right-4 z-10">
+                        <Badge 
+                          className="text-xs font-medium px-2.5 py-0.5"
+                          style={{
+                            backgroundColor: tierId === 'advanced' ? 'hsl(var(--primary))' : '#eab308',
+                            color: '#fff'
+                          }}
+                        >
+                          {tierId === 'advanced' ? 'Most Popular' : 'Invite Only'}
+                        </Badge>
+                      </div>
+                    )}
 
-                    <CardHeader className={spacingClasses.card}>
+                    <CardHeader className="p-5 pb-4">
                       <div className="flex items-start gap-3">
                         <div 
                           className="p-2.5 rounded-lg flex-shrink-0"
@@ -150,49 +150,51 @@ export default function ProgramsCardsGrid() {
                             aria-hidden={true}
                           />
                         </div>
-                        <div className="flex-1 min-w-0 pr-20">
-                          <CardTitle className="text-xl font-bold mb-1.5" style={{ color: zone.colors.metallic }}>
+                        <div className="flex-1 min-w-0">
+                          <CardTitle className="text-xl font-bold mb-1.5 leading-tight" style={{ color: zone.colors.metallic }}>
                             {trackInfo.name}
                           </CardTitle>
-                          <Text variant="body-sm" className="text-muted-foreground leading-snug">
+                          <Text variant="body-sm" className="text-muted-foreground leading-snug line-clamp-2">
                             {trackInfo.description}
                           </Text>
                         </div>
                       </div>
                     </CardHeader>
 
-                    <CardContent className="flex-1 p-5 pt-0 space-y-4">
-                      {/* Price Section - Normalized layout */}
-                      <div className="pb-3 border-b border-border/50">
-                        <div className="flex items-baseline gap-1.5 mb-1">
-                          <span className="text-4xl font-bold tracking-tight" style={{ color: zone.colors.accent }}>
+                    <CardContent className="flex-1 px-5 pb-5 pt-0 flex flex-col">
+                      {/* Price Section - Fixed height for consistency */}
+                      <div className="pb-4 border-b border-border/50 min-h-[80px] flex flex-col justify-start">
+                        <div className="flex items-baseline gap-1.5 mb-2">
+                          <span className="text-4xl font-bold tracking-tight leading-none" style={{ color: zone.colors.accent }}>
                             ${price}
                           </span>
                           <span className="text-sm text-muted-foreground font-medium">{periodLabel}</span>
                         </div>
-                        {pricingPeriod === 'annual' && (
-                          <Badge variant="secondary" className="text-xs bg-green-500/20 text-green-400 border-green-500/30">
-                            Save 17%
-                          </Badge>
-                        )}
+                        <div className="h-5 flex items-center">
+                          {pricingPeriod === 'annual' && (
+                            <Badge variant="secondary" className="text-xs bg-green-500/20 text-green-400 border-green-500/30">
+                              Save 17%
+                            </Badge>
+                          )}
+                        </div>
                       </div>
 
-                      {/* Training Tracks Label - Normalized */}
-                      <div>
-                        <h4 className="text-xs font-semibold uppercase tracking-wider mb-2.5" style={{ color: zone.colors.accent }}>
+                      {/* Training Tracks Label - Fixed height */}
+                      <div className="pt-4 pb-3 min-h-[72px]">
+                        <h4 className="text-xs font-semibold uppercase tracking-wider mb-2" style={{ color: zone.colors.accent }}>
                           All 7 Training Tracks
                         </h4>
-                        <p className="text-xs text-muted-foreground leading-relaxed mb-3">
+                        <p className="text-xs text-muted-foreground leading-relaxed">
                           Strength • Performance • Cardio • Nutrition • Mental • Recovery • Team Sports
                         </p>
                       </div>
 
-                      {/* Key Features - Normalized spacing */}
-                      <ul className="space-y-2">
+                      {/* Key Features - Fixed height and consistent spacing */}
+                      <ul className="space-y-2.5 flex-1">
                         {program.features.slice(0, 3).map((feature, i) => (
                           <li key={i} className="flex items-start text-sm">
                             <Check 
-                              className="mr-2 mt-0.5 h-4 w-4 flex-shrink-0" 
+                              className="mr-2.5 mt-0.5 h-4 w-4 flex-shrink-0" 
                               style={{ color: zone.colors.accent }}
                             />
                             <span className="text-foreground/90 leading-snug">{feature}</span>
@@ -201,7 +203,7 @@ export default function ProgramsCardsGrid() {
                       </ul>
                     </CardContent>
 
-                    <CardFooter className="p-5 pt-0">
+                    <CardFooter className="px-5 pb-5 pt-4">
                       <Button 
                         className="w-full text-sm font-semibold h-11 transition-all hover:scale-[1.02]" 
                         style={{
