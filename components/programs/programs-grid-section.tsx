@@ -259,7 +259,7 @@ export default function ProgramsGridSection() {
                     <CardTitle className="text-xl" style={{ color: zone.colors.metallic }}>
                       {program.name}
                     </CardTitle>
-                    <CardDescription className="text-sm" style={{ color: `${zone.colors.metallic}99` }}>
+                    <CardDescription className="text-sm text-muted-foreground">
                       {program.tagline}
                     </CardDescription>
                   </CardHeader>
@@ -298,18 +298,18 @@ export default function ProgramsGridSection() {
                             className="mr-2 mt-0.5 h-3.5 w-3.5 flex-shrink-0" 
                             style={{ color: zone.colors.accent }}
                           />
-                          <span style={{ color: `${zone.colors.metallic}cc` }}>{feature}</span>
+                          <span className="text-muted-foreground">{feature}</span>
                         </li>
                       ))}
                       {program.features.length > 4 && (
-                        <li className="text-xs" style={{ color: `${zone.colors.accent}99` }}>
+                        <li className="text-xs" style={{ color: zone.colors.accent }}>
                           +{program.features.length - 4} more features
                         </li>
                       )}
                     </ul>
 
                     {program.maxParticipants && (
-                      <p className="text-xs" style={{ color: `${zone.colors.accent}cc` }}>
+                      <p className="text-xs" style={{ color: zone.colors.accent }}>
                         Limited to {program.maxParticipants} members
                       </p>
                     )}

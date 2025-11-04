@@ -157,7 +157,7 @@ export default function CustomProgramsSection() {
                     <CardTitle className="text-lg sm:text-xl md:text-2xl" style={{ color: zone.colors.metallic }}>
                       {program.name}
                     </CardTitle>
-                    <CardDescription className="text-xs sm:text-sm" style={{ color: `${zone.colors.metallic}99` }}>
+                    <CardDescription className="text-xs sm:text-sm text-muted-foreground">
                       {program.tagline}
                     </CardDescription>
                   </CardHeader>
@@ -199,11 +199,11 @@ export default function CustomProgramsSection() {
                             className="mr-1.5 sm:mr-2 mt-0.5 h-3 w-3 sm:h-3.5 sm:w-3.5 flex-shrink-0" 
                             style={{ color: zone.colors.accent }}
                           />
-                          <span style={{ color: `${zone.colors.metallic}cc` }}>{feature}</span>
+                          <span className="text-muted-foreground">{feature}</span>
                         </li>
                       ))}
                       {program.features.length > 5 && (
-                        <li className="text-xs sm:text-sm" style={{ color: `${zone.colors.accent}99` }}>
+                        <li className="text-xs sm:text-sm" style={{ color: zone.colors.accent }}>
                           +{program.features.length - 5} more features
                         </li>
                       )}
@@ -251,7 +251,7 @@ export default function CustomProgramsSection() {
           <p className="text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4">
             Not sure which track is right for you?
           </p>
-          <Button variant="outline" size="sm" className="text-xs sm:text-sm h-8 sm:h-9">
+          <Button variant="secondary" size="sm" className="text-xs sm:text-sm h-8 sm:h-9">
             Schedule a Consultation
           </Button>
         </motion.div>

@@ -39,7 +39,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="border-t bg-muted/50">
+    <footer className="border-t bg-muted/50" role="contentinfo">
       <div className="container mx-auto px-4 py-12 lg:px-8">
         {/* Newsletter Section */}
         <div className="mb-12 rounded-lg bg-primary p-8 text-primary-foreground">
@@ -51,11 +51,13 @@ export default function Footer() {
             <p className="mb-6 text-primary-foreground/90">
               Join 100K+ members and get exclusive fitness tips, nutrition guides, and workout plans delivered to your inbox.
             </p>
-            <form className="flex flex-col gap-3 sm:flex-row">
+            <form className="flex flex-col gap-3 sm:flex-row" aria-label="Newsletter signup">
               <Input
                 type="email"
                 placeholder="Enter your email"
                 className="flex-1 bg-background text-foreground"
+                aria-label="Email address"
+                required
               />
               <Button
                 type="submit"
@@ -105,7 +107,7 @@ export default function Footer() {
           {/* Programs */}
           <div>
             <h4 className="mb-4 font-semibold">Programs</h4>
-            <ul className="space-y-2">
+            <ul className="space-y-2" role="list">
               {footerLinks.programs.map((link) => (
                 <li key={link.name}>
                   <Link
@@ -122,7 +124,7 @@ export default function Footer() {
           {/* Company */}
           <div>
             <h4 className="mb-4 font-semibold">Company</h4>
-            <ul className="space-y-2">
+            <ul className="space-y-2" role="list">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
                   <Link
@@ -139,7 +141,7 @@ export default function Footer() {
           {/* Resources */}
           <div>
             <h4 className="mb-4 font-semibold">Resources</h4>
-            <ul className="space-y-2">
+            <ul className="space-y-2" role="list">
               {footerLinks.resources.map((link) => (
                 <li key={link.name}>
                   <Link
@@ -156,7 +158,7 @@ export default function Footer() {
           {/* Legal */}
           <div>
             <h4 className="mb-4 font-semibold">Legal</h4>
-            <ul className="space-y-2">
+            <ul className="space-y-2" role="list">
               {footerLinks.legal.map((link) => (
                 <li key={link.name}>
                   <Link

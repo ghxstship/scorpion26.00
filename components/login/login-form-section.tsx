@@ -6,8 +6,40 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { authenticateDemo, saveUserSession, getDemoCredentials } from "@/lib/auth/demo-auth";
+import { AlertCircle, Info } from "lucide-react";
 
 export default function LoginFormSection() {
+  const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  
+  const demoCredentials = getDemoCredentials();
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+    setIsLoading(true);
+
+    // Simulate network delay for realism
+    await new Promise(resolve => setTimeout(resolve, 500));
+
+    const user = authenticateDemo(email, password);
+    
+    if (user) {
+      saveUserSession(user);
+      router.push("/member/dashboard");
+    } else {
+      setError("Invalid email or password. Please try the demo credentials below.");
+    }
+    
+    setIsLoading(false);
+  };
+
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/10 via-background to-secondary/10 py-24 px-4">
       <motion.div
@@ -24,13 +56,39 @@ export default function LoginFormSection() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <form className="space-y-4">
+            {/* Demo Credentials Banner */}
+            <div className="mb-6 p-4 bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-lg">
+              <div className="flex items-start gap-2">
+                <Info className="h-5 w-5 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
+                <div className="text-sm w-full">
+                  <p className="font-semibold text-blue-900 dark:text-blue-100 mb-2">Demo Login Credentials</p>
+                  <div className="space-y-1.5">
+                    {demoCredentials.map((cred) => (
+                      <div key={cred.email} className="text-blue-800 dark:text-blue-200">
+                        <strong>{cred.name}:</strong> {cred.email} / {cred.password}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {error && (
+              <div className="mb-4 p-3 bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800 rounded-lg flex items-start gap-2">
+                <AlertCircle className="h-5 w-5 text-red-600 dark:text-red-400 mt-0.5 flex-shrink-0" />
+                <p className="text-sm text-red-800 dark:text-red-200">{error}</p>
+              </div>
+            )}
+
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-2">
                 <Label htmlFor="email">Email</Label>
                 <Input
                   id="email"
                   type="email"
                   placeholder="your@email.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   required
                 />
               </div>
@@ -49,12 +107,14 @@ export default function LoginFormSection() {
                   id="password"
                   type="password"
                   placeholder="••••••••"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   required
                 />
               </div>
 
-              <Button type="submit" className="w-full" size="lg">
-                Log In
+              <Button type="submit" className="w-full" size="lg" disabled={isLoading}>
+                {isLoading ? "Logging in..." : "Log In"}
               </Button>
             </form>
 

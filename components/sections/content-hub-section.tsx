@@ -124,7 +124,7 @@ export default function ContentHubSection() {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="mt-12 text-center"
         >
-          <Button variant="outline" size="lg" asChild>
+          <Button variant="secondary" size="lg" asChild>
             <Link href="/content">View All Content</Link>
           </Button>
         </motion.div>

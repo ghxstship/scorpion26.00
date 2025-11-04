@@ -4,6 +4,10 @@ import { Button } from "@/components/ui/button";
 import { Play, Users, Award, TrendingUp } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { Heading } from "@/components/atoms/heading";
+import { Text } from "@/components/atoms/text";
+import { StatCard } from "@/components/molecules/stat-card";
+import { spacingClasses } from "@/lib/design-tokens";
 
 const stats = [
   { icon: Users, value: "100K+", label: "Lives Changed" },
@@ -13,17 +17,24 @@ const stats = [
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-zone-red-primary/10 via-zone-red-base to-zone-red-secondary/20">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-5" />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-zinc-950 via-zinc-900 to-black" aria-label="Hero section">
+      {/* Brand color gradient overlays */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-zone-red-primary/15 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-zone-red-accent/10 via-transparent to-transparent" />
       
-      {/* Red Zone Accent Bar */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-zone-red-primary to-transparent" />
+      {/* Subtle grid pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:64px_64px]" />
       
-      {/* Video Background Placeholder */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-zone-red-base/50 to-zone-red-base" />
+      {/* Top accent line */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-zone-red-primary/50 to-transparent" />
+      
+      {/* Atmospheric glow effect - stronger for brand presence */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[1000px] h-[1000px] bg-zone-red-primary/8 rounded-full blur-[150px]" />
+      
+      {/* Dark vignette for text contrast */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_rgba(0,0,0,0.4)_100%)]" />
 
-      <div className="container relative z-10 mx-auto px-3 sm:px-4 py-20 sm:py-24 md:py-28 lg:py-32 lg:px-8">
+      <div className={`container relative z-10 mx-auto ${spacingClasses.containerX} ${spacingClasses.sectionY.lg}`}>
         <div className="mx-auto max-w-4xl text-center">
           {/* Main Headline */}
           <motion.div
@@ -31,41 +42,43 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="font-montserrat text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight">
+            <Heading level={1} display="md" className="font-montserrat">
               Transform Your Body in{" "}
               <span className="bg-gradient-to-r from-zone-red-primary via-zone-red-accent to-zone-red-primary bg-clip-text text-transparent">
                 90 Days
               </span>
-            </h1>
+            </Heading>
           </motion.div>
 
           {/* Subheadline */}
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground px-4"
+            className={spacingClasses.mt.md}
           >
-            Join 100,000+ members who achieved lasting results with our
-            science-based programs, expert coaching, and supportive community
-          </motion.p>
+            <Text variant="body-lg" className="text-muted-foreground">
+              Join 100,000+ members who achieved lasting results with our
+              science-based programs, expert coaching, and supportive community
+            </Text>
+          </motion.div>
 
           {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-8 sm:mt-10 flex flex-col gap-3 sm:gap-4 sm:flex-row sm:justify-center px-4"
+            className={`${spacingClasses.mt.lg} flex flex-col gap-4 sm:flex-row sm:justify-center`}
           >
-            <Button size="lg" asChild className="text-sm sm:text-base md:text-lg h-11 sm:h-12 md:h-14">
+            <Button size="lg" asChild>
               <Link href="/join">
                 Start Your Journey
-                <TrendingUp className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
+                <TrendingUp className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-            <Button size="lg" variant="outline" asChild className="text-sm sm:text-base md:text-lg h-11 sm:h-12 md:h-14">
+            <Button size="lg" variant="secondary" asChild>
               <Link href="#video">
-                <Play className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+                <Play className="mr-2 h-5 w-5" />
                 Watch Success Stories
               </Link>
             </Button>
@@ -76,20 +89,19 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="mt-12 sm:mt-14 md:mt-16 grid grid-cols-3 gap-4 sm:gap-6 md:gap-8"
+            className={`${spacingClasses.mt.xl} grid grid-cols-3 ${spacingClasses.gap.lg}`}
+            role="list"
+            aria-label="Company statistics"
           >
             {stats.map((stat, index) => (
-              <div key={index} className="flex flex-col items-center">
-                <div className="mb-1.5 sm:mb-2 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-zone-red-primary/10 border border-zone-red-primary/20">
-                  <stat.icon className="h-5 w-5 sm:h-6 sm:w-6 text-zone-red-primary" />
-                </div>
-                <div className="font-montserrat text-xl sm:text-2xl md:text-3xl font-bold text-zone-red-metallic">
-                  {stat.value}
-                </div>
-                <div className="text-xs sm:text-sm text-muted-foreground">
-                  {stat.label}
-                </div>
-              </div>
+              <StatCard
+                key={index}
+                icon={stat.icon}
+                value={stat.value}
+                label={stat.label}
+                iconColor="text-zone-red-primary"
+                iconBgColor="bg-zone-red-primary/10"
+              />
             ))}
           </motion.div>
 
@@ -99,6 +111,7 @@ export default function HeroSection() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 1 }}
             className="mt-16"
+            aria-hidden="true"
           >
             <div className="mx-auto h-12 w-6 rounded-full border-2 border-primary/30">
               <motion.div

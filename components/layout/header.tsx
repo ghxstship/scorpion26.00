@@ -2,11 +2,12 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import CartButton from "@/components/cart/cart-button";
 import CartDrawer from "@/components/cart/cart-drawer";
+import { isAuthenticated } from "@/lib/auth/demo-auth";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -33,6 +34,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,6 +45,26 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    // Check authentication status on mount and when localStorage changes
+    const checkAuth = () => {
+      setIsLoggedIn(isAuthenticated());
+    };
+    
+    checkAuth();
+    
+    // Listen for storage changes (e.g., login/logout in another tab)
+    window.addEventListener("storage", checkAuth);
+    
+    // Custom event for same-tab login/logout
+    window.addEventListener("authChange", checkAuth);
+    
+    return () => {
+      window.removeEventListener("storage", checkAuth);
+      window.removeEventListener("authChange", checkAuth);
+    };
+  }, []);
+
   return (
     <header
       className={cn(
@@ -51,10 +73,11 @@ export default function Header() {
           ? "bg-background/95 backdrop-blur-md shadow-md"
           : "bg-transparent"
       )}
+      role="banner"
     >
-      <nav className="container mx-auto flex items-center justify-between px-3 sm:px-4 py-3 sm:py-4 lg:px-8">
+      <nav className="container mx-auto flex items-center justify-between px-3 sm:px-4 py-3 sm:py-4 lg:px-8" aria-label="Main navigation">
         {/* Logo */}
-        <Link href="/" className="flex items-center space-x-1.5 sm:space-x-2">
+        <Link href="/" className="flex items-center space-x-1.5 sm:space-x-2" aria-label="Elite Fitness home">
           <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-lg bg-primary">
             <span className="font-montserrat text-base sm:text-xl font-bold text-primary-foreground">
               EF
@@ -109,12 +132,23 @@ export default function Header() {
         {/* CTA Buttons */}
         <div className="hidden lg:flex lg:items-center lg:space-x-4">
           <CartButton />
-          <Button variant="ghost" asChild>
-            <Link href="/login">Login</Link>
-          </Button>
-          <Button size="lg" asChild>
-            <Link href="/join">Start Free Trial</Link>
-          </Button>
+          {isLoggedIn ? (
+            <Button variant="default" asChild>
+              <Link href="/member/dashboard">
+                <User className="mr-2 h-4 w-4" />
+                Dashboard
+              </Link>
+            </Button>
+          ) : (
+            <>
+              <Button variant="ghost" asChild>
+                <Link href="/login">Login</Link>
+              </Button>
+              <Button size="lg" asChild>
+                <Link href="/join">Start Free Trial</Link>
+              </Button>
+            </>
+          )}
         </div>
 
         {/* Mobile Menu Button */}
@@ -124,6 +158,8 @@ export default function Header() {
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="p-1"
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? (
               <X className="h-5 w-5 sm:h-6 sm:w-6" />
@@ -136,7 +172,7 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden">
+        <div className="lg:hidden" role="navigation" aria-label="Mobile navigation">
           <div className="space-y-1 border-t bg-background px-3 sm:px-4 pb-3 pt-2">
             {navigation.map((item) => (
               <div key={item.name}>
@@ -164,12 +200,23 @@ export default function Header() {
               </div>
             ))}
             <div className="mt-4 space-y-2">
-              <Button variant="outline" className="w-full" asChild>
-                <Link href="/login">Login</Link>
-              </Button>
-              <Button className="w-full" asChild>
-                <Link href="/join">Start Free Trial</Link>
-              </Button>
+              {isLoggedIn ? (
+                <Button className="w-full" asChild>
+                  <Link href="/member/dashboard">
+                    <User className="mr-2 h-4 w-4" />
+                    Dashboard
+                  </Link>
+                </Button>
+              ) : (
+                <>
+                  <Button variant="outline" className="w-full" asChild>
+                    <Link href="/login">Login</Link>
+                  </Button>
+                  <Button className="w-full" asChild>
+                    <Link href="/join">Start Free Trial</Link>
+                  </Button>
+                </>
+              )}
             </div>
           </div>
         </div>

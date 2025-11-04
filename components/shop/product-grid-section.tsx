@@ -3,7 +3,7 @@
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Star, ShoppingCart } from "lucide-react";
+import { ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -11,6 +11,9 @@ import { useCartStore } from "@/lib/store/cart-store";
 import { useToast } from "@/hooks/use-toast";
 import { Product } from "@/types/shop";
 import { products } from "@/lib/products/product-data";
+import { Rating } from "@/components/atoms/rating";
+import { Text } from "@/components/atoms/text";
+import { spacingClasses, gridClasses } from "@/lib/design-tokens";
 
 export default function ProductGridSection() {
   const [ref, inView] = useInView({
@@ -31,9 +34,9 @@ export default function ProductGridSection() {
   };
 
   return (
-    <section ref={ref} className="py-24 bg-background">
-      <div className="container mx-auto px-4 lg:px-8">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+    <section ref={ref} className={`${spacingClasses.sectionY.lg} bg-background`}>
+      <div className={`container mx-auto ${spacingClasses.containerX}`}>
+        <div className={gridClasses.cards['3col']}>
           {products.map((product, index) => (
             <motion.div
               key={product.id}
@@ -56,35 +59,26 @@ export default function ProductGridSection() {
                   )}
                 </div>
 
-                <CardHeader>
-                  <div className="mb-2 text-sm font-semibold text-primary">
+                <CardHeader className={spacingClasses.card}>
+                  <Text variant="body-sm" className="font-semibold text-primary mb-2">
                     {product.category}
-                  </div>
+                  </Text>
                   <CardTitle className="text-xl">{product.name}</CardTitle>
                   <div className="flex items-center gap-2">
-                    <div className="flex items-center">
-                      {[...Array(5)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className={`h-4 w-4 ${
-                            i < Math.floor(product.rating || 0)
-                              ? "fill-yellow-400 text-yellow-400"
-                              : "text-gray-300"
-                          }`}
-                        />
-                      ))}
-                    </div>
-                    <span className="text-sm text-muted-foreground">
+                    <Rating rating={product.rating || 0} size="sm" />
+                    <Text variant="body-sm" className="text-muted-foreground">
                       ({product.reviews || 0})
-                    </span>
+                    </Text>
                   </div>
                 </CardHeader>
 
-                <CardContent>
-                  <div className="text-3xl font-bold">${product.price.toFixed(2)}</div>
+                <CardContent className={spacingClasses.card}>
+                  <Text variant="body-lg" className="text-3xl font-bold">
+                    ${product.price.toFixed(2)}
+                  </Text>
                 </CardContent>
 
-                <CardFooter>
+                <CardFooter className={spacingClasses.card}>
                   <Button 
                     className="w-full" 
                     size="lg"

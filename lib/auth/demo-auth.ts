@@ -1,0 +1,161 @@
+// Demo authentication utilities
+// In production, replace with real authentication (e.g., NextAuth, Supabase, etc.)
+
+import { UserRole } from "./rbac-types";
+
+export interface DemoUser {
+  id: string;
+  email: string;
+  name: string;
+  role: UserRole;
+  membershipType?: "basic" | "premium" | "elite";
+  joinDate: string;
+  avatar?: string;
+  department?: string;
+  projects?: string[];
+}
+
+// Demo credentials for different roles
+const DEMO_USERS: Record<string, { password: string; user: DemoUser }> = {
+  "guest@scorpion26.com": {
+    password: "guest123",
+    user: {
+      id: "user-guest-001",
+      email: "guest@scorpion26.com",
+      name: "Trial User",
+      role: UserRole.GUEST,
+      joinDate: new Date().toISOString(),
+    },
+  },
+  "member@scorpion26.com": {
+    password: "member123",
+    user: {
+      id: "user-member-001",
+      email: "member@scorpion26.com",
+      name: "Premium Member",
+      role: UserRole.MEMBER,
+      membershipType: "premium",
+      joinDate: "2024-01-15",
+    },
+  },
+  "collab@scorpion26.com": {
+    password: "collab123",
+    user: {
+      id: "user-collab-001",
+      email: "collab@scorpion26.com",
+      name: "External Collaborator",
+      role: UserRole.COLLABORATOR,
+      joinDate: "2024-06-01",
+      projects: ["Project Alpha", "Project Beta"],
+    },
+  },
+  "team@scorpion26.com": {
+    password: "team123",
+    user: {
+      id: "user-team-001",
+      email: "team@scorpion26.com",
+      name: "Team Member",
+      role: UserRole.TEAM,
+      department: "Content Management",
+      joinDate: "2023-08-20",
+    },
+  },
+  "admin@scorpion26.com": {
+    password: "admin123",
+    user: {
+      id: "user-admin-001",
+      email: "admin@scorpion26.com",
+      name: "System Admin",
+      role: UserRole.ADMIN,
+      department: "Administration",
+      joinDate: "2023-01-01",
+    },
+  },
+};
+
+const AUTH_STORAGE_KEY = "scorpion26_auth_user";
+
+/**
+ * Authenticate user with demo credentials
+ */
+export function authenticateDemo(email: string, password: string): DemoUser | null {
+  const userEntry = DEMO_USERS[email.toLowerCase()];
+  
+  if (userEntry && userEntry.password === password) {
+    return userEntry.user;
+  }
+  
+  return null;
+}
+
+/**
+ * Save user session to localStorage
+ */
+export function saveUserSession(user: DemoUser): void {
+  if (typeof window !== "undefined") {
+    localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(user));
+    // Dispatch custom event to notify other components
+    window.dispatchEvent(new Event("authChange"));
+  }
+}
+
+/**
+ * Get current user from localStorage
+ */
+export function getCurrentUser(): DemoUser | null {
+  if (typeof window !== "undefined") {
+    const stored = localStorage.getItem(AUTH_STORAGE_KEY);
+    if (stored) {
+      try {
+        return JSON.parse(stored) as DemoUser;
+      } catch {
+        return null;
+      }
+    }
+  }
+  return null;
+}
+
+/**
+ * Check if user is authenticated
+ */
+export function isAuthenticated(): boolean {
+  return getCurrentUser() !== null;
+}
+
+/**
+ * Logout user
+ */
+export function logout(): void {
+  if (typeof window !== "undefined") {
+    localStorage.removeItem(AUTH_STORAGE_KEY);
+    // Dispatch custom event to notify other components
+    window.dispatchEvent(new Event("authChange"));
+  }
+}
+
+/**
+ * Get all demo credentials for display
+ */
+export function getDemoCredentials() {
+  return Object.entries(DEMO_USERS).map(([email, data]) => ({
+    email,
+    password: data.password,
+    role: data.user.role,
+    name: data.user.name,
+  }));
+}
+
+/**
+ * Get demo credentials for a specific role
+ */
+export function getDemoCredentialsByRole(role: UserRole) {
+  const entry = Object.entries(DEMO_USERS).find(([_, data]) => data.user.role === role);
+  if (entry) {
+    return {
+      email: entry[0],
+      password: entry[1].password,
+    };
+  }
+  return null;
+}

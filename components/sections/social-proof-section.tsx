@@ -5,6 +5,10 @@ import { Star } from "lucide-react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { Heading } from "@/components/atoms/heading";
+import { Text } from "@/components/atoms/text";
+import { Rating } from "@/components/atoms/rating";
+import { spacingClasses, gridClasses } from "@/lib/design-tokens";
 
 const testimonials = [
   {
@@ -50,21 +54,21 @@ export default function SocialProofSection() {
   });
 
   return (
-    <section ref={ref} className="py-24 bg-muted/30">
-      <div className="container mx-auto px-4 lg:px-8">
+    <section ref={ref} className={`${spacingClasses.sectionY.lg} bg-muted/30`}>
+      <div className={`container mx-auto ${spacingClasses.containerX}`}>
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="mb-16 text-center"
+          className={`${spacingClasses.mb.xl} text-center`}
         >
-          <h2 className="font-montserrat text-4xl font-bold sm:text-5xl">
+          <Heading level={2} className="font-montserrat">
             Real People, Real Results
-          </h2>
-          <p className="mt-4 text-xl text-muted-foreground">
+          </Heading>
+          <Text variant="body-lg" className={`${spacingClasses.mt.md} text-muted-foreground`}>
             Join thousands who transformed their lives
-          </p>
+          </Text>
         </motion.div>
 
         {/* Stats Grid */}
@@ -72,24 +76,24 @@ export default function SocialProofSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-16 grid grid-cols-2 gap-6 lg:grid-cols-4"
+          className={`${spacingClasses.mb.xl} grid grid-cols-2 gap-6 lg:grid-cols-4`}
         >
           {stats.map((stat, index) => (
             <Card key={index} className="border-2">
-              <CardContent className="p-6 text-center">
-                <div className="font-montserrat text-4xl font-bold text-primary">
+              <CardContent className={`${spacingClasses.card} text-center`}>
+                <Heading level={3} className="font-montserrat text-4xl text-primary">
                   {stat.value}
-                </div>
-                <div className="mt-2 text-sm text-muted-foreground">
+                </Heading>
+                <Text variant="body-sm" className={`${spacingClasses.mt.sm} text-muted-foreground`}>
                   {stat.label}
-                </div>
+                </Text>
               </CardContent>
             </Card>
           ))}
         </motion.div>
 
         {/* Testimonials Grid */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className={gridClasses.cards['3col']}>
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
@@ -98,21 +102,16 @@ export default function SocialProofSection() {
               transition={{ duration: 0.6, delay: 0.1 * index }}
             >
               <Card className="h-full transition-all hover:shadow-lg">
-                <CardContent className="p-6">
+                <CardContent className={spacingClasses.card}>
                   {/* Rating */}
-                  <div className="mb-4 flex">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="h-5 w-5 fill-yellow-400 text-yellow-400"
-                      />
-                    ))}
+                  <div className={spacingClasses.mb.md}>
+                    <Rating rating={testimonial.rating} size="md" />
                   </div>
 
                   {/* Quote */}
-                  <p className="mb-6 text-foreground/80">
+                  <Text variant="body-md" className={`${spacingClasses.mb.lg} text-foreground/80`}>
                     &ldquo;{testimonial.quote}&rdquo;
-                  </p>
+                  </Text>
 
                   {/* Profile */}
                   <div className="flex items-center gap-4">
@@ -125,13 +124,13 @@ export default function SocialProofSection() {
                       />
                     </div>
                     <div>
-                      <div className="font-semibold">{testimonial.name}</div>
-                      <div className="text-sm text-muted-foreground">
+                      <Text variant="label" className="font-semibold">{testimonial.name}</Text>
+                      <Text variant="body-sm" className="text-muted-foreground">
                         {testimonial.result}
-                      </div>
-                      <div className="text-xs text-primary">
+                      </Text>
+                      <Text variant="caption" className="text-primary">
                         {testimonial.program}
-                      </div>
+                      </Text>
                     </div>
                   </div>
                 </CardContent>
@@ -145,14 +144,14 @@ export default function SocialProofSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-12 text-center"
+          className={`${spacingClasses.mt.xl} text-center`}
         >
-          <p className="text-lg text-muted-foreground">
+          <Text variant="body-lg" className="text-muted-foreground">
             Want to see more transformations?
-          </p>
+          </Text>
           <a
             href="/results"
-            className="mt-2 inline-block font-semibold text-primary hover:underline"
+            className={`${spacingClasses.mt.sm} inline-block font-semibold text-primary hover:underline`}
           >
             View All Success Stories →
           </a>

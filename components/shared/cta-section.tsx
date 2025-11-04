@@ -34,7 +34,7 @@ export default function CTASection() {
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-            <Button size="xl" variant="outline" asChild className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10">
+            <Button size="xl" variant="secondary" asChild>
               <Link href="/contact">Contact Us</Link>
             </Button>
           </div>

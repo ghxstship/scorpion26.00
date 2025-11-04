@@ -34,10 +34,10 @@ export const gymZones = {
     atmosphere: "Powerful, intense, commanding—the heart of transformation",
     colors: {
       primary: "#8B0000",    // Crimson Core
-      accent: "#A01010",     // Blood Red
+      accent: "#FF4444",     // Brightened Blood Red for better contrast
       base: "#0D0D0D",       // Obsidian
       secondary: "#2A2A2A",  // Charcoal
-      metallic: "#C0C0C0",   // Platinum
+      metallic: "#E8E8E8",   // Brightened Platinum for WCAG AA
     },
     palette: [
       { name: "Crimson Core", hex: "#8B0000", role: "Primary brand" },
@@ -57,10 +57,10 @@ export const gymZones = {
     atmosphere: "Velocity, momentum, kinetic energy—foundation for growth",
     colors: {
       primary: "#8B7500",    // Gold Ember
-      accent: "#9A7B4F",     // Burnished Gold
+      accent: "#FFD700",     // Brightened Gold for better contrast
       base: "#000000",       // Void Black
       secondary: "#5A5A5A",  // Steel Grey
-      metallic: "#D4D4D4",   // Chrome
+      metallic: "#F0F0F0",   // Brightened Chrome for WCAG AA
     },
     palette: [
       { name: "Gold Ember", hex: "#8B7500", role: "Primary accent" },
@@ -80,10 +80,10 @@ export const gymZones = {
     atmosphere: "Elite energy, explosive power, exclusive fire",
     colors: {
       primary: "#A0522D",    // Burnt Sienna
-      accent: "#B87333",     // Copper Glow
+      accent: "#FF8C42",     // Brightened Copper for better contrast
       base: "#0A0A0A",       // Deep Black
       secondary: "#424242",  // Graphite
-      metallic: "#BEBEBE",   // Warm Silver
+      metallic: "#E8E8E8",   // Brightened Silver for WCAG AA
     },
     palette: [
       { name: "Burnt Sienna", hex: "#A0522D", role: "Primary accent" },
@@ -103,10 +103,10 @@ export const gymZones = {
     atmosphere: "Vital, organic luxury—nature refined to its purest form",
     colors: {
       primary: "#2F4538",    // Hunter Green
-      accent: "#1C3026",     // Forest Depth
+      accent: "#5FD35F",     // Brightened Green for better contrast
       base: "#101010",       // Carbon Black
       secondary: "#4A5D4F",  // Slate
-      metallic: "#E8E8E8",   // Pearl
+      metallic: "#F0F0F0",   // Brightened Pearl for WCAG AA
     },
     palette: [
       { name: "Hunter Green", hex: "#2F4538", role: "Primary accent" },
@@ -126,10 +126,10 @@ export const gymZones = {
     atmosphere: "Precision, data-driven, cutting-edge science meets noir",
     colors: {
       primary: "#1C2841",    // Midnight Blue
-      accent: "#4A5F7F",     // Steel Blue
+      accent: "#6B9BD1",     // Brightened Steel Blue for better contrast
       base: "#0C0C0C",       // Deep Black
       secondary: "#3D3D3D",  // Gunmetal
-      metallic: "#AFAFAF",   // Titanium
+      metallic: "#E8E8E8",   // Brightened Titanium for WCAG AA
     },
     palette: [
       { name: "Midnight Blue", hex: "#1C2841", role: "Primary accent" },
@@ -149,10 +149,10 @@ export const gymZones = {
     atmosphere: "Transcendent restoration, luxury meditation, ethereal healing",
     colors: {
       primary: "#3E2347",    // Aubergine
-      accent: "#5C3A5E",     // Plum Shadow
+      accent: "#C77DFF",     // Brightened Purple for better contrast
       base: "#0F0F0F",       // Obsidian
       secondary: "#333333",  // Charcoal
-      metallic: "#B76E79",   // Rose Gold
+      metallic: "#F0D0D8",   // Brightened Rose Gold for WCAG AA
     },
     palette: [
       { name: "Aubergine", hex: "#3E2347", role: "Primary accent" },
@@ -172,10 +172,10 @@ export const gymZones = {
     atmosphere: "Electric camaraderie, fierce unity, unapologetic power",
     colors: {
       primary: "#8B2252",    // Magenta Edge
-      accent: "#6B2D42",     // Rose Noir
+      accent: "#FF69B4",     // Brightened Pink for better contrast
       base: "#0A0A0A",       // Jet Black
       secondary: "#383838",  // Dark Slate
-      metallic: "#B8B8B8",   // Brushed Nickel
+      metallic: "#F0E8E8",   // Brightened Nickel for WCAG AA
     },
     palette: [
       { name: "Magenta Edge", hex: "#8B2252", role: "Primary accent" },

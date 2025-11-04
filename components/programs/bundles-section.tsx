@@ -187,7 +187,6 @@ export default function BundlesSection() {
                       <Button 
                         className="w-full" 
                         size="lg"
-                        variant={bundle.badge === 'Most Popular' ? 'default' : 'outline'}
                         asChild
                       >
                         <Link href={`/programs/bundle/${bundle.id}`}>

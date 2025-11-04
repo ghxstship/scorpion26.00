@@ -77,7 +77,7 @@ export default function ProgramsHeroSection() {
             </Button>
             <Button
               size="lg"
-              variant="outline"
+              variant="secondary"
               onClick={() => {
                 document.getElementById("bundles")?.scrollIntoView({ behavior: "smooth" });
               }}
