@@ -76,27 +76,23 @@ Navigate to [http://localhost:3000](http://localhost:3000)
 ├── app/                    # Next.js 14 App Router
 │   ├── api/                # API routes
 │   ├── admin/              # Admin dashboard
-│   ├── about/              # About page
-│   ├── programs/           # Programs pages
-│   ├── content/            # Content hub
-│   ├── results/            # Success stories
-│   ├── shop/               # E-commerce
-│   ├── contact/            # Contact page
-│   └── login/              # Authentication
+│   ├── collaborator/       # Collaborator portal
+│   ├── (public)/           # Public pages (about, community, etc.)
+│   └── ...                 # Other app routes
 │
 ├── components/             # React components
 │   ├── atoms/              # Atomic design - atoms
 │   ├── molecules/          # Atomic design - molecules
+│   ├── organisms/          # Atomic design - organisms
 │   ├── ui/                 # shadcn/ui components
 │   ├── layout/             # Layout components
-│   ├── sections/           # Page sections
 │   ├── dashboard/          # Dashboard widgets
 │   ├── shop/               # Shop components
 │   └── branding/           # Brand system
 │
 ├── lib/                    # Utilities and helpers
 │   ├── api/                # API utilities
-│   ├── auth/               # Authentication
+│   ├── auth/               # Authentication & RBAC
 │   ├── branding/           # Brand configuration
 │   ├── supabase/           # Database client
 │   └── utils.ts            # General utilities
@@ -105,33 +101,57 @@ Navigate to [http://localhost:3000](http://localhost:3000)
 │
 ├── types/                  # TypeScript types
 │
+├── config/                 # Configuration files
+│   ├── sentry.client.config.ts
+│   ├── sentry.edge.config.ts
+│   └── sentry.server.config.ts
+│
+├── scripts/                # Utility scripts
+│   ├── create-demo-users.js
+│   ├── seed-demo-data.sql
+│   ├── supabase-schema.sql
+│   └── deploy-to-github.sh
+│
+├── supabase/               # Supabase configuration
+│   └── migrations/         # Database migrations
+│
 ├── docs/                   # 📚 Documentation
-│   ├── guides/             # Quick start guides
-│   ├── implementation/     # Technical docs
-│   ├── validation/         # Testing & validation
-│   ├── systems/            # Database & infrastructure
+│   ├── architecture/       # System architecture & design
+│   ├── guides/             # Quick start guides & tutorials
+│   ├── implementation/     # Technical implementation docs
+│   ├── reports/            # Audit & validation reports
 │   ├── deployment/         # Deployment guides
-│   └── README.md           # Documentation index
+│   ├── INDEX.md            # Documentation index
+│   └── README.md           # Documentation overview
 │
 └── public/                 # Static assets
 ```
 
 ## 📚 Documentation
 
-**All documentation has been organized into `/docs`**
+**All documentation has been organized into `/docs` with a clear structure:**
 
-- **[Documentation Index](./docs/README.md)** - Complete documentation guide
+### 📖 Getting Started
+- **[Documentation Index](./docs/INDEX.md)** - Complete documentation navigation
 - **[Quick Start Guide](./docs/guides/QUICK_START_GUIDE.md)** - Get started in 5 minutes
+- **[Setup Instructions](./docs/guides/SETUP_INSTRUCTIONS.md)** - Detailed setup
 - **[Quick Reference](./docs/guides/QUICK_REFERENCE.md)** - Code snippets and patterns
-- **[Deployment Guide](./docs/deployment/DEPLOYMENT_GUIDE.md)** - Production deployment
 
-**By Topic:**
+### 🏗️ Architecture & Implementation
 - **Dashboard**: [Dashboard System](./docs/implementation/DASHBOARD_SYSTEM.md)
 - **Security**: [RBAC System](./docs/implementation/RBAC_SYSTEM.md)
 - **Design**: [Atomic Design Guide](./docs/implementation/ATOMIC_DESIGN_IMPLEMENTATION_GUIDE.md)
 - **E-commerce**: [Shop Implementation](./docs/implementation/SHOP_IMPLEMENTATION.md)
-- **Database**: [Supabase Integration](./docs/systems/SUPABASE_INTEGRATION_COMPLETE.md)
-- **Testing**: [Validation Reports](./docs/validation/)
+- **Database**: [Supabase Integration](./docs/architecture/SUPABASE_INTEGRATION_COMPLETE.md)
+- **Branding**: [White-Label System](./docs/implementation/BRAND_WHITE_LABEL_SYSTEM.md)
+
+### 🚀 Deployment
+- **[Deployment Guide](./docs/deployment/DEPLOYMENT_GUIDE.md)** - Production deployment
+- **[Deployment Checklist](./docs/deployment/DEPLOYMENT_CHECKLIST.md)** - Pre-deployment steps
+
+### 📊 Reports & Validation
+- **[Audit Reports](./docs/reports/)** - System audits and validation
+- **[Production Validation](./docs/reports/PRODUCTION_VALIDATION_REPORT.md)** - Production readiness
 
 ## 🎨 Customization
 
