@@ -8,6 +8,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { Heading } from "@/components/atoms/heading";
+import { Text } from "@/components/atoms/text";
+import { Icon } from "@/components/atoms/icon";
 
 const contentItems = [
   {
@@ -57,12 +60,12 @@ export default function ContentHubSection() {
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
-          <h2 className="font-montserrat text-4xl font-bold sm:text-5xl">
+          <Heading level={2} className="font-montserrat text-4xl sm:text-5xl">
             Latest Content
-          </h2>
-          <p className="mt-4 text-xl text-muted-foreground">
+          </Heading>
+          <Text variant="body-lg" className="mt-4 text-muted-foreground">
             Free workouts, nutrition tips, and success stories
-          </p>
+          </Text>
         </motion.div>
 
         {/* Content Grid */}
@@ -89,9 +92,9 @@ export default function ContentHubSection() {
                 </div>
 
                 <CardHeader>
-                  <div className="mb-2 text-sm font-semibold text-zone-green-primary">
+                  <Text variant="label" className="mb-2 text-zone-green-primary">
                     {item.category}
-                  </div>
+                  </Text>
                   <CardTitle className="line-clamp-2 text-xl">
                     {item.title}
                   </CardTitle>
@@ -101,14 +104,14 @@ export default function ContentHubSection() {
                 </CardHeader>
 
                 <CardContent>
-                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                  <div className="flex items-center gap-4">
                     <div className="flex items-center gap-1">
-                      <Calendar className="h-4 w-4" />
-                      {item.date}
+                      <Icon icon={Calendar} size="sm" className="text-muted-foreground" aria-hidden={true} />
+                      <Text variant="body-sm" className="text-muted-foreground">{item.date}</Text>
                     </div>
                     <div className="flex items-center gap-1">
-                      <Clock className="h-4 w-4" />
-                      {item.readTime}
+                      <Icon icon={Clock} size="sm" className="text-muted-foreground" aria-hidden={true} />
+                      <Text variant="body-sm" className="text-muted-foreground">{item.readTime}</Text>
                     </div>
                   </div>
                 </CardContent>

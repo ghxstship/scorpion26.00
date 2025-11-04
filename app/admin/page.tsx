@@ -10,6 +10,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Shield, AlertTriangle } from "lucide-react";
 import Link from "next/link";
+import { Heading } from "@/components/atoms/heading";
+import { Text } from "@/components/atoms/text";
+import { Icon } from "@/components/atoms/icon";
 
 export default function AdminPanelPage() {
   const router = useRouter();
@@ -49,7 +52,7 @@ export default function AdminPanelPage() {
         <Card className="max-w-md">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-red-600">
-              <AlertTriangle className="h-5 w-5" />
+              <Icon icon={AlertTriangle} size="md" aria-hidden={true} />
               Access Denied
             </CardTitle>
             <CardDescription>
@@ -57,9 +60,9 @@ export default function AdminPanelPage() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <p className="text-sm text-muted-foreground mb-4">
+            <Text variant="body-sm" className="text-muted-foreground mb-4">
               This area is restricted to administrators only. If you believe you should have access, please contact your system administrator.
-            </p>
+            </Text>
             <Button asChild className="w-full">
               <Link href="/member/dashboard">Return to Dashboard</Link>
             </Button>
@@ -75,8 +78,8 @@ export default function AdminPanelPage() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <Shield className="h-6 w-6 text-red-600" />
-              <h1 className="text-2xl font-montserrat font-bold">Admin Panel</h1>
+              <Icon icon={Shield} size="lg" className="text-red-600" aria-hidden={true} />
+              <Heading level={1} className="text-2xl font-montserrat">Admin Panel</Heading>
             </div>
             <Button variant="outline" asChild>
               <Link href="/member/dashboard">Back to Dashboard</Link>

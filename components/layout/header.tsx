@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import CartButton from "@/components/cart/cart-button";
 import CartDrawer from "@/components/cart/cart-drawer";
 import { isAuthenticated } from "@/lib/auth/demo-auth";
+import { Icon } from "@/components/atoms/icon";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -101,23 +102,23 @@ export default function Header() {
             >
               <Link
                 href={item.href}
-                className="flex items-center text-sm font-medium text-foreground/80 transition-colors hover:text-primary"
+                className="flex items-center text-sm font-medium text-foreground/80 transition-all duration-200 hover:text-primary relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
               >
                 {item.name}
                 {item.submenu && (
-                  <ChevronDown className="ml-1 h-4 w-4" />
+                  <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-200" />
                 )}
               </Link>
 
               {/* Submenu */}
               {item.submenu && activeSubmenu === item.name && (
-                <div className="absolute left-0 top-full pt-2">
+                <div className="absolute left-0 top-full pt-2 animate-fade-in">
                   <div className="w-56 rounded-lg border bg-background p-2 shadow-lg">
                     {item.submenu.map((subItem) => (
                       <Link
                         key={subItem.name}
                         href={subItem.href}
-                        className="block rounded-md px-4 py-2 text-sm text-foreground/80 transition-colors hover:bg-accent hover:text-primary"
+                        className="block rounded-md px-4 py-2 text-sm text-foreground/80 transition-all duration-200 hover:bg-accent hover:text-primary hover:translate-x-1"
                       >
                         {subItem.name}
                       </Link>
@@ -135,7 +136,7 @@ export default function Header() {
           {isLoggedIn ? (
             <Button variant="default" asChild>
               <Link href="/member/dashboard">
-                <User className="mr-2 h-4 w-4" />
+                <Icon icon={User} size="sm" className="mr-2" aria-hidden={true} />
                 Dashboard
               </Link>
             </Button>
@@ -162,9 +163,9 @@ export default function Header() {
             aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? (
-              <X className="h-5 w-5 sm:h-6 sm:w-6" />
+              <Icon icon={X} size="md" aria-hidden={true} />
             ) : (
-              <Menu className="h-5 w-5 sm:h-6 sm:w-6" />
+              <Icon icon={Menu} size="md" aria-hidden={true} />
             )}
           </button>
         </div>
@@ -172,13 +173,13 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden" role="navigation" aria-label="Mobile navigation">
+        <div className="lg:hidden animate-slide-up" role="navigation" aria-label="Mobile navigation">
           <div className="space-y-1 border-t bg-background px-3 sm:px-4 pb-3 pt-2">
             {navigation.map((item) => (
               <div key={item.name}>
                 <Link
                   href={item.href}
-                  className="block rounded-md px-2.5 sm:px-3 py-2 text-sm sm:text-base font-medium text-foreground/80 hover:bg-accent hover:text-primary"
+                  className="block rounded-md px-2.5 sm:px-3 py-2 text-sm sm:text-base font-medium text-foreground/80 transition-all duration-200 hover:bg-accent hover:text-primary hover:translate-x-1"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.name}
@@ -203,7 +204,7 @@ export default function Header() {
               {isLoggedIn ? (
                 <Button className="w-full" asChild>
                   <Link href="/member/dashboard">
-                    <User className="mr-2 h-4 w-4" />
+                    <Icon icon={User} size="sm" className="mr-2" aria-hidden={true} />
                     Dashboard
                   </Link>
                 </Button>

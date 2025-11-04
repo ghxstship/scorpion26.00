@@ -113,11 +113,16 @@ export default function ProgramsCardsGrid() {
                   key={program.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.4, delay: 0.02 * cardIndex }}
+                  transition={{ 
+                    duration: 0.4, 
+                    delay: 0.02 * cardIndex,
+                    ease: [0, 0, 0.2, 1]
+                  }}
+                  whileHover={{ y: -8, transition: { duration: 0.2 } }}
                   className="flex h-full"
                 >
                   <Card 
-                    className="flex flex-col w-full transition-all hover:shadow-2xl border-2 group relative overflow-hidden"
+                    className="flex flex-col w-full transition-all duration-300 hover:shadow-2xl border-2 group relative overflow-hidden"
                     style={{
                       backgroundColor: `${zone.colors.base}dd`,
                       borderColor: `${zone.colors.secondary}80`,
@@ -205,7 +210,7 @@ export default function ProgramsCardsGrid() {
 
                     <CardFooter className="px-5 pb-5 pt-4">
                       <Button 
-                        className="w-full text-sm font-semibold h-11 transition-all hover:scale-[1.02]" 
+                        className="w-full text-sm font-semibold h-11" 
                         style={{
                           backgroundColor: zone.colors.primary,
                           color: '#fff',

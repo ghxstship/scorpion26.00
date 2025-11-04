@@ -5,6 +5,7 @@ import type { DemoUser } from "@/lib/auth/demo-auth";
 import MetricWidget from "@/components/widgets/metric-widget";
 import ActionWidget from "@/components/widgets/action-widget";
 import ListWidget from "@/components/widgets/list-widget";
+import { Text } from "@/components/atoms/text";
 
 interface MemberDashboardProps {
   user: DemoUser;
@@ -27,10 +28,10 @@ export default function MemberDashboard({ user }: MemberDashboardProps) {
         <CardContent>
           <div className="flex items-center justify-between">
             <div className="space-y-1">
-              <p className="text-sm font-medium">Active Subscription</p>
-              <p className="text-xs text-muted-foreground">
+              <Text variant="body-sm" className="font-medium">Active Subscription</Text>
+              <Text variant="caption" className="text-muted-foreground">
                 Next billing date: {new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toLocaleDateString()}
-              </p>
+              </Text>
             </div>
             <Button variant="outline" size="sm">Manage Subscription</Button>
           </div>
@@ -74,8 +75,8 @@ export default function MemberDashboard({ user }: MemberDashboardProps) {
         <CardContent className="space-y-4">
           <div>
             <div className="flex items-center justify-between mb-2">
-              <span className="text-sm">Monthly Goal</span>
-              <span className="text-sm font-medium">80%</span>
+              <Text variant="body-sm">Monthly Goal</Text>
+              <Text variant="body-sm" className="font-medium">80%</Text>
             </div>
             <div className="h-2 bg-muted rounded-full overflow-hidden">
               <div className="h-full bg-primary" style={{ width: "80%" }} />
@@ -83,8 +84,8 @@ export default function MemberDashboard({ user }: MemberDashboardProps) {
           </div>
           <div>
             <div className="flex items-center justify-between mb-2">
-              <span className="text-sm">Strength Gains</span>
-              <span className="text-sm font-medium text-green-600">+15%</span>
+              <Text variant="body-sm">Strength Gains</Text>
+              <Text variant="body-sm" className="font-medium text-green-600">+15%</Text>
             </div>
             <div className="h-2 bg-muted rounded-full overflow-hidden">
               <div className="h-full bg-green-600" style={{ width: "75%" }} />
@@ -106,15 +107,15 @@ export default function MemberDashboard({ user }: MemberDashboardProps) {
           <div className="flex items-center gap-3 p-2 rounded-lg bg-primary/10">
             <Trophy className="h-8 w-8 text-primary" />
             <div>
-              <p className="font-semibold text-sm">30-Day Streak</p>
-              <p className="text-xs text-muted-foreground">Completed</p>
+              <Text variant="body-sm" className="font-semibold">30-Day Streak</Text>
+              <Text variant="caption" className="text-muted-foreground">Completed</Text>
             </div>
           </div>
           <div className="flex items-center gap-3 p-2 rounded-lg bg-primary/10">
             <Trophy className="h-8 w-8 text-primary" />
             <div>
-              <p className="font-semibold text-sm">First PR</p>
-              <p className="text-xs text-muted-foreground">Completed</p>
+              <Text variant="body-sm" className="font-semibold">First PR</Text>
+              <Text variant="caption" className="text-muted-foreground">Completed</Text>
             </div>
           </div>
         </CardContent>

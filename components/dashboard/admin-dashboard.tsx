@@ -19,6 +19,8 @@ import MetricWidget from "@/components/widgets/metric-widget";
 import StatusWidget from "@/components/widgets/status-widget";
 import ListWidget from "@/components/widgets/list-widget";
 import ActionWidget from "@/components/widgets/action-widget";
+import { Icon } from "@/components/atoms/icon";
+import { Text } from "@/components/atoms/text";
 
 interface AdminDashboardProps {
   user: DemoUser;
@@ -31,7 +33,7 @@ export default function AdminDashboard({ user }: AdminDashboardProps) {
       <Card className="border-red-500/50 bg-gradient-to-r from-red-500/5 to-red-500/10">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <Shield className="h-5 w-5 text-red-600" />
+            <Icon icon={Shield} size="md" className="text-red-600" aria-hidden={true} />
             Administrator Dashboard
           </CardTitle>
           <CardDescription>
@@ -41,10 +43,10 @@ export default function AdminDashboard({ user }: AdminDashboardProps) {
         <CardContent>
           <div className="flex items-center justify-between">
             <div className="space-y-1">
-              <p className="text-sm font-medium">System Administrator</p>
-              <p className="text-xs text-muted-foreground">
+              <Text variant="body-sm" className="font-medium">System Administrator</Text>
+              <Text variant="caption" className="text-muted-foreground">
                 Manage users, roles, billing, and system configuration
-              </p>
+              </Text>
             </div>
             <Button variant="outline" size="sm" asChild>
               <Link href="/admin">Admin Panel</Link>
@@ -182,8 +184,8 @@ export default function AdminDashboard({ user }: AdminDashboardProps) {
                 <Users className="h-5 w-5 text-blue-600 dark:text-blue-400" />
               </div>
               <div className="flex-1">
-                <p className="font-semibold text-sm">User role updated</p>
-                <p className="text-xs text-muted-foreground">Changed user@example.com from Member to Team • 15 minutes ago</p>
+                <Text variant="body-sm" className="font-semibold">User role updated</Text>
+                <Text variant="caption" className="text-muted-foreground">Changed user@example.com from Member to Team • 15 minutes ago</Text>
               </div>
             </div>
             <div className="flex items-start gap-4 p-3 rounded-lg border">
@@ -191,8 +193,8 @@ export default function AdminDashboard({ user }: AdminDashboardProps) {
                 <Settings className="h-5 w-5 text-green-600 dark:text-green-400" />
               </div>
               <div className="flex-1">
-                <p className="font-semibold text-sm">System configuration changed</p>
-                <p className="text-xs text-muted-foreground">Updated email notification settings • 1 hour ago</p>
+                <Text variant="body-sm" className="font-semibold">System configuration changed</Text>
+                <Text variant="caption" className="text-muted-foreground">Updated email notification settings • 1 hour ago</Text>
               </div>
             </div>
             <div className="flex items-start gap-4 p-3 rounded-lg border">
@@ -200,8 +202,8 @@ export default function AdminDashboard({ user }: AdminDashboardProps) {
                 <AlertTriangle className="h-5 w-5 text-yellow-600 dark:text-yellow-400" />
               </div>
               <div className="flex-1">
-                <p className="font-semibold text-sm">Security alert resolved</p>
-                <p className="text-xs text-muted-foreground">Failed login attempts blocked • 2 hours ago</p>
+                <Text variant="body-sm" className="font-semibold">Security alert resolved</Text>
+                <Text variant="caption" className="text-muted-foreground">Failed login attempts blocked • 2 hours ago</Text>
               </div>
             </div>
           </div>
@@ -220,24 +222,24 @@ export default function AdminDashboard({ user }: AdminDashboardProps) {
         <CardContent>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <div className="p-4 rounded-lg border">
-              <p className="text-sm text-muted-foreground mb-1">Total Revenue</p>
-              <p className="text-2xl font-bold">$147.2K</p>
-              <p className="text-xs text-green-600 mt-1">+18% from last month</p>
+              <Text variant="body-sm" className="text-muted-foreground mb-1">Total Revenue</Text>
+              <Text variant="body-lg" className="text-2xl font-bold">$147.2K</Text>
+              <Text variant="caption" className="text-green-600 mt-1">+18% from last month</Text>
             </div>
             <div className="p-4 rounded-lg border">
-              <p className="text-sm text-muted-foreground mb-1">Active Subscriptions</p>
-              <p className="text-2xl font-bold">892</p>
-              <p className="text-xs text-green-600 mt-1">+5% from last month</p>
+              <Text variant="body-sm" className="text-muted-foreground mb-1">Active Subscriptions</Text>
+              <Text variant="body-lg" className="text-2xl font-bold">892</Text>
+              <Text variant="caption" className="text-green-600 mt-1">+5% from last month</Text>
             </div>
             <div className="p-4 rounded-lg border">
-              <p className="text-sm text-muted-foreground mb-1">Churn Rate</p>
-              <p className="text-2xl font-bold">2.3%</p>
-              <p className="text-xs text-green-600 mt-1">-0.5% improvement</p>
+              <Text variant="body-sm" className="text-muted-foreground mb-1">Churn Rate</Text>
+              <Text variant="body-lg" className="text-2xl font-bold">2.3%</Text>
+              <Text variant="caption" className="text-green-600 mt-1">-0.5% improvement</Text>
             </div>
             <div className="p-4 rounded-lg border">
-              <p className="text-sm text-muted-foreground mb-1">Avg Session Time</p>
-              <p className="text-2xl font-bold">24m</p>
-              <p className="text-xs text-green-600 mt-1">+3m from last month</p>
+              <Text variant="body-sm" className="text-muted-foreground mb-1">Avg Session Time</Text>
+              <Text variant="body-lg" className="text-2xl font-bold">24m</Text>
+              <Text variant="caption" className="text-green-600 mt-1">+3m from last month</Text>
             </div>
           </div>
         </CardContent>

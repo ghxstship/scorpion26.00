@@ -1,6 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { TrendingUp, TrendingDown, Minus } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Text } from "@/components/atoms/text";
 
 interface MetricItem {
   label: string;
@@ -30,10 +31,10 @@ export default function MetricWidget({ title, description, metrics, className }:
             <div key={index} className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 {metric.icon}
-                <span className="text-sm text-muted-foreground">{metric.label}</span>
+                <Text variant="body-sm" className="text-muted-foreground">{metric.label}</Text>
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-xl font-bold">{metric.value}</span>
+                <Text variant="body-lg" className="text-xl font-bold">{metric.value}</Text>
                 {metric.change && (
                   <div
                     className={cn(

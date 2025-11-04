@@ -6,6 +6,9 @@ import { Brain, Users2, TrendingUp } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { Heading } from "@/components/atoms/heading";
+import { Text } from "@/components/atoms/text";
+import { Icon } from "@/components/atoms/icon";
 
 const features = [
   {
@@ -61,12 +64,12 @@ export default function ValuePropositionSection() {
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
-          <h2 className="font-montserrat text-4xl font-bold sm:text-5xl">
+          <Heading level={2} className="font-montserrat text-4xl sm:text-5xl">
             Why Elite Fitness Works
-          </h2>
-          <p className="mt-4 text-xl text-muted-foreground">
+          </Heading>
+          <Text variant="body-lg" className="mt-4 text-muted-foreground">
             Three pillars of sustainable transformation
-          </p>
+          </Text>
         </motion.div>
 
         {/* Features Grid */}
@@ -81,7 +84,7 @@ export default function ValuePropositionSection() {
               <Card className="h-full border-2 border-zone-red-secondary/30 bg-zone-red-base/50 backdrop-blur-sm transition-all hover:border-zone-red-primary hover:shadow-lg hover:shadow-zone-red-primary/20">
                 <CardHeader>
                   <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-zone-red-primary/10 border border-zone-red-primary/20">
-                    <feature.icon className="h-8 w-8 text-zone-red-primary" />
+                    <Icon icon={feature.icon} size="2xl" className="text-zone-red-primary" aria-hidden={true} />
                   </div>
                   <CardTitle className="text-2xl">{feature.title}</CardTitle>
                   <CardDescription className="text-base">
@@ -92,8 +95,8 @@ export default function ValuePropositionSection() {
                   <ul className="space-y-3">
                     {feature.benefits.map((benefit, i) => (
                       <li key={i} className="flex items-start">
-                        <span className="mr-2 mt-1 text-zone-red-primary">✓</span>
-                        <span className="text-zone-red-metallic/90">{benefit}</span>
+                        <Text variant="body-sm" className="mr-2 mt-1 text-zone-red-primary">✓</Text>
+                        <Text variant="body-sm" className="text-zone-red-metallic/90">{benefit}</Text>
                       </li>
                     ))}
                   </ul>

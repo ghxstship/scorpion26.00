@@ -4,6 +4,9 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowDown, Dumbbell, Zap, Activity, Apple, Brain, Heart, Users } from "lucide-react";
 import { motion } from "framer-motion";
+import { Heading } from "@/components/atoms/heading";
+import { Text } from "@/components/atoms/text";
+import { Icon } from "@/components/atoms/icon";
 
 export default function ProgramsHeroSection() {
   const tracks = [
@@ -32,17 +35,17 @@ export default function ProgramsHeroSection() {
             7 Tracks • 4 Tiers • Custom Training
           </Badge>
           
-          <h1 className="font-montserrat text-5xl font-bold leading-tight sm:text-6xl lg:text-7xl mb-6">
+          <Heading level={1} className="font-montserrat text-5xl leading-tight sm:text-6xl lg:text-7xl mb-6">
             Your Complete Fitness
             <br />
             <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
               Transformation System
             </span>
-          </h1>
+          </Heading>
           
-          <p className="mt-6 text-xl text-muted-foreground sm:text-2xl max-w-3xl mx-auto">
+          <Text variant="body-lg" className="mt-6 text-muted-foreground sm:text-2xl max-w-3xl mx-auto">
             28 specialized programs across 7 performance tracks. Plus custom private training.
-          </p>
+          </Text>
           
           {/* Track Icons */}
           <div className="mt-10 flex flex-wrap justify-center gap-4 mb-10">
@@ -60,7 +63,7 @@ export default function ProgramsHeroSection() {
                 >
                   <track.icon className="h-5 w-5" style={{ color: track.color }} />
                 </div>
-                <span className="text-xs font-medium">{track.name}</span>
+                <Text variant="caption" className="font-medium">{track.name}</Text>
               </motion.div>
             ))}
           </div>
@@ -73,7 +76,7 @@ export default function ProgramsHeroSection() {
               }}
             >
               Explore Programs
-              <ArrowDown className="ml-2 h-5 w-5" />
+              <Icon icon={ArrowDown} size="md" className="ml-2" aria-hidden={true} />
             </Button>
             <Button
               size="lg"
@@ -86,9 +89,9 @@ export default function ProgramsHeroSection() {
             </Button>
           </div>
 
-          <p className="mt-8 text-sm text-muted-foreground">
+          <Text variant="body-sm" className="mt-8 text-muted-foreground">
             Weekly, monthly, and annual pricing available • 30-day money-back guarantee
-          </p>
+          </Text>
         </motion.div>
       </div>
     </section>

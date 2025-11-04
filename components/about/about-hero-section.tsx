@@ -1,42 +1,49 @@
 "use client";
 
 import Image from "next/image";
+import { Award } from "lucide-react";
+import { Heading } from "@/components/atoms/heading";
+import { Text } from "@/components/atoms/text";
+import { Icon } from "@/components/atoms/icon";
+import { spacingClasses } from "@/lib/design-tokens";
 import { motion } from "framer-motion";
 
 export default function AboutHeroSection() {
   return (
-    <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/10 via-background to-secondary/10 pt-24">
-      <div className="container mx-auto px-4 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+    <section className="py-20 bg-gradient-to-b from-background to-muted/20">
+      <div className="container mx-auto px-4">
+        <div className={`max-w-3xl mx-auto text-center ${spacingClasses.gap.lg}`}>
           {/* Content */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="font-montserrat text-5xl font-bold leading-tight sm:text-6xl lg:text-7xl">
-              Our Story
-            </h1>
-            <p className="mt-6 text-xl text-muted-foreground sm:text-2xl">
+            <Heading level={1} className="text-4xl md:text-6xl">About Elite Fitness</Heading>
+            <Text variant="body-lg" className="text-muted-foreground max-w-2xl mx-auto">
               From personal struggle to transforming 100,000+ lives
-            </p>
-            <p className="mt-6 text-lg text-foreground/80">
+            </Text>
+            <Text variant="body-lg" className="mt-6 text-lg text-foreground/80">
               What started as a personal journey to overcome weight struggles
               has evolved into a global movement helping people achieve lasting
               transformations through science-based methods and genuine support.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-8">
+            </Text>
+            <div className="mt-8 flex flex-wrap gap-8 justify-center">
               <div>
-                <div className="text-4xl font-bold text-primary">10+</div>
-                <div className="text-sm text-muted-foreground">Years Experience</div>
+                <Heading level={3} className="text-4xl font-bold text-primary">10+</Heading>
+                <Text variant="body-sm" className="text-muted-foreground">Years Experience</Text>
               </div>
               <div>
-                <div className="text-4xl font-bold text-primary">100K+</div>
-                <div className="text-sm text-muted-foreground">Lives Changed</div>
+                <Heading level={3} className="text-4xl font-bold text-primary">100K+</Heading>
+                <Text variant="body-sm" className="text-muted-foreground">Lives Changed</Text>
               </div>
               <div>
-                <div className="text-4xl font-bold text-primary">4.9/5</div>
-                <div className="text-sm text-muted-foreground">Member Rating</div>
+                <Heading level={3} className="text-4xl font-bold text-primary">4.9/5</Heading>
+                <Text variant="body-sm" className="text-muted-foreground">Member Rating</Text>
+              </div>
+              <div className="flex items-center gap-2">
+                <Icon icon={Award} size="lg" className="text-primary" aria-hidden={true} />
+                <Text variant="body-sm" className="text-muted-foreground">Award Winning</Text>
               </div>
             </div>
           </motion.div>

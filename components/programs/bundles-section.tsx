@@ -12,6 +12,8 @@ import { useInView } from "react-intersection-observer";
 import { BUNDLES } from "@/lib/programs-list";
 import { LEVELS } from "@/lib/programs-data";
 import { PricingPeriod } from "@/types/shop";
+import { Heading } from "@/components/atoms/heading";
+import { Text } from "@/components/atoms/text";
 
 export default function BundlesSection() {
   const [ref, inView] = useInView({
@@ -42,14 +44,14 @@ export default function BundlesSection() {
         >
           <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
             <Package className="h-5 w-5 text-primary" />
-            <span className="text-sm font-semibold text-primary">Save up to 45%</span>
+            <Text variant="body-sm" className="font-semibold text-primary">Save up to 45%</Text>
           </div>
-          <h2 className="font-montserrat text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
+          <Heading level={2} className="font-montserrat text-3xl sm:text-4xl md:text-5xl mb-3 sm:mb-4">
             Bundled Packages
-          </h2>
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-4">
+          </Heading>
+          <Text variant="body-lg" className="text-muted-foreground max-w-3xl mx-auto px-4">
             Get more value with our comprehensive bundles. All tracks at one tier, or one track at all tiers.
-          </p>
+          </Text>
         </motion.div>
 
         {/* Pricing Period Toggle */}
@@ -81,13 +83,13 @@ export default function BundlesSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mb-16"
         >
-          <h3 className="text-2xl font-bold mb-6 flex items-center gap-2">
+          <Heading level={3} className="text-2xl mb-6 flex items-center gap-2">
             <Sparkles className="h-6 w-6 text-primary" />
             All Tracks - Single Level
-          </h3>
-          <p className="text-muted-foreground mb-8">
+          </Heading>
+          <Text variant="body-md" className="text-muted-foreground mb-8">
             Access all 7 training tracks at your chosen level. Perfect for comprehensive fitness development.
-          </p>
+          </Text>
           
           <div className="grid gap-4 sm:gap-5 md:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {tierBundles.map((bundle, index) => {

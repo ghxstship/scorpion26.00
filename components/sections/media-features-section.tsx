@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { Text } from "@/components/atoms/text";
+import { Heading } from "@/components/atoms/heading";
 
 const mediaLogos = [
   "ESPN",
@@ -27,9 +29,9 @@ export default function MediaFeaturesSection() {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <p className="mb-8 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+          <Text variant="label" className="mb-8 uppercase tracking-wider text-muted-foreground">
             As Featured In
-          </p>
+          </Text>
           <div className="flex flex-wrap items-center justify-center gap-8 lg:gap-12">
             {mediaLogos.map((logo, index) => (
               <motion.div
@@ -37,9 +39,10 @@ export default function MediaFeaturesSection() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={inView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="text-2xl font-bold text-muted-foreground/60 transition-colors hover:text-foreground lg:text-3xl"
               >
-                {logo}
+                <Heading level={3} className="text-2xl lg:text-3xl text-muted-foreground/60 transition-colors hover:text-foreground">
+                  {logo}
+                </Heading>
               </motion.div>
             ))}
           </div>

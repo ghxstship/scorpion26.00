@@ -7,6 +7,8 @@ import { Check, Clock, Dumbbell, Target, Users } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { Heading } from "@/components/atoms/heading";
+import { Text } from "@/components/atoms/text";
 
 const programs = [
   {
@@ -142,12 +144,12 @@ export default function AllProgramsSection() {
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
-          <h2 className="font-montserrat text-4xl font-bold sm:text-5xl">
+          <Heading level={2} className="font-montserrat text-4xl sm:text-5xl">
             All Programs
-          </h2>
-          <p className="mt-4 text-xl text-muted-foreground">
+          </Heading>
+          <Text variant="body-lg" className="mt-4 text-muted-foreground">
             Every program includes our 30-day money-back guarantee
-          </p>
+          </Text>
         </motion.div>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -180,8 +182,8 @@ export default function AllProgramsSection() {
 
                 <CardContent className="flex-1">
                   <div className="mb-6">
-                    <div className="text-4xl font-bold">${program.price}</div>
-                    <div className="text-sm text-muted-foreground">One-time payment</div>
+                    <Text variant="body-lg" className="text-4xl font-bold">${program.price}</Text>
+                    <Text variant="body-sm" className="text-muted-foreground">One-time payment</Text>
                   </div>
 
                   <div className="mb-4 flex flex-wrap gap-4 text-sm">
@@ -214,7 +216,7 @@ export default function AllProgramsSection() {
                         <Check className={`mr-2 mt-0.5 h-4 w-4 flex-shrink-0 ${
                           program.zone === 'yellow' ? 'text-zone-yellow-primary' : 'text-zone-orange-primary'
                         }`} />
-                        <span className={program.zone === 'yellow' ? 'text-zone-yellow-metallic/90' : 'text-zone-orange-metallic/90'}>{feature}</span>
+                        <Text variant="body-sm" className={program.zone === 'yellow' ? 'text-zone-yellow-metallic/90' : 'text-zone-orange-metallic/90'}>{feature}</Text>
                       </li>
                     ))}
                   </ul>

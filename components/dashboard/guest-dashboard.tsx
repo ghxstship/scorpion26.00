@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Clock, Lock, TrendingUp, Zap } from "lucide-react";
 import Link from "next/link";
 import { responsiveSpacing, responsiveGrid, responsiveCard } from "@/lib/responsive-utils";
+import { Text } from "@/components/atoms/text";
 
 export default function GuestDashboard() {
   return (
@@ -21,10 +22,10 @@ export default function GuestDashboard() {
         <CardContent>
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div className="space-y-1">
-              <p className="text-sm font-medium">Trial expires in 14 days</p>
-              <p className="text-xs text-muted-foreground">
+              <Text variant="body-sm" className="font-medium">Trial expires in 14 days</Text>
+              <Text variant="caption" className="text-muted-foreground">
                 Get unlimited access to all programs and content
-              </p>
+              </Text>
             </div>
             <Button asChild className="w-full sm:w-auto min-h-[44px]">
               <Link href="/join">Upgrade Now</Link>
@@ -46,10 +47,10 @@ export default function GuestDashboard() {
                 <Clock className="h-5 w-5 text-green-600 dark:text-green-400" />
               </div>
               <div>
-                <p className="font-semibold text-sm">Basic Workouts</p>
-                <p className="text-xs text-muted-foreground">
+                <Text variant="body-sm" className="font-semibold">Basic Workouts</Text>
+                <Text variant="caption" className="text-muted-foreground">
                   Access to starter workout programs
-                </p>
+                </Text>
               </div>
             </div>
             <div className="flex items-start gap-3 p-3 rounded-lg border">
@@ -57,10 +58,10 @@ export default function GuestDashboard() {
                 <TrendingUp className="h-5 w-5 text-green-600 dark:text-green-400" />
               </div>
               <div>
-                <p className="font-semibold text-sm">Community Access</p>
-                <p className="text-xs text-muted-foreground">
+                <Text variant="body-sm" className="font-semibold">Community Access</Text>
+                <Text variant="caption" className="text-muted-foreground">
                   View community posts and discussions
-                </p>
+                </Text>
               </div>
             </div>
           </div>
@@ -80,28 +81,28 @@ export default function GuestDashboard() {
           <div className="space-y-3">
             <div className="flex items-center justify-between p-3 rounded-lg bg-muted/50">
               <div>
-                <p className="font-semibold text-sm">Premium Programs</p>
-                <p className="text-xs text-muted-foreground">
+                <Text variant="body-sm" className="font-semibold">Premium Programs</Text>
+                <Text variant="caption" className="text-muted-foreground">
                   Advanced training programs and custom workouts
-                </p>
+                </Text>
               </div>
               <Lock className="h-4 w-4 text-muted-foreground" />
             </div>
             <div className="flex items-center justify-between p-3 rounded-lg bg-muted/50">
               <div>
-                <p className="font-semibold text-sm">Progress Analytics</p>
-                <p className="text-xs text-muted-foreground">
+                <Text variant="body-sm" className="font-semibold">Progress Analytics</Text>
+                <Text variant="caption" className="text-muted-foreground">
                   Detailed tracking and performance insights
-                </p>
+                </Text>
               </div>
               <Lock className="h-4 w-4 text-muted-foreground" />
             </div>
             <div className="flex items-center justify-between p-3 rounded-lg bg-muted/50">
               <div>
-                <p className="font-semibold text-sm">Member Discounts</p>
-                <p className="text-xs text-muted-foreground">
+                <Text variant="body-sm" className="font-semibold">Member Discounts</Text>
+                <Text variant="caption" className="text-muted-foreground">
                   Exclusive pricing on shop products
-                </p>
+                </Text>
               </div>
               <Lock className="h-4 w-4 text-muted-foreground" />
             </div>

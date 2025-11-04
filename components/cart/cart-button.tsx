@@ -1,6 +1,7 @@
 "use client";
 
 import { ShoppingCart } from "lucide-react";
+import { Icon } from "@/components/atoms/icon";
 import { Button } from "@/components/ui/button";
 import { useCartStore } from "@/lib/store/cart-store";
 import { Badge } from "@/components/ui/badge";
@@ -17,7 +18,7 @@ export default function CartButton() {
       onClick={openCart}
       aria-label="Open shopping cart"
     >
-      <ShoppingCart className="h-5 w-5" />
+      <Icon icon={ShoppingCart} size="md" aria-label="Shopping cart" />
       {itemCount > 0 && (
         <Badge
           variant="destructive"

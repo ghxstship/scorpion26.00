@@ -2,6 +2,9 @@ import Link from "next/link";
 import { Facebook, Instagram, Twitter, Youtube, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Heading } from "@/components/atoms/heading";
+import { Text } from "@/components/atoms/text";
+import { Icon } from "@/components/atoms/icon";
 
 const footerLinks = {
   programs: [
@@ -44,13 +47,13 @@ export default function Footer() {
         {/* Newsletter Section */}
         <div className="mb-12 rounded-lg bg-primary p-8 text-primary-foreground">
           <div className="mx-auto max-w-2xl text-center">
-            <Mail className="mx-auto mb-4 h-12 w-12" />
-            <h3 className="mb-2 font-montserrat text-2xl font-bold">
+            <Icon icon={Mail} size="2xl" className="mx-auto mb-4" aria-hidden={true} />
+            <Heading level={3} className="mb-2 font-montserrat text-2xl">
               Get 7 Free Workout Videos
-            </h3>
-            <p className="mb-6 text-primary-foreground/90">
+            </Heading>
+            <Text variant="body-md" className="mb-6 text-primary-foreground/90">
               Join 100K+ members and get exclusive fitness tips, nutrition guides, and workout plans delivered to your inbox.
-            </p>
+            </Text>
             <form className="flex flex-col gap-3 sm:flex-row" aria-label="Newsletter signup">
               <Input
                 type="email"
@@ -85,9 +88,9 @@ export default function Footer() {
                 Elite Fitness
               </span>
             </Link>
-            <p className="mb-4 text-sm text-muted-foreground">
+            <Text variant="body-sm" className="mb-4 text-muted-foreground">
               Transform your body and mind with science-based fitness programs trusted by 100K+ members worldwide.
-            </p>
+            </Text>
             <div className="flex space-x-4">
               {socialLinks.map((social) => (
                 <a
@@ -98,7 +101,7 @@ export default function Footer() {
                   className="text-muted-foreground transition-colors hover:text-primary"
                   aria-label={social.name}
                 >
-                  <social.icon className="h-5 w-5" />
+                  <Icon icon={social.icon} size="md" aria-hidden={true} />
                 </a>
               ))}
             </div>
@@ -106,7 +109,7 @@ export default function Footer() {
 
           {/* Programs */}
           <div>
-            <h4 className="mb-4 font-semibold">Programs</h4>
+            <Heading level={4} className="mb-4">Programs</Heading>
             <ul className="space-y-2" role="list">
               {footerLinks.programs.map((link) => (
                 <li key={link.name}>
@@ -123,7 +126,7 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h4 className="mb-4 font-semibold">Company</h4>
+            <Heading level={4} className="mb-4">Company</Heading>
             <ul className="space-y-2" role="list">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
@@ -140,7 +143,7 @@ export default function Footer() {
 
           {/* Resources */}
           <div>
-            <h4 className="mb-4 font-semibold">Resources</h4>
+            <Heading level={4} className="mb-4">Resources</Heading>
             <ul className="space-y-2" role="list">
               {footerLinks.resources.map((link) => (
                 <li key={link.name}>
@@ -157,7 +160,7 @@ export default function Footer() {
 
           {/* Legal */}
           <div>
-            <h4 className="mb-4 font-semibold">Legal</h4>
+            <Heading level={4} className="mb-4">Legal</Heading>
             <ul className="space-y-2" role="list">
               {footerLinks.legal.map((link) => (
                 <li key={link.name}>
@@ -176,19 +179,19 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-12 border-t pt-8">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <p className="text-sm text-muted-foreground">
+            <Text variant="body-sm" className="text-muted-foreground">
               © {new Date().getFullYear()} Elite Fitness Coaching. All rights reserved.
-            </p>
+            </Text>
             <div className="flex items-center gap-4">
-              <span className="text-sm text-muted-foreground">
+              <Text variant="body-sm" className="text-muted-foreground">
                 🔒 Secure Checkout
-              </span>
-              <span className="text-sm text-muted-foreground">
+              </Text>
+              <Text variant="body-sm" className="text-muted-foreground">
                 ⭐ 4.9/5 Rating
-              </span>
-              <span className="text-sm text-muted-foreground">
+              </Text>
+              <Text variant="body-sm" className="text-muted-foreground">
                 ✓ 30-Day Guarantee
-              </span>
+              </Text>
             </div>
           </div>
         </div>

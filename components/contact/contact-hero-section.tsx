@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Heading } from "@/components/atoms/heading";
+import { Text } from "@/components/atoms/text";
 
 export default function ContactHeroSection() {
   return (
@@ -12,12 +14,12 @@ export default function ContactHeroSection() {
           transition={{ duration: 0.6 }}
           className="mx-auto max-w-3xl text-center"
         >
-          <h1 className="font-montserrat text-5xl font-bold leading-tight sm:text-6xl lg:text-7xl">
+          <Heading level={1} className="font-montserrat text-5xl leading-tight sm:text-6xl lg:text-7xl">
             Get In Touch
-          </h1>
-          <p className="mt-6 text-xl text-muted-foreground sm:text-2xl">
+          </Heading>
+          <Text variant="body-lg" className="mt-6 text-muted-foreground sm:text-2xl">
             Have questions? We&apos;re here to help you start your fitness journey
-          </p>
+          </Text>
         </motion.div>
       </div>
     </section>

@@ -2,6 +2,10 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle2 } from "lucide-react";
+import { Heading } from "@/components/atoms/heading";
+import { Text } from "@/components/atoms/text";
+import { Icon } from "@/components/atoms/icon";
+import { spacingClasses } from "@/lib/design-tokens";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
@@ -63,12 +67,12 @@ export default function StoryTimelineSection() {
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
-          <h2 className="font-montserrat text-4xl font-bold sm:text-5xl">
+          <Heading level={2} className="font-montserrat text-4xl sm:text-5xl">
             The Journey
-          </h2>
-          <p className="mt-4 text-xl text-muted-foreground">
+          </Heading>
+          <Text variant="body-lg" className="mt-4 text-muted-foreground">
             From personal transformation to global impact
-          </p>
+          </Text>
         </motion.div>
 
         <div className="relative">
@@ -97,11 +101,11 @@ export default function StoryTimelineSection() {
                   <Card className="border-2 transition-all hover:border-primary hover:shadow-lg">
                     <CardContent className="p-6">
                       <div className="mb-2 flex items-center gap-2">
-                        <CheckCircle2 className="h-5 w-5 text-primary" />
+                        <Icon icon={CheckCircle2} size="lg" className="text-primary" aria-hidden={true} />
                         <span className="font-bold text-primary">{item.year}</span>
                       </div>
-                      <h3 className="mb-2 text-xl font-bold">{item.title}</h3>
-                      <p className="text-muted-foreground">{item.description}</p>
+                      <Heading level={3} className="mb-2 text-xl">{item.title}</Heading>
+                      <Text variant="body-md" className="text-muted-foreground">{item.description}</Text>
                     </CardContent>
                   </Card>
                 </div>

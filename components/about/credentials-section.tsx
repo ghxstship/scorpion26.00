@@ -2,6 +2,10 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Award, BookOpen, GraduationCap, Medal, Trophy, Users } from "lucide-react";
+import { Heading } from "@/components/atoms/heading";
+import { Text as TextAtom } from "@/components/atoms/text";
+import { Icon } from "@/components/atoms/icon";
+import { spacingClasses, gridClasses } from "@/lib/design-tokens";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
@@ -68,12 +72,12 @@ export default function CredentialsSection() {
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
-          <h2 className="font-montserrat text-4xl font-bold sm:text-5xl">
+          <Heading level={2} className="font-montserrat text-4xl sm:text-5xl">
             Credentials & Achievements
-          </h2>
-          <p className="mt-4 text-xl text-muted-foreground">
+          </Heading>
+          <TextAtom variant="body-lg" className="mt-4 text-muted-foreground">
             Backed by education, proven by results
-          </p>
+          </TextAtom>
         </motion.div>
 
         {/* Certifications */}
@@ -88,15 +92,15 @@ export default function CredentialsSection() {
               <Card className="h-full transition-all hover:shadow-lg">
                 <CardContent className="p-6">
                   <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                    <credential.icon className="h-6 w-6 text-primary" />
+                    <Icon icon={credential.icon} size="2xl" className="text-primary" aria-hidden={true} />
                   </div>
-                  <h3 className="mb-2 font-bold">{credential.title}</h3>
-                  <p className="text-sm text-muted-foreground">
+                  <Heading level={3} className="text-xl mb-2">{credential.title}</Heading>
+                  <TextAtom variant="body-sm" className="text-muted-foreground">
                     {credential.organization}
-                  </p>
-                  <p className="mt-1 text-xs text-muted-foreground">
+                  </TextAtom>
+                  <TextAtom variant="body-sm" className="text-muted-foreground">
                     Certified {credential.year}
-                  </p>
+                  </TextAtom>
                 </CardContent>
               </Card>
             </motion.div>
@@ -111,14 +115,14 @@ export default function CredentialsSection() {
         >
           <Card className="border-2 border-primary/20 bg-primary/5">
             <CardContent className="p-8">
-              <h3 className="mb-6 text-center text-2xl font-bold">
+              <Heading level={3} className="mb-6 text-center text-2xl">
                 Notable Achievements
-              </h3>
+              </Heading>
               <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                 {achievements.map((achievement, index) => (
                   <div key={index} className="flex items-start gap-2">
-                    <Trophy className="mt-1 h-5 w-5 flex-shrink-0 text-primary" />
-                    <span className="text-sm">{achievement}</span>
+                    <Icon icon={Trophy} size="md" className="text-primary" aria-hidden={true} />
+                    <TextAtom variant="body-sm">{achievement}</TextAtom>
                   </div>
                 ))}
               </div>

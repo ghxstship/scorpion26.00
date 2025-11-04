@@ -6,6 +6,9 @@ import { CheckCircle2, Mail, Smartphone } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { Heading } from "@/components/atoms/heading";
+import { Text } from "@/components/atoms/text";
+import { Icon } from "@/components/atoms/icon";
 
 const benefits = [
   "7 free workout videos delivered instantly",
@@ -31,13 +34,13 @@ export default function FinalConversionSection() {
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <Mail className="mx-auto mb-6 h-16 w-16" />
-            <h2 className="font-montserrat text-4xl font-bold sm:text-5xl">
+            <Icon icon={Mail} size="2xl" className="mx-auto mb-6 h-16 w-16" aria-hidden={true} />
+            <Heading level={2} className="font-montserrat text-4xl sm:text-5xl">
               Start Your Transformation Today
-            </h2>
-            <p className="mt-4 text-xl opacity-90">
+            </Heading>
+            <Text variant="body-lg" className="mt-4 opacity-90">
               Get 7 free workout videos and join 100K+ members on their fitness journey
-            </p>
+            </Text>
           </motion.div>
 
           {/* Benefits List */}
@@ -49,8 +52,8 @@ export default function FinalConversionSection() {
           >
             {benefits.map((benefit, index) => (
               <div key={index} className="flex items-start gap-3">
-                <CheckCircle2 className="h-6 w-6 flex-shrink-0" />
-                <span className="text-lg">{benefit}</span>
+                <Icon icon={CheckCircle2} size="lg" className="flex-shrink-0" aria-hidden={true} />
+                <Text variant="body-md">{benefit}</Text>
               </div>
             ))}
           </motion.div>
@@ -78,9 +81,9 @@ export default function FinalConversionSection() {
                 Get Started Free
               </Button>
             </form>
-            <p className="mt-4 text-center text-sm opacity-75">
+            <Text variant="body-sm" className="mt-4 text-center opacity-75">
               No credit card required. Unsubscribe anytime.
-            </p>
+            </Text>
           </motion.div>
 
           {/* App Download */}
@@ -91,8 +94,8 @@ export default function FinalConversionSection() {
             className="mt-16 border-t border-primary-foreground/20 pt-12 text-center"
           >
             <div className="mb-6 flex items-center justify-center gap-2">
-              <Smartphone className="h-6 w-6" />
-              <p className="text-lg font-semibold">Download Our Mobile App</p>
+              <Icon icon={Smartphone} size="lg" aria-hidden={true} />
+              <Text variant="body-md" className="font-semibold">Download Our Mobile App</Text>
             </div>
             <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
               <Button
@@ -132,18 +135,18 @@ export default function FinalConversionSection() {
             className="mt-12 flex flex-wrap items-center justify-center gap-8 text-center opacity-90"
           >
             <div>
-              <div className="text-3xl font-bold">100K+</div>
-              <div className="text-sm">Active Members</div>
+              <Heading level={3} className="text-3xl">100K+</Heading>
+              <Text variant="body-sm">Active Members</Text>
             </div>
             <div className="h-12 w-px bg-primary-foreground/20" />
             <div>
-              <div className="text-3xl font-bold">4.9/5</div>
-              <div className="text-sm">App Rating</div>
+              <Heading level={3} className="text-3xl">4.9/5</Heading>
+              <Text variant="body-sm">App Rating</Text>
             </div>
             <div className="h-12 w-px bg-primary-foreground/20" />
             <div>
-              <div className="text-3xl font-bold">2M+</div>
-              <div className="text-sm">Workouts Completed</div>
+              <Heading level={3} className="text-3xl">2M+</Heading>
+              <Text variant="body-sm">Workouts Completed</Text>
             </div>
           </motion.div>
         </div>

@@ -2,6 +2,9 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
+import { Heading } from "@/components/atoms/heading";
+import { Text } from "@/components/atoms/text";
+import { spacingClasses, gridClasses } from "@/lib/design-tokens";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
@@ -47,15 +50,15 @@ export default function TeamSection() {
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
-          <h2 className="font-montserrat text-4xl font-bold sm:text-5xl">
+          <Heading level={2} className="font-montserrat text-4xl sm:text-5xl">
             Meet the Team
-          </h2>
-          <p className="mt-4 text-xl text-muted-foreground">
+          </Heading>
+          <Text variant="body-lg" className="mt-4 text-muted-foreground">
             Expert coaches dedicated to your success
-          </p>
+          </Text>
         </motion.div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div className={gridClasses.cards['4col']}>
           {team.map((member, index) => (
             <motion.div
               key={index}
@@ -73,11 +76,9 @@ export default function TeamSection() {
                   />
                 </div>
                 <CardContent className="p-6 text-center">
-                  <h3 className="mb-1 text-xl font-bold">{member.name}</h3>
-                  <p className="mb-2 text-sm font-semibold text-primary">
-                    {member.role}
-                  </p>
-                  <p className="text-sm text-muted-foreground">{member.bio}</p>
+                  <Heading level={3} className="font-semibold">{member.name}</Heading>
+                  <Text variant="body-sm" className="text-primary">{member.role}</Text>
+                  <Text variant="body-xs" className="text-muted-foreground mt-2">{member.bio}</Text>
                 </CardContent>
               </Card>
             </motion.div>

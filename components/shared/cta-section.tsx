@@ -5,6 +5,9 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { Heading } from "@/components/atoms/heading";
+import { Text } from "@/components/atoms/text";
+import { Icon } from "@/components/atoms/icon";
 
 export default function CTASection() {
   const [ref, inView] = useInView({
@@ -21,17 +24,17 @@ export default function CTASection() {
           transition={{ duration: 0.6 }}
           className="mx-auto max-w-3xl text-center"
         >
-          <h2 className="font-montserrat text-4xl font-bold sm:text-5xl">
+          <Heading level={2} className="font-montserrat text-4xl sm:text-5xl">
             Ready to Start Your Transformation?
-          </h2>
-          <p className="mt-6 text-xl opacity-90">
+          </Heading>
+          <Text variant="body-lg" className="mt-6 opacity-90">
             Join 100K+ members who are achieving their fitness goals with our proven programs
-          </p>
+          </Text>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:justify-center">
             <Button size="xl" variant="secondary" asChild>
               <Link href="/programs">
                 View Programs
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <Icon icon={ArrowRight} size="md" className="ml-2" aria-hidden={true} />
               </Link>
             </Button>
             <Button size="xl" variant="secondary" asChild>

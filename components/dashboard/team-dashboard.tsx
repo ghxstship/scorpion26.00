@@ -2,6 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { BarChart3, FileText, Mail, MessageSquare, Users, Zap } from "lucide-react";
 import type { DemoUser } from "@/lib/auth/demo-auth";
+import { Text } from "@/components/atoms/text";
 
 interface TeamDashboardProps {
   user: DemoUser;
@@ -24,10 +25,10 @@ export default function TeamDashboard({ user }: TeamDashboardProps) {
         <CardContent>
           <div className="flex items-center justify-between">
             <div className="space-y-1">
-              <p className="text-sm font-medium">Internal Staff Access</p>
-              <p className="text-xs text-muted-foreground">
+              <Text variant="body-sm" className="font-medium">Internal Staff Access</Text>
+              <Text variant="caption" className="text-muted-foreground">
                 Manage content, view analytics, and support members
-              </p>
+              </Text>
             </div>
             <Button variant="outline" size="sm">Team Settings</Button>
           </div>
@@ -46,16 +47,16 @@ export default function TeamDashboard({ user }: TeamDashboardProps) {
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="flex items-center justify-between">
-              <span className="text-sm">Active Members</span>
-              <span className="text-2xl font-bold">1,234</span>
+              <Text variant="body-sm">Active Members</Text>
+              <Text variant="body-lg" className="text-2xl font-bold">1,234</Text>
             </div>
             <div className="flex items-center justify-between">
-              <span className="text-sm">New This Week</span>
-              <span className="text-2xl font-bold text-green-600">+45</span>
+              <Text variant="body-sm">New This Week</Text>
+              <Text variant="body-lg" className="text-2xl font-bold text-green-600">+45</Text>
             </div>
             <div className="flex items-center justify-between">
-              <span className="text-sm">Engagement Rate</span>
-              <span className="text-2xl font-bold">87%</span>
+              <Text variant="body-sm">Engagement Rate</Text>
+              <Text variant="body-lg" className="text-2xl font-bold">87%</Text>
             </div>
           </CardContent>
         </Card>
@@ -96,12 +97,12 @@ export default function TeamDashboard({ user }: TeamDashboardProps) {
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="flex items-center justify-between">
-              <span className="text-sm">Open Tickets</span>
-              <span className="text-2xl font-bold">8</span>
+              <Text variant="body-sm">Open Tickets</Text>
+              <Text variant="body-lg" className="text-2xl font-bold">8</Text>
             </div>
             <div className="flex items-center justify-between">
-              <span className="text-sm">Avg Response Time</span>
-              <span className="text-sm font-bold">2.5h</span>
+              <Text variant="body-sm">Avg Response Time</Text>
+              <Text variant="body-sm" className="font-bold">2.5h</Text>
             </div>
             <Button className="w-full" size="sm">View All Tickets</Button>
           </CardContent>
@@ -124,8 +125,8 @@ export default function TeamDashboard({ user }: TeamDashboardProps) {
                 <Users className="h-5 w-5 text-blue-600 dark:text-blue-400" />
               </div>
               <div className="flex-1">
-                <p className="font-semibold text-sm">New member registration</p>
-                <p className="text-xs text-muted-foreground">John Doe joined Premium tier • 10 minutes ago</p>
+                <Text variant="body-sm" className="font-semibold">New member registration</Text>
+                <Text variant="caption" className="text-muted-foreground">John Doe joined Premium tier • 10 minutes ago</Text>
               </div>
             </div>
             <div className="flex items-start gap-4 p-3 rounded-lg border">
@@ -133,8 +134,8 @@ export default function TeamDashboard({ user }: TeamDashboardProps) {
                 <MessageSquare className="h-5 w-5 text-green-600 dark:text-green-400" />
               </div>
               <div className="flex-1">
-                <p className="font-semibold text-sm">Community post flagged</p>
-                <p className="text-xs text-muted-foreground">Requires moderation review • 1 hour ago</p>
+                <Text variant="body-sm" className="font-semibold">Community post flagged</Text>
+                <Text variant="caption" className="text-muted-foreground">Requires moderation review • 1 hour ago</Text>
               </div>
             </div>
             <div className="flex items-start gap-4 p-3 rounded-lg border">
@@ -142,8 +143,8 @@ export default function TeamDashboard({ user }: TeamDashboardProps) {
                 <FileText className="h-5 w-5 text-purple-600 dark:text-purple-400" />
               </div>
               <div className="flex-1">
-                <p className="font-semibold text-sm">Content published</p>
-                <p className="text-xs text-muted-foreground">New workout program added • 3 hours ago</p>
+                <Text variant="body-sm" className="font-semibold">Content published</Text>
+                <Text variant="caption" className="text-muted-foreground">New workout program added • 3 hours ago</Text>
               </div>
             </div>
           </div>
@@ -160,19 +161,19 @@ export default function TeamDashboard({ user }: TeamDashboardProps) {
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <Button className="h-auto py-4 flex-col gap-2" variant="outline">
               <BarChart3 className="h-6 w-6" />
-              <span>View Reports</span>
+              <Text variant="body-sm">View Reports</Text>
             </Button>
             <Button className="h-auto py-4 flex-col gap-2" variant="outline">
               <MessageSquare className="h-6 w-6" />
-              <span>Moderate</span>
+              <Text variant="body-sm">Moderate</Text>
             </Button>
             <Button className="h-auto py-4 flex-col gap-2" variant="outline">
               <Mail className="h-6 w-6" />
-              <span>Support</span>
+              <Text variant="body-sm">Support</Text>
             </Button>
             <Button className="h-auto py-4 flex-col gap-2" variant="outline">
               <FileText className="h-6 w-6" />
-              <span>Content</span>
+              <Text variant="body-sm">Content</Text>
             </Button>
           </div>
         </CardContent>

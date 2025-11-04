@@ -1,13 +1,14 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Play, Users, Award, TrendingUp } from "lucide-react";
-import Link from "next/link";
-import { motion } from "framer-motion";
+import { ArrowRight, Play, Users, Award, TrendingUp } from "lucide-react";
 import { Heading } from "@/components/atoms/heading";
 import { Text } from "@/components/atoms/text";
-import { StatCard } from "@/components/molecules/stat-card";
+import { Icon } from "@/components/atoms/icon";
 import { spacingClasses } from "@/lib/design-tokens";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { StatCard } from "@/components/molecules/stat-card";
 
 const stats = [
   { icon: Users, value: "100K+", label: "Lives Changed" },
@@ -36,7 +37,6 @@ export default function HeroSection() {
 
       <div className={`container relative z-10 mx-auto ${spacingClasses.containerX} ${spacingClasses.sectionY.lg}`}>
         <div className="mx-auto max-w-4xl text-center">
-          {/* Main Headline */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -57,7 +57,7 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className={spacingClasses.mt.md}
           >
-            <Text variant="body-lg" className="text-muted-foreground">
+            <Text variant="body-lg" className="text-xl md:text-2xl text-muted-foreground mb-8">
               Join 100,000+ members who achieved lasting results with our
               science-based programs, expert coaching, and supportive community
             </Text>
@@ -73,12 +73,12 @@ export default function HeroSection() {
             <Button size="lg" asChild>
               <Link href="/join">
                 Start Your Journey
-                <TrendingUp className="ml-2 h-5 w-5" />
+                <Icon icon={ArrowRight} size="md" className="ml-2" aria-hidden={true} />
               </Link>
             </Button>
             <Button size="lg" variant="secondary" asChild>
               <Link href="#video">
-                <Play className="mr-2 h-5 w-5" />
+                <Icon icon={Play} size="md" className="mr-2" aria-hidden={true} />
                 Watch Success Stories
               </Link>
             </Button>

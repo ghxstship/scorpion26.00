@@ -2,6 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { FileText, FolderOpen, MessageSquare, Users } from "lucide-react";
 import type { DemoUser } from "@/lib/auth/demo-auth";
+import { Text } from "@/components/atoms/text";
 
 interface CollaboratorDashboardProps {
   user: DemoUser;
@@ -26,10 +27,10 @@ export default function CollaboratorDashboard({ user }: CollaboratorDashboardPro
         <CardContent>
           <div className="flex items-center justify-between">
             <div className="space-y-1">
-              <p className="text-sm font-medium">{projects.length} Active Projects</p>
-              <p className="text-xs text-muted-foreground">
+              <Text variant="body-sm" className="font-medium">{projects.length} Active Projects</Text>
+              <Text variant="caption" className="text-muted-foreground">
                 View and edit shared project content
-              </p>
+              </Text>
             </div>
             <Button variant="outline" size="sm">View All</Button>
           </div>
@@ -55,17 +56,17 @@ export default function CollaboratorDashboard({ user }: CollaboratorDashboardPro
                       <FolderOpen className="h-5 w-5 text-purple-600 dark:text-purple-400" />
                     </div>
                     <div>
-                      <p className="font-semibold">{project}</p>
-                      <p className="text-sm text-muted-foreground">Last updated 2 days ago</p>
+                      <Text variant="body-md" className="font-semibold">{project}</Text>
+                      <Text variant="body-sm" className="text-muted-foreground">Last updated 2 days ago</Text>
                     </div>
                   </div>
                   <Button variant="ghost" size="sm">Open</Button>
                 </div>
               ))
             ) : (
-              <p className="text-sm text-muted-foreground text-center py-8">
+              <Text variant="body-sm" className="text-muted-foreground text-center py-8">
                 No projects assigned yet
-              </p>
+              </Text>
             )}
           </div>
         </CardContent>
@@ -87,8 +88,8 @@ export default function CollaboratorDashboard({ user }: CollaboratorDashboardPro
                 <FileText className="h-5 w-5 text-blue-600 dark:text-blue-400" />
               </div>
               <div className="flex-1">
-                <p className="font-semibold text-sm">Updated project documentation</p>
-                <p className="text-xs text-muted-foreground">Project Alpha • 2 hours ago</p>
+                <Text variant="body-sm" className="font-semibold">Updated project documentation</Text>
+                <Text variant="caption" className="text-muted-foreground">Project Alpha • 2 hours ago</Text>
               </div>
             </div>
             <div className="flex items-start gap-4 p-3 rounded-lg border">
@@ -96,8 +97,8 @@ export default function CollaboratorDashboard({ user }: CollaboratorDashboardPro
                 <MessageSquare className="h-5 w-5 text-green-600 dark:text-green-400" />
               </div>
               <div className="flex-1">
-                <p className="font-semibold text-sm">Added comment on review</p>
-                <p className="text-xs text-muted-foreground">Project Beta • 1 day ago</p>
+                <Text variant="body-sm" className="font-semibold">Added comment on review</Text>
+                <Text variant="caption" className="text-muted-foreground">Project Beta • 1 day ago</Text>
               </div>
             </div>
           </div>
@@ -114,11 +115,11 @@ export default function CollaboratorDashboard({ user }: CollaboratorDashboardPro
           <div className="grid gap-4 sm:grid-cols-2">
             <Button className="h-auto py-4 flex-col gap-2" variant="outline">
               <MessageSquare className="h-6 w-6" />
-              <span>Comments</span>
+              <Text variant="body-sm">Comments</Text>
             </Button>
             <Button className="h-auto py-4 flex-col gap-2" variant="outline">
               <FileText className="h-6 w-6" />
-              <span>Documents</span>
+              <Text variant="body-sm">Documents</Text>
             </Button>
           </div>
         </CardContent>

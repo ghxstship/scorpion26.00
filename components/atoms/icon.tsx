@@ -7,10 +7,12 @@ import { cn } from "@/lib/utils";
  */
 
 export type IconSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
+export type IconAnimation = 'none' | 'spin' | 'bounce' | 'pulse';
 
 interface IconProps {
   icon: LucideIcon;
   size?: IconSize;
+  animation?: IconAnimation;
   className?: string;
   'aria-label'?: string;
   'aria-hidden'?: boolean;
@@ -25,9 +27,17 @@ const iconSizeClasses: Record<IconSize, string> = {
   '2xl': 'h-12 w-12',
 };
 
+const iconAnimationClasses: Record<IconAnimation, string> = {
+  none: '',
+  spin: 'animate-spin',
+  bounce: 'animate-bounce-subtle',
+  pulse: 'animate-pulse',
+};
+
 export function Icon({ 
   icon: IconComponent, 
-  size = 'md', 
+  size = 'md',
+  animation = 'none',
   className,
   'aria-label': ariaLabel,
   'aria-hidden': ariaHidden = !ariaLabel,
@@ -35,7 +45,12 @@ export function Icon({
 }: IconProps) {
   return (
     <IconComponent
-      className={cn(iconSizeClasses[size], className)}
+      className={cn(
+        iconSizeClasses[size],
+        iconAnimationClasses[animation],
+        'transition-transform duration-200',
+        className
+      )}
       aria-label={ariaLabel}
       aria-hidden={ariaHidden}
       {...props}

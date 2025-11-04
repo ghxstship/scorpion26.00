@@ -5,6 +5,7 @@ import { Separator } from "@/components/ui/separator";
 import { useCartStore } from "@/lib/store/cart-store";
 import { Loader2 } from "lucide-react";
 import { useState } from "react";
+import { Text } from "@/components/atoms/text";
 
 interface CartSummaryProps {
   onCheckout: (provider: 'stripe' | 'shopify') => Promise<void>;

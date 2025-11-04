@@ -2,6 +2,10 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Heart, Target, Users2, Zap } from "lucide-react";
+import { Heading } from "@/components/atoms/heading";
+import { Text } from "@/components/atoms/text";
+import { Icon } from "@/components/atoms/icon";
+import { spacingClasses, gridClasses } from "@/lib/design-tokens";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
@@ -44,28 +48,26 @@ export default function MissionValuesSection() {
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
-          <h2 className="font-montserrat text-4xl font-bold sm:text-5xl">
-            Our Mission
-          </h2>
-          <p className="mx-auto mt-6 max-w-3xl text-xl text-muted-foreground">
+          <Heading level={2} className="text-3xl md:text-4xl mb-4">Our Mission & Values</Heading>
+          <Text variant="body-md" className="text-muted-foreground max-w-2xl mx-auto">
             To empower individuals worldwide to achieve lasting fitness
             transformations through science-based methods, genuine support, and
             a community that celebrates every victory—big or small.
-          </p>
+          </Text>
         </motion.div>
 
         {/* Values */}
         <div>
-          <motion.h3
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mb-8 text-center text-3xl font-bold"
+            className="mb-8 text-center"
           >
-            Our Core Values
-          </motion.h3>
+            <Heading level={3} className="text-3xl">Our Core Values</Heading>
+          </motion.div>
 
-          <div className="grid gap-8 md:grid-cols-2">
+          <div className={gridClasses.cards['4col']}>
             {values.map((value, index) => (
               <motion.div
                 key={index}
@@ -76,13 +78,11 @@ export default function MissionValuesSection() {
                 <Card className="h-full border-2 transition-all hover:border-primary hover:shadow-lg">
                   <CardHeader>
                     <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10">
-                      <value.icon className="h-8 w-8 text-primary" />
+                      <Icon icon={value.icon} size="2xl" className="text-primary" aria-hidden={true} />
                     </div>
-                    <CardTitle className="text-2xl">{value.title}</CardTitle>
+                    <Heading level={3} className="text-xl mb-2">{value.title}</Heading>
+                    <Text variant="body-sm" className="text-muted-foreground">{value.description}</Text>
                   </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">{value.description}</p>
-                  </CardContent>
                 </Card>
               </motion.div>
             ))}
@@ -98,16 +98,16 @@ export default function MissionValuesSection() {
         >
           <Card className="border-2 border-primary/20 bg-primary/5">
             <CardContent className="p-8">
-              <h3 className="mb-4 text-center text-2xl font-bold">
+              <Heading level={3} className="mb-4 text-center text-2xl">
                 Our Training Philosophy
-              </h3>
-              <p className="text-center text-lg text-muted-foreground">
+              </Heading>
+              <Text variant="body-lg" className="text-center text-muted-foreground">
                 We believe fitness isn&apos;t about punishment—it&apos;s about empowerment.
                 It&apos;s not about perfection—it&apos;s about progress. And it&apos;s not about
                 doing it alone—it&apos;s about having a community that lifts you up
                 when you need it most. Every body is different, every journey is
                 unique, and every person deserves a sustainable path to their goals.
-              </p>
+              </Text>
             </CardContent>
           </Card>
         </motion.div>

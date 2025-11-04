@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Heading } from "@/components/atoms/heading";
+import { Text } from "@/components/atoms/text";
 
 export default function ContentHeroSection() {
   return (
@@ -12,15 +14,15 @@ export default function ContentHeroSection() {
           transition={{ duration: 0.6 }}
           className="mx-auto max-w-4xl text-center"
         >
-          <h1 className="font-montserrat text-5xl font-bold leading-tight sm:text-6xl lg:text-7xl">
+          <Heading level={1} className="font-montserrat text-5xl leading-tight sm:text-6xl lg:text-7xl">
             Free Fitness Content
-          </h1>
-          <p className="mt-6 text-xl text-muted-foreground sm:text-2xl">
+          </Heading>
+          <Text variant="body-lg" className="mt-6 text-muted-foreground sm:text-2xl">
             Workouts, nutrition tips, and transformation stories
-          </p>
-          <p className="mt-4 text-lg text-foreground/80">
+          </Text>
+          <Text variant="body-md" className="mt-4 text-foreground/80">
             New content added every week to help you on your fitness journey
-          </p>
+          </Text>
         </motion.div>
       </div>
     </section>

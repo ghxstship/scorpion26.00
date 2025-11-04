@@ -10,6 +10,10 @@ import MemberDashboardComponent from "@/components/dashboard/member-dashboard";
 import CollaboratorDashboard from "@/components/dashboard/collaborator-dashboard";
 import TeamDashboard from "@/components/dashboard/team-dashboard";
 import AdminDashboard from "@/components/dashboard/admin-dashboard";
+import { Heading } from "@/components/atoms/heading";
+import { Text } from "@/components/atoms/text";
+import { Icon } from "@/components/atoms/icon";
+import { Calendar } from "lucide-react";
 
 export default function DashboardPage() {
   const router = useRouter();
@@ -66,10 +70,11 @@ export default function DashboardPage() {
       <div className="space-y-6">
         {/* Welcome Header */}
         <div>
-          <h1 className="text-3xl font-montserrat font-bold">Welcome back, {user.name}!</h1>
-          <p className="text-muted-foreground mt-1">
+          <Heading level={1} className="text-3xl font-montserrat">Welcome back, {user.name}!</Heading>
+          <Text variant="body-md" className="text-muted-foreground mt-1 flex items-center gap-2">
+            <Icon icon={Calendar} size="sm" aria-hidden={true} />
             Here&apos;s what&apos;s happening with your account today.
-          </p>
+          </Text>
         </div>
 
         {/* Dashboard Content */}
