@@ -29,15 +29,15 @@ export function StatCard({
   return (
     <div className={cn("flex flex-col items-center", className)} role="listitem">
       <div className={cn(
-        "mb-2 flex h-12 w-12 items-center justify-center rounded-full border border-primary/20",
+        "mb-2 sm:mb-3 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-primary/20",
         iconBgColor
       )}>
-        <Icon icon={icon} size="md" className={iconColor} aria-hidden={true} />
+        <Icon icon={icon} size="sm" className={cn("sm:h-6 sm:w-6", iconColor)} aria-hidden={true} />
       </div>
-      <Heading level={3} className="text-2xl md:text-3xl font-bold">
+      <Heading level={3} className="text-xl sm:text-2xl md:text-3xl font-bold">
         {value}
       </Heading>
-      <Text variant="body-sm" className="text-muted-foreground">
+      <Text variant="body-sm" className="text-xs sm:text-sm text-muted-foreground text-center">
         {label}
       </Text>
     </div>

@@ -210,4 +210,51 @@ export const emailTemplates = {
       </html>
     `,
   }),
+
+  supportTicketNotification: (ticketId: string, userName: string, userEmail: string, subject: string, description: string, priority: string) => ({
+    subject: `New Support Ticket: ${subject}`,
+    html: `
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <meta charset="utf-8">
+          <style>
+            body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+            .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+            .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
+            .content { background: #f9f9f9; padding: 30px; border-radius: 0 0 10px 10px; }
+            .button { display: inline-block; padding: 12px 30px; background: #667eea; color: white; text-decoration: none; border-radius: 5px; margin: 20px 0; }
+            .footer { text-align: center; padding: 20px; color: #666; font-size: 14px; }
+            .details { background: white; padding: 20px; border-radius: 5px; margin: 20px 0; }
+            .priority-high { color: #dc3545; font-weight: bold; }
+            .priority-medium { color: #ffc107; font-weight: bold; }
+            .priority-low { color: #28a745; font-weight: bold; }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <div class="header">
+              <h1>🎫 New Support Ticket</h1>
+            </div>
+            <div class="content">
+              <p>A new support ticket has been submitted:</p>
+              <div class="details">
+                <p><strong>Ticket ID:</strong> ${ticketId}</p>
+                <p><strong>User:</strong> ${userName} (${userEmail})</p>
+                <p><strong>Subject:</strong> ${subject}</p>
+                <p><strong>Priority:</strong> <span class="priority-${priority}">${priority.toUpperCase()}</span></p>
+                <p><strong>Description:</strong></p>
+                <p>${description}</p>
+              </div>
+              <a href="${process.env.NEXT_PUBLIC_BASE_URL}/admin/support" class="button">View Ticket</a>
+              <p>Please respond to this ticket as soon as possible.</p>
+            </div>
+            <div class="footer">
+              <p>© ${new Date().getFullYear()} Scorpion26. All rights reserved.</p>
+            </div>
+          </div>
+        </body>
+      </html>
+    `,
+  }),
 };

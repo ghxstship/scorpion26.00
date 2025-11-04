@@ -76,15 +76,15 @@ export default function SocialProofSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className={`${spacingClasses.mb.xl} grid grid-cols-2 gap-6 lg:grid-cols-4`}
+          className={`${spacingClasses.mb.xl} grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4`}
         >
           {stats.map((stat, index) => (
             <Card key={index} className="border-2">
-              <CardContent className={`${spacingClasses.card} text-center`}>
-                <Heading level={3} className="font-montserrat text-4xl text-primary">
+              <CardContent className="p-4 sm:p-6 text-center">
+                <Heading level={3} className="font-montserrat text-2xl sm:text-3xl md:text-4xl text-primary">
                   {stat.value}
                 </Heading>
-                <Text variant="body-sm" className={`${spacingClasses.mt.sm} text-muted-foreground`}>
+                <Text variant="body-sm" className="mt-2 sm:mt-4 text-xs sm:text-sm text-muted-foreground">
                   {stat.label}
                 </Text>
               </CardContent>
@@ -114,8 +114,8 @@ export default function SocialProofSection() {
                   </Text>
 
                   {/* Profile */}
-                  <div className="flex items-center gap-4">
-                    <div className="relative h-16 w-16 overflow-hidden rounded-full">
+                  <div className="flex items-center gap-3 sm:gap-4">
+                    <div className="relative h-14 w-14 sm:h-16 sm:w-16 overflow-hidden rounded-full flex-shrink-0">
                       <Image
                         src={testimonial.image}
                         alt={testimonial.name}
@@ -123,12 +123,12 @@ export default function SocialProofSection() {
                         className="object-cover"
                       />
                     </div>
-                    <div>
-                      <Text variant="label" className="font-semibold">{testimonial.name}</Text>
-                      <Text variant="body-sm" className="text-muted-foreground">
+                    <div className="min-w-0">
+                      <Text variant="label" className="font-semibold text-sm sm:text-base">{testimonial.name}</Text>
+                      <Text variant="body-sm" className="text-xs sm:text-sm text-muted-foreground">
                         {testimonial.result}
                       </Text>
-                      <Text variant="caption" className="text-primary">
+                      <Text variant="caption" className="text-xs text-primary">
                         {testimonial.program}
                       </Text>
                     </div>

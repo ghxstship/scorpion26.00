@@ -26,10 +26,10 @@ const footerLinks = {
     { name: "Community", href: "/community" },
   ],
   legal: [
-    { name: "Terms of Service", href: "/terms" },
-    { name: "Privacy Policy", href: "/privacy" },
-    { name: "Refund Policy", href: "/refunds" },
-    { name: "Cookie Policy", href: "/cookies" },
+    { name: "Terms of Service", href: "/legal/terms" },
+    { name: "Privacy Policy", href: "/legal/privacy" },
+    { name: "Refund Policy", href: "/legal/refunds" },
+    { name: "Cookie Policy", href: "/legal/cookies" },
   ],
 };
 
@@ -45,20 +45,20 @@ export default function Footer() {
     <footer className="border-t bg-muted/50" role="contentinfo">
       <div className="container mx-auto px-4 py-12 lg:px-8">
         {/* Newsletter Section */}
-        <div className="mb-12 rounded-lg bg-primary p-8 text-primary-foreground">
+        <div className="mb-12 rounded-lg bg-primary p-6 sm:p-8 text-primary-foreground">
           <div className="mx-auto max-w-2xl text-center">
-            <Icon icon={Mail} size="2xl" className="mx-auto mb-4" aria-hidden={true} />
-            <Heading level={3} className="mb-2 font-montserrat text-2xl">
+            <Icon icon={Mail} size="xl" className="mx-auto mb-3 sm:mb-4 sm:h-12 sm:w-12" aria-hidden={true} />
+            <Heading level={3} className="mb-2 font-montserrat text-xl sm:text-2xl">
               Get 7 Free Workout Videos
             </Heading>
-            <Text variant="body-md" className="mb-6 text-primary-foreground/90">
+            <Text variant="body-md" className="mb-4 sm:mb-6 text-sm sm:text-base text-primary-foreground/90">
               Join 100K+ members and get exclusive fitness tips, nutrition guides, and workout plans delivered to your inbox.
             </Text>
             <form className="flex flex-col gap-3 sm:flex-row" aria-label="Newsletter signup">
               <Input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 bg-background text-foreground"
+                className="flex-1 bg-background text-foreground h-11 sm:h-12"
                 aria-label="Email address"
                 required
               />
@@ -66,7 +66,7 @@ export default function Footer() {
                 type="submit"
                 size="lg"
                 variant="secondary"
-                className="whitespace-nowrap"
+                className="whitespace-nowrap h-11 sm:h-12"
               >
                 Get Started Free
               </Button>
@@ -179,17 +179,17 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-12 border-t pt-8">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <Text variant="body-sm" className="text-muted-foreground">
+            <Text variant="body-sm" className="text-xs sm:text-sm text-muted-foreground text-center sm:text-left">
               © {new Date().getFullYear()} Elite Fitness Coaching. All rights reserved.
             </Text>
-            <div className="flex items-center gap-4">
-              <Text variant="body-sm" className="text-muted-foreground">
+            <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+              <Text variant="body-sm" className="text-xs sm:text-sm text-muted-foreground whitespace-nowrap">
                 🔒 Secure Checkout
               </Text>
-              <Text variant="body-sm" className="text-muted-foreground">
+              <Text variant="body-sm" className="text-xs sm:text-sm text-muted-foreground whitespace-nowrap">
                 ⭐ 4.9/5 Rating
               </Text>
-              <Text variant="body-sm" className="text-muted-foreground">
+              <Text variant="body-sm" className="text-xs sm:text-sm text-muted-foreground whitespace-nowrap">
                 ✓ 30-Day Guarantee
               </Text>
             </div>

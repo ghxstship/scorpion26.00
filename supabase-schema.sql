@@ -16,10 +16,13 @@ CREATE TABLE IF NOT EXISTS public.profiles (
   phone VARCHAR(20),
   status VARCHAR(20) DEFAULT 'active',
   onboarding_completed BOOLEAN DEFAULT FALSE,
+  is_demo BOOLEAN DEFAULT FALSE,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
   last_login_at TIMESTAMP WITH TIME ZONE
 );
+
+COMMENT ON COLUMN public.profiles.is_demo IS 'Flag to identify demo/test users. Demo users have pre-populated mock data. Real users start with clean slate.';
 
 -- ============================================================================
 -- ROLES TABLE
@@ -201,6 +204,7 @@ CREATE TABLE IF NOT EXISTS public.notifications (
 -- INDEXES
 -- ============================================================================
 CREATE INDEX IF NOT EXISTS idx_profiles_email ON public.profiles(email);
+CREATE INDEX IF NOT EXISTS idx_profiles_is_demo ON public.profiles(is_demo);
 CREATE INDEX IF NOT EXISTS idx_user_roles_user_id ON public.user_roles(user_id);
 CREATE INDEX IF NOT EXISTS idx_user_roles_role_id ON public.user_roles(role_id);
 CREATE INDEX IF NOT EXISTS idx_subscriptions_user_id ON public.subscriptions(user_id);
@@ -260,17 +264,32 @@ CREATE POLICY "Users can update own notifications" ON public.notifications
 -- Function to automatically create profile on signup
 CREATE OR REPLACE FUNCTION public.handle_new_user()
 RETURNS TRIGGER AS $$
+DECLARE
+  is_demo_user BOOLEAN;
 BEGIN
-  INSERT INTO public.profiles (id, email, created_at)
-  VALUES (NEW.id, NEW.email, NOW());
+  -- Check if this is a demo user email
+  is_demo_user := NEW.email IN (
+    'guest@scorpion26.com',
+    'member@scorpion26.com',
+    'collab@scorpion26.com',
+    'team@scorpion26.com',
+    'admin@scorpion26.com'
+  );
+
+  -- Create profile with is_demo flag
+  INSERT INTO public.profiles (id, email, is_demo, created_at)
+  VALUES (NEW.id, NEW.email, is_demo_user, NOW());
   
-  -- Assign guest role by default
+  -- Assign guest role by default for all new users
+  -- Demo users will have their roles updated separately in the seed script
   INSERT INTO public.user_roles (user_id, role_id, is_active)
   VALUES (NEW.id, (SELECT id FROM public.roles WHERE name = 'guest'), TRUE);
   
   RETURN NEW;
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;
+
+COMMENT ON FUNCTION public.handle_new_user() IS 'Automatically creates profile and initial data for new users. Demo users (specific emails) are flagged as is_demo=true. All other users start with clean slate (is_demo=false).';
 
 -- Trigger to create profile on signup
 DROP TRIGGER IF EXISTS on_auth_user_created ON auth.users;

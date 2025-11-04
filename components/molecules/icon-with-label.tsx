@@ -29,17 +29,17 @@ export function IconWithLabel({
     <div
       className={cn(
         "flex items-center",
-        orientation === 'vertical' ? "flex-col gap-2 text-center" : "gap-2",
+        orientation === 'vertical' ? "flex-col gap-1.5 sm:gap-2 text-center" : "gap-1.5 sm:gap-2",
         className
       )}
     >
       <Icon 
         icon={icon} 
         size={iconSize} 
-        className={iconColor}
+        className={cn("flex-shrink-0", iconColor)}
         aria-hidden={true}
       />
-      <Text variant="body-sm" as="span">
+      <Text variant="body-sm" as="span" className="text-xs sm:text-sm">
         {label}
       </Text>
     </div>

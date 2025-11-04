@@ -89,7 +89,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className={`${spacingClasses.mt.xl} grid grid-cols-3 ${spacingClasses.gap.lg}`}
+            className={`${spacingClasses.mt.xl} grid grid-cols-3 gap-4 sm:gap-6 md:gap-8`}
             role="list"
             aria-label="Company statistics"
           >

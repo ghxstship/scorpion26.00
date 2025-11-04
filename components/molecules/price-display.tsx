@@ -19,9 +19,9 @@ interface PriceDisplayProps {
 }
 
 const sizeClasses = {
-  sm: 'text-2xl',
-  md: 'text-3xl',
-  lg: 'text-4xl',
+  sm: 'text-xl sm:text-2xl',
+  md: 'text-2xl sm:text-3xl',
+  lg: 'text-3xl sm:text-4xl',
 };
 
 const periodLabels = {
@@ -42,8 +42,8 @@ export function PriceDisplay({
   className,
 }: PriceDisplayProps) {
   return (
-    <div className={cn("space-y-2", className)}>
-      <div className="flex items-baseline gap-1.5">
+    <div className={cn("space-y-1.5 sm:space-y-2", className)}>
+      <div className="flex items-baseline gap-1 sm:gap-1.5">
         <span
           className={cn(
             sizeClasses[size],
@@ -54,13 +54,13 @@ export function PriceDisplay({
           {currency}{price}
         </span>
         {period !== 'one-time' && (
-          <Text variant="body-sm" className="text-muted-foreground font-medium">
+          <Text variant="body-sm" className="text-xs sm:text-sm text-muted-foreground font-medium">
             {periodLabels[period]}
           </Text>
         )}
       </div>
       {showDiscount && discountPercent && (
-        <Badge variant="secondary" className="text-xs bg-green-500/20 text-green-400 border-green-500/30">
+        <Badge variant="secondary" className="text-[10px] sm:text-xs bg-green-500/20 text-green-400 border-green-500/30">
           Save {discountPercent}%
         </Badge>
       )}

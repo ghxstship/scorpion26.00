@@ -1,6 +1,7 @@
 import { NextRequest } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { withAuth, successResponse, errorResponse } from '@/lib/api/auth-middleware';
+import { sendEmail, emailTemplates } from '@/lib/email/send';
 
 // GET /api/support/tickets - List user's tickets
 export const GET = withAuth(async (request: NextRequest, user) => {
@@ -56,7 +57,28 @@ export const POST = withAuth(async (request: NextRequest, user) => {
       return errorResponse('DATABASE_ERROR', error.message, 500);
     }
 
-    // TODO: Send notification to support team
+    // Send notification to support team
+    try {
+      const supportEmail = process.env.SUPPORT_EMAIL || 'support@scorpion26.com';
+      const template = emailTemplates.supportTicketNotification(
+        data.id,
+        user.email || 'Unknown User',
+        user.email || '',
+        body.subject,
+        body.description,
+        body.priority || 'medium'
+      );
+      
+      await sendEmail({
+        to: supportEmail,
+        subject: template.subject,
+        html: template.html,
+        replyTo: user.email,
+      });
+    } catch (emailError) {
+      console.error('Failed to send support ticket notification:', emailError);
+      // Don't fail the request if email fails
+    }
 
     return successResponse(data);
   } catch (error: any) {
