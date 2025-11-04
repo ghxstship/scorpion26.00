@@ -102,7 +102,7 @@ export default function Header() {
             >
               <Link
                 href={item.href}
-                className="flex items-center text-sm font-medium text-foreground/80 transition-all duration-200 hover:text-primary relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+                className="flex items-center text-sm font-medium text-foreground/80 transition-all duration-200 hover:text-primary relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
               >
                 {item.name}
                 {item.submenu && (

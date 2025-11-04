@@ -32,6 +32,7 @@ export const designTokens = {
    * Based on modular scale (1.25 ratio)
    */
   fontSize: {
+    '2xs': '0.625rem',  // 10px - for badges and compact UI
     xs: '0.75rem',      // 12px
     sm: '0.875rem',     // 14px
     base: '1rem',       // 16px
@@ -159,6 +160,61 @@ export const designTokens = {
     lg: '1024px',
     xl: '1280px',
     '2xl': '1400px',
+  },
+
+  /**
+   * Fixed Heights
+   * For complex layouts, charts, and interactive components
+   */
+  height: {
+    '0.5': '0.125rem',   // 2px - for underlines, dividers
+    '25': '6.25rem',     // 100px
+    '50': '12.5rem',     // 200px
+    '75': '18.75rem',    // 300px
+    '100': '25rem',      // 400px
+    '112': '28rem',      // 450px
+    '125': '31.25rem',   // 500px
+    '150': '37.5rem',    // 600px
+    '250': '62.5rem',    // 1000px - for large effects
+  },
+
+  /**
+   * Fixed Widths
+   * For buttons, selects, and specific components
+   */
+  width: {
+    '15': '3.75rem',     // 60px
+    '18': '4.5rem',      // 72px
+    '20': '5rem',        // 80px
+    '25': '6.25rem',     // 100px
+    '50': '12.5rem',     // 200px
+    '250': '62.5rem',    // 1000px - for large effects
+  },
+
+  /**
+   * Minimum Widths
+   * For buttons and interactive elements
+   */
+  minWidth: {
+    '15': '3.75rem',     // 60px
+    '20': '5rem',        // 80px
+    '50': '12.5rem',     // 200px
+  },
+
+  /**
+   * Maximum Heights
+   * For scrollable containers
+   */
+  maxHeight: {
+    '112': '28rem',      // 450px - for message panels
+  },
+
+  /**
+   * Blur Radius
+   * For background effects
+   */
+  blur: {
+    '3xl': '150px',      // Extra large blur for hero effects
   },
 
   /**

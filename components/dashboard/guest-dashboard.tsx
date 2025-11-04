@@ -28,7 +28,7 @@ export default function GuestDashboard() {
                 Get unlimited access to all programs and content
               </Text>
             </div>
-            <Button asChild className="w-full sm:w-auto min-h-[44px]">
+            <Button asChild className="w-full sm:w-auto min-h-11">
               <Link href="/join">Upgrade Now</Link>
             </Button>
           </div>

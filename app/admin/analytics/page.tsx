@@ -112,7 +112,7 @@ export default function AdminAnalyticsPage() {
           <CardDescription>Monthly revenue performance over time</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="h-[300px] flex items-center justify-center border rounded-lg bg-muted/20">
+          <div className="h-75 flex items-center justify-center border rounded-lg bg-muted/20">
             <Text variant="body-md" className="text-muted-foreground">
               Chart visualization would go here
             </Text>
@@ -127,7 +127,7 @@ export default function AdminAnalyticsPage() {
             <CardDescription>New user registrations by month</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="h-[200px] flex items-center justify-center border rounded-lg bg-muted/20">
+            <div className="h-50 flex items-center justify-center border rounded-lg bg-muted/20">
               <Text variant="body-md" className="text-muted-foreground">
                 User growth chart
               </Text>
@@ -141,7 +141,7 @@ export default function AdminAnalyticsPage() {
             <CardDescription>Active subscriptions by tier</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="h-[200px] flex items-center justify-center border rounded-lg bg-muted/20">
+            <div className="h-50 flex items-center justify-center border rounded-lg bg-muted/20">
               <Text variant="body-md" className="text-muted-foreground">
                 Subscription chart
               </Text>

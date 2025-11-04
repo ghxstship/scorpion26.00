@@ -25,6 +25,7 @@ import { cn } from "@/lib/utils";
 import type { DemoUser } from "@/lib/auth/demo-auth";
 import { UserRole, ROLE_INFO } from "@/lib/auth/rbac-types";
 import { getNavigationForRole, type NavigationSection } from "@/lib/navigation/navigation-config";
+import NotificationBell from "@/components/notifications/notification-bell";
 
 // Icon mapping
 const iconMap: Record<string, any> = {
@@ -245,10 +246,7 @@ export default function DashboardLayout({ user, children, onLogout }: DashboardL
             </Badge>
 
             {/* Notifications */}
-            <Button variant="ghost" size="icon" className="relative">
-              <Bell className="h-5 w-5" />
-              <span className="absolute top-1 right-1 h-2 w-2 rounded-full bg-red-600" />
-            </Button>
+            <NotificationBell />
           </div>
         </header>
 

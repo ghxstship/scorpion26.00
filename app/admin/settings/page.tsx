@@ -19,6 +19,19 @@ import { spacingClasses } from "@/lib/design-tokens";
 export default function AdminSettingsPage() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
+  const [isSaving, setIsSaving] = useState(false);
+  const [settings, setSettings] = useState({
+    site_name: 'Elite Fitness',
+    site_description: 'Transform your fitness journey',
+    support_email: 'support@elitefitness.com',
+    user_registration_enabled: true,
+    email_notifications_enabled: true,
+    maintenance_mode: false,
+    public_api_enabled: true,
+    two_factor_required: true,
+    session_timeout_enabled: true,
+    session_timeout_minutes: 30
+  });
 
   useEffect(() => {
     const user = getCurrentUser();
@@ -33,8 +46,47 @@ export default function AdminSettingsPage() {
       return;
     }
 
+    fetchSettings();
     setIsLoading(false);
   }, [router]);
+
+  const fetchSettings = async () => {
+    try {
+      const response = await fetch('/api/admin/settings');
+      const data = await response.json();
+      if (data.settings) {
+        setSettings(data.settings);
+      }
+    } catch (error) {
+      console.error('Error fetching settings:', error);
+    }
+  };
+
+  const handleSave = async () => {
+    setIsSaving(true);
+    try {
+      const response = await fetch('/api/admin/settings', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(settings)
+      });
+      
+      if (response.ok) {
+        alert('Settings saved successfully!');
+      } else {
+        alert('Failed to save settings');
+      }
+    } catch (error) {
+      console.error('Error saving settings:', error);
+      alert('Failed to save settings');
+    } finally {
+      setIsSaving(false);
+    }
+  };
+
+  const updateSetting = (key: string, value: any) => {
+    setSettings(prev => ({ ...prev, [key]: value }));
+  };
 
   if (isLoading) {
     return (
@@ -64,15 +116,28 @@ export default function AdminSettingsPage() {
         <CardContent className="space-y-6">
           <div className="space-y-2">
             <Label htmlFor="siteName">Site Name</Label>
-            <Input id="siteName" defaultValue="Elite Fitness" />
+            <Input 
+              id="siteName" 
+              value={settings.site_name}
+              onChange={(e) => updateSetting('site_name', e.target.value)}
+            />
           </div>
           <div className="space-y-2">
             <Label htmlFor="siteDescription">Site Description</Label>
-            <Input id="siteDescription" defaultValue="Transform your fitness journey" />
+            <Input 
+              id="siteDescription" 
+              value={settings.site_description}
+              onChange={(e) => updateSetting('site_description', e.target.value)}
+            />
           </div>
           <div className="space-y-2">
             <Label htmlFor="supportEmail">Support Email</Label>
-            <Input id="supportEmail" type="email" defaultValue="support@elitefitness.com" />
+            <Input 
+              id="supportEmail" 
+              type="email" 
+              value={settings.support_email}
+              onChange={(e) => updateSetting('support_email', e.target.value)}
+            />
           </div>
         </CardContent>
       </Card>
@@ -88,28 +153,40 @@ export default function AdminSettingsPage() {
               <Label>User Registration</Label>
               <p className="text-sm text-muted-foreground">Allow new users to sign up</p>
             </div>
-            <Switch defaultChecked />
+            <Switch 
+              checked={settings.user_registration_enabled}
+              onCheckedChange={(checked) => updateSetting('user_registration_enabled', checked)}
+            />
           </div>
           <div className="flex items-center justify-between">
             <div className="space-y-0.5">
               <Label>Email Notifications</Label>
               <p className="text-sm text-muted-foreground">Send automated email notifications</p>
             </div>
-            <Switch defaultChecked />
+            <Switch 
+              checked={settings.email_notifications_enabled}
+              onCheckedChange={(checked) => updateSetting('email_notifications_enabled', checked)}
+            />
           </div>
           <div className="flex items-center justify-between">
             <div className="space-y-0.5">
               <Label>Maintenance Mode</Label>
               <p className="text-sm text-muted-foreground">Put site in maintenance mode</p>
             </div>
-            <Switch />
+            <Switch 
+              checked={settings.maintenance_mode}
+              onCheckedChange={(checked) => updateSetting('maintenance_mode', checked)}
+            />
           </div>
           <div className="flex items-center justify-between">
             <div className="space-y-0.5">
               <Label>Public API Access</Label>
               <p className="text-sm text-muted-foreground">Enable public API endpoints</p>
             </div>
-            <Switch defaultChecked />
+            <Switch 
+              checked={settings.public_api_enabled}
+              onCheckedChange={(checked) => updateSetting('public_api_enabled', checked)}
+            />
           </div>
         </CardContent>
       </Card>
@@ -125,26 +202,37 @@ export default function AdminSettingsPage() {
               <Label>Two-Factor Authentication</Label>
               <p className="text-sm text-muted-foreground">Require 2FA for admin accounts</p>
             </div>
-            <Switch defaultChecked />
+            <Switch 
+              checked={settings.two_factor_required}
+              onCheckedChange={(checked) => updateSetting('two_factor_required', checked)}
+            />
           </div>
           <div className="flex items-center justify-between">
             <div className="space-y-0.5">
               <Label>Session Timeout</Label>
               <p className="text-sm text-muted-foreground">Auto-logout after inactivity</p>
             </div>
-            <Switch defaultChecked />
+            <Switch 
+              checked={settings.session_timeout_enabled}
+              onCheckedChange={(checked) => updateSetting('session_timeout_enabled', checked)}
+            />
           </div>
           <div className="space-y-2">
             <Label htmlFor="sessionTimeout">Session Timeout (minutes)</Label>
-            <Input id="sessionTimeout" type="number" defaultValue="30" />
+            <Input 
+              id="sessionTimeout" 
+              type="number" 
+              value={settings.session_timeout_minutes}
+              onChange={(e) => updateSetting('session_timeout_minutes', parseInt(e.target.value))}
+            />
           </div>
         </CardContent>
       </Card>
 
       <div className="flex justify-end">
-        <Button className="w-full">
+        <Button className="w-full" onClick={handleSave} disabled={isSaving}>
           <Icon icon={Save} size="sm" className="mr-2" aria-hidden={true} />
-          Save Settings
+          {isSaving ? 'Saving...' : 'Save Settings'}
         </Button>
       </div>
     </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { getCurrentUser } from "@/lib/auth/demo-auth";
 import { hasPermission } from "@/lib/auth/rbac-utils";
@@ -14,9 +14,28 @@ import { Text } from "@/components/atoms/text";
 import { Icon } from "@/components/atoms/icon";
 import { spacingClasses } from "@/lib/design-tokens";
 
+const mockPosts = [
+  { id: 1, title: "10 Tips for Building Muscle Mass", author: "John Doe", date: "2024-01-15", status: "Published", views: 1234 },
+  { id: 2, title: "The Science of Fat Loss", author: "Jane Smith", date: "2024-01-12", status: "Published", views: 2456 },
+  { id: 3, title: "Nutrition Guide for Athletes", author: "Bob Johnson", date: "2024-01-10", status: "Draft", views: 0 },
+  { id: 4, title: "Recovery Strategies for Optimal Performance", author: "Alice Williams", date: "2024-01-08", status: "Published", views: 987 },
+];
+
 export default function AdminBlogPage() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
+  const [posts, setPosts] = useState<any[]>([]);
+
+  const fetchPosts = useCallback(async () => {
+    try {
+      const response = await fetch('/api/admin/blog');
+      const data = await response.json();
+      setPosts(data.posts || mockPosts);
+    } catch (error) {
+      console.error('Error fetching posts:', error);
+      setPosts(mockPosts);
+    }
+  }, []);
 
   useEffect(() => {
     const user = getCurrentUser();
@@ -31,8 +50,34 @@ export default function AdminBlogPage() {
       return;
     }
 
+    fetchPosts();
     setIsLoading(false);
-  }, [router]);
+  }, [router, fetchPosts]);
+
+  const handleNewPost = () => {
+    alert('Create new post - modal to be implemented');
+  };
+
+  const handleEdit = (postId: number) => {
+    router.push(`/admin/blog/${postId}/edit`);
+  };
+
+  const handleDelete = async (postId: number) => {
+    if (!confirm('Are you sure you want to delete this post?')) return;
+    
+    try {
+      const response = await fetch(`/api/admin/blog/${postId}`, {
+        method: 'DELETE'
+      });
+      
+      if (response.ok) {
+        fetchPosts();
+      }
+    } catch (error) {
+      console.error('Error deleting post:', error);
+      alert('Failed to delete post');
+    }
+  };
 
   if (isLoading) {
     return (
@@ -41,13 +86,6 @@ export default function AdminBlogPage() {
       </div>
     );
   }
-
-  const mockPosts = [
-    { id: 1, title: "10 Tips for Building Muscle Mass", author: "John Doe", date: "2024-01-15", status: "Published", views: 1234 },
-    { id: 2, title: "The Science of Fat Loss", author: "Jane Smith", date: "2024-01-12", status: "Published", views: 2456 },
-    { id: 3, title: "Nutrition Guide for Athletes", author: "Bob Johnson", date: "2024-01-10", status: "Draft", views: 0 },
-    { id: 4, title: "Recovery Strategies for Optimal Performance", author: "Alice Williams", date: "2024-01-08", status: "Published", views: 987 },
-  ];
 
   return (
     <div className={spacingClasses.gap.lg}>
@@ -58,14 +96,14 @@ export default function AdminBlogPage() {
             Manage blog content and articles
           </Text>
         </div>
-        <Button>
+        <Button onClick={handleNewPost}>
           <Icon icon={Plus} size="sm" className="mr-2" aria-hidden={true} />
           New Post
         </Button>
       </div>
 
       <div className="grid gap-4">
-        {mockPosts.map((post) => (
+        {posts.map((post) => (
           <Card key={post.id} className="hover:shadow-md transition-shadow">
             <CardContent className="p-6">
               <div className="flex items-start justify-between">
@@ -92,11 +130,11 @@ export default function AdminBlogPage() {
                   <Badge variant={post.status === "Published" ? "default" : "secondary"}>
                     {post.status}
                   </Badge>
-                  <Button variant="outline" size="sm">
+                  <Button variant="outline" size="sm" onClick={() => handleEdit(post.id)}>
                     <Icon icon={Edit} size="sm" className="mr-2" aria-hidden={true} />
                     Edit
                   </Button>
-                  <Button variant="outline" size="sm">
+                  <Button variant="outline" size="sm" onClick={() => handleDelete(post.id)}>
                     <Icon icon={Trash2} size="sm" aria-label="Delete post" />
                   </Button>
                 </div>

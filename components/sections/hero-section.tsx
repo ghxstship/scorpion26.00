@@ -18,22 +18,22 @@ const stats = [
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-zinc-950 via-zinc-900 to-black" aria-label="Hero section">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-secondary to-muted dark:from-zinc-950 dark:via-zinc-900 dark:to-black" aria-label="Hero section">
       {/* Brand color gradient overlays */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-zone-red-primary/15 via-transparent to-transparent" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-zone-red-accent/10 via-transparent to-transparent" />
       
       {/* Subtle grid pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:64px_64px]" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.03)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:64px_64px]" />
       
       {/* Top accent line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-zone-red-primary/50 to-transparent" />
       
       {/* Atmospheric glow effect - stronger for brand presence */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[1000px] h-[1000px] bg-zone-red-primary/8 rounded-full blur-[150px]" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-250 h-250 bg-zone-red-primary/8 rounded-full blur-3xl" />
       
-      {/* Dark vignette for text contrast */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_rgba(0,0,0,0.4)_100%)]" />
+      {/* Vignette for text contrast */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_rgba(255,255,255,0.3)_100%)] dark:bg-[radial-gradient(ellipse_at_center,_transparent_0%,_rgba(0,0,0,0.4)_100%)]" />
 
       <div className={`container relative z-10 mx-auto ${spacingClasses.containerX} ${spacingClasses.sectionY.lg}`}>
         <div className="mx-auto max-w-4xl text-center">
@@ -42,7 +42,7 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <Heading level={1} display="md" className="font-montserrat">
+            <Heading level={1} display="md" className="font-montserrat text-foreground">
               Transform Your Body in{" "}
               <span className="bg-gradient-to-r from-zone-red-primary via-zone-red-accent to-zone-red-primary bg-clip-text text-transparent">
                 90 Days

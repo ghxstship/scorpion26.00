@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { getCurrentUser } from "@/lib/auth/demo-auth";
 import { hasPermission } from "@/lib/auth/rbac-utils";
@@ -23,10 +23,32 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
+const mockUsers = [
+  { id: 1, name: "John Doe", email: "john@example.com", role: UserRole.MEMBER, status: "Active" },
+  { id: 2, name: "Jane Smith", email: "jane@example.com", role: UserRole.TEAM, status: "Active" },
+  { id: 3, name: "Bob Johnson", email: "bob@example.com", role: UserRole.COLLABORATOR, status: "Active" },
+  { id: 4, name: "Alice Williams", email: "alice@example.com", role: UserRole.MEMBER, status: "Inactive" },
+];
+
 export default function AdminUsersPage() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
+  const [users, setUsers] = useState<any[]>([]);
+  const [filteredUsers, setFilteredUsers] = useState<any[]>([]);
+
+  const fetchUsers = useCallback(async () => {
+    try {
+      const response = await fetch('/api/admin/users');
+      const data = await response.json();
+      setUsers(data.users || mockUsers);
+      setFilteredUsers(data.users || mockUsers);
+    } catch (error) {
+      console.error('Error fetching users:', error);
+      setUsers(mockUsers);
+      setFilteredUsers(mockUsers);
+    }
+  }, []);
 
   useEffect(() => {
     const user = getCurrentUser();
@@ -41,8 +63,62 @@ export default function AdminUsersPage() {
       return;
     }
 
-    setIsLoading(false);
-  }, [router]);
+    const loadUsers = async () => {
+      await fetchUsers();
+      setIsLoading(false);
+    };
+    
+    loadUsers();
+  }, [router, fetchUsers]);
+
+  const handleSearch = (query: string) => {
+    setSearchQuery(query);
+    if (!query.trim()) {
+      setFilteredUsers(users);
+      return;
+    }
+    const filtered = users.filter(user => 
+      user.name?.toLowerCase().includes(query.toLowerCase()) ||
+      user.email?.toLowerCase().includes(query.toLowerCase())
+    );
+    setFilteredUsers(filtered);
+  };
+
+  const handleAddUser = () => {
+    // TODO: Open modal for adding user
+    alert('Add user functionality - modal to be implemented');
+  };
+
+  const handleEditUser = (userId: number) => {
+    // TODO: Open modal for editing user
+    alert(`Edit user ${userId} - modal to be implemented`);
+  };
+
+  const handleChangeRole = (userId: number) => {
+    // TODO: Open modal for changing role
+    alert(`Change role for user ${userId} - modal to be implemented`);
+  };
+
+  const handleViewActivity = (userId: number) => {
+    router.push(`/admin/users/${userId}/activity`);
+  };
+
+  const handleDeactivate = async (userId: number) => {
+    if (!confirm('Are you sure you want to deactivate this user?')) return;
+    
+    try {
+      const response = await fetch(`/api/admin/users/${userId}`, {
+        method: 'DELETE'
+      });
+      
+      if (response.ok) {
+        fetchUsers();
+      }
+    } catch (error) {
+      console.error('Error deactivating user:', error);
+      alert('Failed to deactivate user');
+    }
+  };
 
   if (isLoading) {
     return (
@@ -52,12 +128,6 @@ export default function AdminUsersPage() {
     );
   }
 
-  const mockUsers = [
-    { id: 1, name: "John Doe", email: "john@example.com", role: UserRole.MEMBER, status: "Active" },
-    { id: 2, name: "Jane Smith", email: "jane@example.com", role: UserRole.TEAM, status: "Active" },
-    { id: 3, name: "Bob Johnson", email: "bob@example.com", role: UserRole.COLLABORATOR, status: "Active" },
-    { id: 4, name: "Alice Williams", email: "alice@example.com", role: UserRole.MEMBER, status: "Inactive" },
-  ];
 
   return (
     <div className={spacingClasses.gap.lg}>
@@ -68,7 +138,7 @@ export default function AdminUsersPage() {
             Manage all platform users and their roles
           </Text>
         </div>
-        <Button>
+        <Button onClick={handleAddUser}>
           <Icon icon={UserPlus} size="sm" className="mr-2" aria-hidden={true} />
           Add User
         </Button>
@@ -82,14 +152,14 @@ export default function AdminUsersPage() {
                 <Icon icon={Users} size="md" aria-hidden={true} />
                 <Heading level={4}>All Users</Heading>
               </CardTitle>
-              <Text variant="body-sm" className="text-muted-foreground">Total: {mockUsers.length} users</Text>
+              <Text variant="body-sm" className="text-muted-foreground">Total: {filteredUsers.length} users</Text>
             </div>
             <div className="relative w-64">
               <Icon icon={Search} size="sm" className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" aria-hidden={true} />
               <Input
                 placeholder="Search users..."
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={(e) => handleSearch(e.target.value)}
                 className="pl-9"
               />
             </div>
@@ -97,14 +167,14 @@ export default function AdminUsersPage() {
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
-            {mockUsers.map((user) => {
-              const roleInfo = ROLE_INFO[user.role];
+            {filteredUsers.map((user) => {
+              const roleInfo = ROLE_INFO[user.role as UserRole];
               return (
                 <div key={user.id} className="flex items-center justify-between p-4 border rounded-lg hover:bg-accent/50 transition-colors">
                   <div className="flex items-center gap-4">
                     <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
                       <span className="font-semibold text-primary">
-                        {user.name.split(' ').map(n => n[0]).join('')}
+                        {user.name.split(' ').map((n: string) => n[0]).join('')}
                       </span>
                     </div>
                     <div>
@@ -137,11 +207,11 @@ export default function AdminUsersPage() {
                       <DropdownMenuContent align="end">
                         <DropdownMenuLabel>Actions</DropdownMenuLabel>
                         <DropdownMenuSeparator />
-                        <DropdownMenuItem>Edit User</DropdownMenuItem>
-                        <DropdownMenuItem>Change Role</DropdownMenuItem>
-                        <DropdownMenuItem>View Activity</DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => handleEditUser(user.id)}>Edit User</DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => handleChangeRole(user.id)}>Change Role</DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => handleViewActivity(user.id)}>View Activity</DropdownMenuItem>
                         <DropdownMenuSeparator />
-                        <DropdownMenuItem className="text-red-600">Deactivate</DropdownMenuItem>
+                        <DropdownMenuItem className="text-red-600" onClick={() => handleDeactivate(user.id)}>Deactivate</DropdownMenuItem>
                       </DropdownMenuContent>
                     </DropdownMenu>
                   </div>

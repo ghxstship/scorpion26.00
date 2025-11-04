@@ -82,11 +82,11 @@ export default function ProgramsCardsGrid() {
               <TabsTrigger value="weekly" className="text-xs sm:text-sm">Weekly</TabsTrigger>
               <TabsTrigger value="monthly" className="text-xs sm:text-sm">
                 Monthly
-                <Badge variant="secondary" className="ml-1 sm:ml-2 text-[10px] sm:text-xs px-1 sm:px-2">Popular</Badge>
+                <Badge variant="secondary" className="ml-1 sm:ml-2 text-2xs sm:text-xs px-1 sm:px-2">Popular</Badge>
               </TabsTrigger>
               <TabsTrigger value="annual" className="text-xs sm:text-sm">
                 Annual
-                <Badge variant="secondary" className="ml-1 sm:ml-2 text-[10px] sm:text-xs px-1 sm:px-2 bg-green-500/20 text-green-400">-17%</Badge>
+                <Badge variant="secondary" className="ml-1 sm:ml-2 text-2xs sm:text-xs px-1 sm:px-2 bg-green-500/20 text-green-400">-17%</Badge>
               </TabsTrigger>
             </TabsList>
           </Tabs>
@@ -168,7 +168,7 @@ export default function ProgramsCardsGrid() {
 
                     <CardContent className="flex-1 px-5 pb-5 pt-0 flex flex-col">
                       {/* Price Section - Fixed height for consistency */}
-                      <div className="pb-4 border-b border-border/50 min-h-[80px] flex flex-col justify-start">
+                      <div className="pb-4 border-b border-border/50 min-h-20 flex flex-col justify-start">
                         <div className="flex items-baseline gap-1.5 mb-2">
                           <span className="text-4xl font-bold tracking-tight leading-none" style={{ color: zone.colors.accent }}>
                             ${price}
@@ -185,7 +185,7 @@ export default function ProgramsCardsGrid() {
                       </div>
 
                       {/* Training Tracks Label - Fixed height */}
-                      <div className="pt-4 pb-3 min-h-[72px]">
+                      <div className="pt-4 pb-3 min-h-18">
                         <h4 className="text-xs font-semibold uppercase tracking-wider mb-2" style={{ color: zone.colors.accent }}>
                           All 7 Training Tracks
                         </h4>

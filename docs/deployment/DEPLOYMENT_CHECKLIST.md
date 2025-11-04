@@ -1,284 +1,322 @@
 # 🚀 Deployment Checklist
 
-**Date**: November 3, 2025  
-**Status**: Ready for Deployment
+Complete checklist for deploying Scorpion26 with video streaming to production.
 
----
+## Pre-Deployment
 
-## ✅ PRE-DEPLOYMENT CHECKLIST
+### 1. Dependencies ✅
+- [x] Run `npm install`
+- [x] Verify all packages installed
+- [ ] Run `npm audit fix` (2 moderate vulnerabilities found)
+- [ ] Run `npm run type-check`
+- [ ] Run `npm run lint`
+- [ ] Run `npm run build` (test production build)
 
-### 1. Database Migration
-- [ ] Run main schema migration
-- [ ] Run storage setup script
-- [ ] Verify all 32 tables created
-- [ ] Verify RLS policies active
-- [ ] Verify storage buckets created
+### 2. Environment Configuration
 
-### 2. Environment Variables
-- [ ] NEXT_PUBLIC_SUPABASE_URL configured
-- [ ] NEXT_PUBLIC_SUPABASE_ANON_KEY configured
-- [ ] SUPABASE_SERVICE_ROLE_KEY configured
-- [ ] STRIPE_SECRET_KEY configured
-- [ ] STRIPE_WEBHOOK_SECRET configured
-- [ ] RESEND_API_KEY configured
-- [ ] EMAIL_FROM configured
-- [ ] NEXT_PUBLIC_SENTRY_DSN configured (optional)
-- [ ] NEXT_PUBLIC_BASE_URL configured
+#### Required Variables
+- [ ] `NEXT_PUBLIC_SUPABASE_URL`
+- [ ] `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+- [ ] `SUPABASE_SERVICE_ROLE_KEY`
+- [ ] `CLOUDFLARE_ACCOUNT_ID`
+- [ ] `CLOUDFLARE_STREAM_API_TOKEN`
+- [ ] `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`
+- [ ] `STRIPE_SECRET_KEY`
+- [ ] `STRIPE_WEBHOOK_SECRET`
 
-### 3. Build Validation
-- [ ] `npm run build` passes with zero errors
-- [ ] `npm run lint` passes with zero errors
-- [ ] `npx tsc --noEmit` passes with zero errors
-- [ ] All routes compile successfully
+#### Optional Variables
+- [ ] `NEXT_PUBLIC_SHOPIFY_DOMAIN`
+- [ ] `NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_TOKEN`
+- [ ] `RESEND_API_KEY`
+- [ ] `UPSTASH_REDIS_REST_URL`
+- [ ] `UPSTASH_REDIS_REST_TOKEN`
+- [ ] `NEXT_PUBLIC_SENTRY_DSN`
 
-### 4. Supabase Setup
-- [ ] Storage buckets created (5 buckets)
-- [ ] Storage policies configured
-- [ ] Email authentication enabled
-- [ ] RLS policies verified
-- [ ] Database indexes created
+### 3. Database Setup
+- [ ] Run all Supabase migrations
+- [ ] Verify video streaming tables exist:
+  - [ ] `video_progress`
+  - [ ] `video_captions`
+  - [ ] `video_downloads`
+  - [ ] `workouts` (with video columns)
+- [ ] Verify gamification tables exist:
+  - [ ] `badges` (54 badges seeded)
+  - [ ] `user_badges`
+  - [ ] `user_stats`
+  - [ ] `challenges`
+  - [ ] `challenge_participants`
+  - [ ] `leaderboard_entries`
+  - [ ] `xp_transactions`
+  - [ ] `streak_history`
+  - [ ] `milestones`
+- [ ] Verify RPC functions exist:
+  - [ ] `award_xp()`
+  - [ ] `update_streak()`
+  - [ ] `check_and_award_badges()`
+  - [ ] `update_challenge_progress()`
+  - [ ] `refresh_leaderboards()`
+- [ ] Set up Row Level Security (RLS) policies
+- [ ] Create indexes
+- [ ] Test database connection
+
+### 4. Cloudflare Stream Setup
+- [ ] Create Cloudflare account
+- [ ] Enable Stream product
+- [ ] Generate API token with Stream:Edit permissions
+- [ ] Note Account ID
+- [ ] Test upload with small video
+- [ ] Verify HLS playback works
 
 ### 5. Stripe Setup
-- [ ] Webhook endpoint configured
-- [ ] Webhook secret obtained
-- [ ] Test mode verified
-- [ ] Production keys ready
+- [ ] Create Stripe account
+- [ ] Set up products and prices
+- [ ] Configure webhook endpoint
+- [ ] Test payment flow
+- [ ] Verify subscription creation
 
-### 6. Code Repository
-- [ ] All changes committed
-- [ ] Pushed to GitHub
-- [ ] Branch protection configured
-- [ ] CI/CD pipeline ready (optional)
+## Testing
 
----
+### Video Streaming Tests
+- [ ] Upload test video (5-10 minutes)
+- [ ] Verify processing completes
+- [ ] Test video playback
+- [ ] Test quality switching
+- [ ] Test progress tracking
+- [ ] Test resume functionality
+- [ ] Test keyboard shortcuts
+- [ ] Test fullscreen mode
+- [ ] Test Picture-in-Picture
+- [ ] Test mobile playback (iOS Safari)
+- [ ] Test mobile playback (Android Chrome)
+- [ ] Test captions (if configured)
+- [ ] Test download functionality
 
-## 📋 DEPLOYMENT STEPS
+### Gamification Tests
+- [ ] Visit /member/achievements page
+- [ ] Verify badges display correctly
+- [ ] Test badge category filtering
+- [ ] Check XP and level display
+- [ ] Visit /member/challenges page
+- [ ] Test challenge browsing
+- [ ] Test joining a challenge
+- [ ] Visit /member/leaderboard page
+- [ ] Verify leaderboard rankings
+- [ ] Test period filters (all-time, monthly, weekly)
+- [ ] Test badge auto-award on workout completion
+- [ ] Test XP award functionality
+- [ ] Test streak tracking
+- [ ] Test milestone celebrations
 
-### Step 1: Run Database Migration
+### Browser Compatibility
+- [ ] Chrome (latest)
+- [ ] Safari (latest)
+- [ ] Firefox (latest)
+- [ ] Edge (latest)
+- [ ] iOS Safari
+- [ ] Android Chrome
 
-```bash
-# Connect to your Supabase project
-npx supabase link --project-ref YOUR_PROJECT_REF
+### Performance Tests
+- [ ] Lighthouse score > 90
+- [ ] Video buffer time < 3 seconds
+- [ ] Page load time < 2 seconds
+- [ ] Test with slow 3G network
+- [ ] Test with 100 concurrent users
 
-# Push the migration
-npx supabase db push
+### Security Tests
+- [ ] Test authentication flows
+- [ ] Verify RLS policies work
+- [ ] Test API rate limiting
+- [ ] Check for exposed secrets
+- [ ] Verify CORS configuration
+- [ ] Test file upload validation
 
-# Or manually in Supabase Dashboard:
-# 1. Go to SQL Editor
-# 2. Paste contents of supabase/migrations/20251104010000_extended_schema.sql
-# 3. Run
-```
+## Deployment
 
-### Step 2: Setup Storage Buckets
+### Vercel Deployment
+- [ ] Push code to GitHub
+- [ ] Connect repository to Vercel
+- [ ] Add all environment variables
+- [ ] Configure build settings
+- [ ] Deploy to production
+- [ ] Verify deployment successful
 
-```bash
-# In Supabase Dashboard SQL Editor, run:
-# scripts/setup-storage.sql
+### Post-Deployment
+- [ ] Test production URL
+- [ ] Verify video streaming works
+- [ ] Test payment flow
+- [ ] Check error tracking (Sentry)
+- [ ] Monitor performance
+- [ ] Set up uptime monitoring
 
-# Or manually create buckets:
-# Storage → New Bucket → Create each bucket with policies
-```
+## Monitoring & Alerts
 
-### Step 3: Validate Build
+### Set Up Monitoring
+- [ ] Cloudflare Stream analytics
+- [ ] Vercel analytics
+- [ ] Sentry error tracking
+- [ ] Uptime monitoring (e.g., UptimeRobot)
+- [ ] Cost alerts (Cloudflare, Stripe)
 
-```bash
-# Clean install
-rm -rf .next node_modules
-npm install
+### Key Metrics to Track
+- [ ] Video playback success rate (target: >95%)
+- [ ] Average buffer time (target: <3s)
+- [ ] Video completion rate (target: >60%)
+- [ ] API error rate (target: <5%)
+- [ ] Page load time (target: <2s)
+- [ ] Monthly active users
+- [ ] Subscription conversion rate
 
-# Run all checks
-npm run lint
-npx tsc --noEmit
-npm run build
+## Documentation
 
-# All should pass with zero errors
-```
+### Update Documentation
+- [ ] Update README with production URL
+- [ ] Document deployment process
+- [ ] Create runbook for common issues
+- [ ] Document monitoring setup
+- [ ] Create backup/recovery procedures
 
-### Step 4: Configure Stripe Webhook
+### Team Training
+- [ ] Train admins on video upload
+- [ ] Document troubleshooting steps
+- [ ] Create user guides
+- [ ] Set up support channels
 
-```bash
-# 1. Go to Stripe Dashboard → Developers → Webhooks
-# 2. Add endpoint: https://yourdomain.com/api/webhooks/stripe
-# 3. Select events:
-#    - customer.subscription.created
-#    - customer.subscription.updated
-#    - customer.subscription.deleted
-#    - invoice.payment_succeeded
-#    - invoice.payment_failed
-#    - checkout.session.completed
-# 4. Copy webhook secret to .env
-```
+## Backup & Recovery
 
-### Step 5: Push to GitHub
+### Database Backups
+- [ ] Enable Supabase automatic backups
+- [ ] Test backup restoration
+- [ ] Document recovery procedures
 
-```bash
-# Add all changes
-git add .
+### Video Backups
+- [ ] Cloudflare Stream has built-in redundancy
+- [ ] Consider additional backup for critical videos
+- [ ] Document video recovery process
 
-# Commit
-git commit -m "feat: complete implementation - production ready
+## Cost Optimization
 
-- Added 40+ files with 6000+ lines of code
-- Implemented 30+ API routes
-- Created 32 database tables with RLS
-- Added security headers and input sanitization
-- Implemented file upload system
-- Added real-time subscriptions
-- Created React Query hooks
-- Added comprehensive documentation
+### Review Costs
+- [ ] Estimate monthly Cloudflare Stream costs
+- [ ] Review Supabase usage
+- [ ] Check Vercel bandwidth
+- [ ] Monitor Stripe transaction fees
+- [ ] Set up cost alerts
 
-Status: 85% complete, production ready for MVP"
+### Optimization
+- [ ] Enable CDN caching
+- [ ] Optimize images
+- [ ] Minimize API calls
+- [ ] Review database queries
+- [ ] Clean up unused videos
 
-# Push to main branch
-git push origin main
-```
+## Security Hardening
 
-### Step 6: Deploy to Vercel/Netlify
+### Production Security
+- [ ] Enable HTTPS only
+- [ ] Set secure headers
+- [ ] Configure CSP (Content Security Policy)
+- [ ] Enable rate limiting
+- [ ] Set up DDoS protection
+- [ ] Regular security audits
 
-#### Vercel Deployment
-```bash
-# Install Vercel CLI
-npm i -g vercel
+### Access Control
+- [ ] Review admin access
+- [ ] Rotate API keys
+- [ ] Enable 2FA for critical accounts
+- [ ] Document access procedures
 
-# Deploy
-vercel
+## Launch Checklist
 
-# Set environment variables in Vercel Dashboard
-# Deploy to production
-vercel --prod
-```
-
-#### Netlify Deployment
-```bash
-# Install Netlify CLI
-npm i -g netlify-cli
-
-# Deploy
-netlify deploy
-
-# Set environment variables in Netlify Dashboard
-# Deploy to production
-netlify deploy --prod
-```
-
----
-
-## 🧪 POST-DEPLOYMENT VERIFICATION
-
-### 1. Smoke Tests
-```bash
-# Test homepage
-curl https://yourdomain.com
-
-# Test API health
-curl https://yourdomain.com/api/subscriptions/plans
-
-# Test authentication
-curl -X POST https://yourdomain.com/api/auth/login \
-  -H "Content-Type: application/json" \
-  -d '{"email":"test@example.com","password":"test"}'
-```
-
-### 2. Feature Verification
-- [ ] Homepage loads
-- [ ] Authentication works (login/register)
-- [ ] API routes respond
-- [ ] File uploads work
-- [ ] Email notifications send
-- [ ] Stripe checkout works
-- [ ] Real-time updates work
-- [ ] Security headers present
-
-### 3. Performance Checks
-- [ ] Page load time < 3s
-- [ ] API response time < 200ms
+### Final Checks
+- [ ] All tests passing
 - [ ] No console errors
-- [ ] No 404 errors
-- [ ] Images load correctly
+- [ ] No broken links
+- [ ] All images loading
+- [ ] Forms working
+- [ ] Payments working
+- [ ] Videos playing
+- [ ] Mobile responsive
+- [ ] SEO optimized
+- [ ] Analytics tracking
 
-### 4. Security Verification
+### Communication
+- [ ] Notify team of launch
+- [ ] Prepare support team
+- [ ] Create launch announcement
+- [ ] Update social media
+- [ ] Send email to beta users
+
+## Post-Launch
+
+### Week 1
+- [ ] Monitor error rates
+- [ ] Check video playback metrics
+- [ ] Review user feedback
+- [ ] Fix critical bugs
+- [ ] Optimize performance
+
+### Month 1
+- [ ] Review analytics
+- [ ] Analyze user behavior
+- [ ] Gather feedback
+- [ ] Plan improvements
+- [ ] Update documentation
+
+## Quick Verification
+
+Run the verification script:
+
 ```bash
-# Check security headers
-curl -I https://yourdomain.com
-
-# Should see:
-# - Strict-Transport-Security
-# - X-Frame-Options
-# - X-Content-Type-Options
-# - Content-Security-Policy
+npm run verify-video
 ```
+
+This checks:
+- ✅ All required files present
+- ✅ Dependencies installed
+- ⚠️  Environment variables configured
+- ✅ Documentation complete
+
+## Emergency Contacts
+
+### Critical Services
+- **Vercel Support**: support@vercel.com
+- **Supabase Support**: support@supabase.com
+- **Cloudflare Support**: https://dash.cloudflare.com/support
+- **Stripe Support**: https://support.stripe.com
+
+### Internal Team
+- **Technical Lead**: [Add contact]
+- **DevOps**: [Add contact]
+- **Support**: [Add contact]
+
+## Rollback Plan
+
+If issues occur:
+
+1. **Immediate**: Revert to previous Vercel deployment
+2. **Database**: Restore from latest backup
+3. **Videos**: Cloudflare Stream data persists
+4. **Communication**: Notify users of maintenance
+5. **Investigation**: Review logs and errors
+6. **Fix**: Address issues in development
+7. **Re-deploy**: Test thoroughly before re-launch
 
 ---
 
-## 🔧 TROUBLESHOOTING
+## Status
 
-### Build Fails
-```bash
-# Clear cache and rebuild
-rm -rf .next node_modules package-lock.json
-npm install
-npm run build
-```
+- **Last Updated**: November 4, 2024
+- **Version**: 1.0.0
+- **Ready for Deployment**: ⚠️ Pending configuration
 
-### Database Migration Fails
-```bash
-# Check Supabase connection
-npx supabase status
+### Next Steps
 
-# Re-link project
-npx supabase link --project-ref YOUR_PROJECT_REF
-
-# Try again
-npx supabase db push
-```
-
-### Storage Buckets Not Working
-```bash
-# Verify buckets exist in Supabase Dashboard
-# Storage → Buckets → Should see 5 buckets
-
-# Verify policies
-# Storage → Policies → Should see policies for each bucket
-```
-
-### Environment Variables Not Working
-```bash
-# Verify in deployment platform
-# Vercel: Settings → Environment Variables
-# Netlify: Site settings → Environment variables
-
-# Redeploy after adding variables
-```
+1. Configure environment variables
+2. Run `npm run verify-video`
+3. Complete testing checklist
+4. Deploy to Vercel
+5. Monitor and optimize
 
 ---
 
-## 📊 DEPLOYMENT STATUS
-
-### Current Status
-- [ ] Database migrated
-- [ ] Storage configured
-- [ ] Build validated
-- [ ] Pushed to GitHub
-- [ ] Deployed to production
-- [ ] Post-deployment verified
-
-### Sign-off
-- **Developer**: _______________
-- **Date**: _______________
-- **Deployment URL**: _______________
-
----
-
-## 🎉 SUCCESS CRITERIA
-
-✅ **Deployment Successful When**:
-- All checklist items completed
-- Build passes with zero errors
-- All smoke tests pass
-- No critical errors in logs
-- Users can register and login
-- Core features functional
-
----
-
-*Last Updated: November 3, 2025*
+**Good luck with your launch!** 🚀

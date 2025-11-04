@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { getCurrentUser } from "@/lib/auth/demo-auth";
 import { hasPermission } from "@/lib/auth/rbac-utils";
@@ -14,9 +14,28 @@ import { Text } from "@/components/atoms/text";
 import { Icon } from "@/components/atoms/icon";
 import { spacingClasses, gridClasses } from "@/lib/design-tokens";
 
+const mockPrograms = [
+  { id: 1, name: "Strength Builder", workouts: 24, duration: "12 weeks", status: "Published", enrollments: 342 },
+  { id: 2, name: "Fat Loss Accelerator", workouts: 18, duration: "8 weeks", status: "Published", enrollments: 567 },
+  { id: 3, name: "Muscle Hypertrophy", workouts: 36, duration: "16 weeks", status: "Draft", enrollments: 0 },
+  { id: 4, name: "Athletic Performance", workouts: 20, duration: "10 weeks", status: "Published", enrollments: 234 },
+];
+
 export default function AdminProgramsPage() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
+  const [programs, setPrograms] = useState<any[]>([]);
+
+  const fetchPrograms = useCallback(async () => {
+    try {
+      const response = await fetch('/api/admin/programs');
+      const data = await response.json();
+      setPrograms(data.programs || mockPrograms);
+    } catch (error) {
+      console.error('Error fetching programs:', error);
+      setPrograms(mockPrograms);
+    }
+  }, []);
 
   useEffect(() => {
     const user = getCurrentUser();
@@ -31,8 +50,38 @@ export default function AdminProgramsPage() {
       return;
     }
 
+    fetchPrograms();
     setIsLoading(false);
-  }, [router]);
+  }, [router, fetchPrograms]);
+
+  const handleCreateProgram = () => {
+    alert('Create program - modal to be implemented');
+  };
+
+  const handleView = (programId: number) => {
+    router.push(`/admin/programs/${programId}`);
+  };
+
+  const handleEdit = (programId: number) => {
+    router.push(`/admin/programs/${programId}/edit`);
+  };
+
+  const handleDelete = async (programId: number) => {
+    if (!confirm('Are you sure you want to delete this program?')) return;
+    
+    try {
+      const response = await fetch(`/api/admin/programs/${programId}`, {
+        method: 'DELETE'
+      });
+      
+      if (response.ok) {
+        fetchPrograms();
+      }
+    } catch (error) {
+      console.error('Error deleting program:', error);
+      alert('Failed to delete program');
+    }
+  };
 
   if (isLoading) {
     return (
@@ -41,13 +90,6 @@ export default function AdminProgramsPage() {
       </div>
     );
   }
-
-  const mockPrograms = [
-    { id: 1, name: "Strength Builder", workouts: 24, duration: "12 weeks", status: "Published", enrollments: 342 },
-    { id: 2, name: "Fat Loss Accelerator", workouts: 18, duration: "8 weeks", status: "Published", enrollments: 567 },
-    { id: 3, name: "Muscle Hypertrophy", workouts: 36, duration: "16 weeks", status: "Draft", enrollments: 0 },
-    { id: 4, name: "Athletic Performance", workouts: 28, duration: "12 weeks", status: "Published", enrollments: 234 },
-  ];
 
   return (
     <div className={spacingClasses.gap.lg}>
@@ -58,14 +100,14 @@ export default function AdminProgramsPage() {
             Manage training programs and content
           </Text>
         </div>
-        <Button>
+        <Button onClick={handleCreateProgram}>
           <Icon icon={Plus} size="sm" className="mr-2" aria-hidden={true} />
           Create Program
         </Button>
       </div>
 
       <div className={gridClasses.cards['3col']}>
-        {mockPrograms.map((program) => (
+        {programs.map((program) => (
           <Card key={program.id} className="hover:shadow-lg transition-shadow">
             <CardHeader>
               <div className="flex items-start justify-between">
@@ -86,15 +128,15 @@ export default function AdminProgramsPage() {
                   <span className="font-semibold">{program.enrollments}</span>
                 </div>
                 <div className="flex gap-2">
-                  <Button variant="outline" size="sm" className="flex-1">
+                  <Button variant="outline" size="sm" className="flex-1" onClick={() => handleView(program.id)}>
                     <Icon icon={Eye} size="sm" className="mr-2" aria-hidden={true} />
                     View
                   </Button>
-                  <Button variant="outline" size="sm" className="flex-1">
+                  <Button variant="outline" size="sm" className="flex-1" onClick={() => handleEdit(program.id)}>
                     <Icon icon={Edit} size="sm" className="mr-2" aria-hidden={true} />
                     Edit
                   </Button>
-                  <Button variant="outline" size="sm">
+                  <Button variant="outline" size="sm" onClick={() => handleDelete(program.id)}>
                     <Icon icon={Trash2} size="sm" aria-label="Delete program" />
                   </Button>
                 </div>

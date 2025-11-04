@@ -57,17 +57,17 @@ export default function VideoTestimonialsSection() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
             >
-              <Card className="overflow-hidden transition-all border-2 border-zone-purple-secondary/30 bg-zone-purple-base/50 backdrop-blur-sm hover:border-zone-purple-primary hover:shadow-lg hover:shadow-zone-purple-primary/20 cursor-pointer group">
+              <Card className="overflow-hidden transition-all border-2 border-border bg-card/50 backdrop-blur-sm hover:border-primary hover:shadow-lg hover:shadow-primary/20 cursor-pointer group">
                 <div
                   className="relative aspect-video bg-cover bg-center"
                   style={{ backgroundImage: `url(${video.thumbnail})` }}
                 >
-                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center transition-all group-hover:bg-black/50">
-                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-zone-purple-primary border-2 border-zone-purple-metallic/30 transition-transform group-hover:scale-110">
+                  <div className="absolute inset-0 bg-background/40 dark:bg-black/40 flex items-center justify-center transition-all group-hover:bg-background/50 dark:group-hover:bg-black/50">
+                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary border-2 border-primary/30 transition-transform group-hover:scale-110">
                       <Play className="h-8 w-8 text-primary-foreground ml-1" fill="currentColor" />
                     </div>
                   </div>
-                  <div className="absolute bottom-4 right-4 rounded bg-black/80 px-2 py-1 text-xs text-white">
+                  <div className="absolute bottom-4 right-4 rounded bg-background/80 dark:bg-black/80 px-2 py-1 text-xs text-foreground">
                     {video.duration}
                   </div>
                 </div>

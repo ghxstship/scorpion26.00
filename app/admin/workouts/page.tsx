@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { getCurrentUser } from "@/lib/auth/demo-auth";
 import { hasPermission } from "@/lib/auth/rbac-utils";
@@ -14,9 +14,30 @@ import { Text } from "@/components/atoms/text";
 import { Icon } from "@/components/atoms/icon";
 import { spacingClasses } from "@/lib/design-tokens";
 
+const mockWorkouts = [
+  { id: 1, name: "Upper Body Power", exercises: 8, duration: "45 min", difficulty: "Advanced", category: "Strength" },
+  { id: 2, name: "HIIT Cardio Blast", exercises: 12, duration: "30 min", difficulty: "Intermediate", category: "Cardio" },
+  { id: 3, name: "Lower Body Hypertrophy", exercises: 10, duration: "60 min", difficulty: "Advanced", category: "Strength" },
+  { id: 4, name: "Core Stability", exercises: 6, duration: "20 min", difficulty: "Beginner", category: "Core" },
+  { id: 5, name: "Full Body Circuit", exercises: 15, duration: "40 min", difficulty: "Intermediate", category: "Circuit" },
+  { id: 6, name: "Mobility & Flexibility", exercises: 8, duration: "25 min", difficulty: "Beginner", category: "Recovery" },
+];
+
 export default function AdminWorkoutsPage() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
+  const [workouts, setWorkouts] = useState<any[]>([]);
+
+  const fetchWorkouts = useCallback(async () => {
+    try {
+      const response = await fetch('/api/admin/workouts');
+      const data = await response.json();
+      setWorkouts(data.workouts || mockWorkouts);
+    } catch (error) {
+      console.error('Error fetching workouts:', error);
+      setWorkouts(mockWorkouts);
+    }
+  }, []);
 
   useEffect(() => {
     const user = getCurrentUser();
@@ -31,8 +52,34 @@ export default function AdminWorkoutsPage() {
       return;
     }
 
+    fetchWorkouts();
     setIsLoading(false);
-  }, [router]);
+  }, [router, fetchWorkouts]);
+
+  const handleCreateWorkout = () => {
+    alert('Create workout - modal to be implemented');
+  };
+
+  const handleEdit = (workoutId: number) => {
+    router.push(`/admin/workouts/${workoutId}/edit`);
+  };
+
+  const handleDelete = async (workoutId: number) => {
+    if (!confirm('Are you sure you want to delete this workout?')) return;
+    
+    try {
+      const response = await fetch(`/api/admin/workouts/${workoutId}`, {
+        method: 'DELETE'
+      });
+      
+      if (response.ok) {
+        fetchWorkouts();
+      }
+    } catch (error) {
+      console.error('Error deleting workout:', error);
+      alert('Failed to delete workout');
+    }
+  };
 
   if (isLoading) {
     return (
@@ -41,15 +88,6 @@ export default function AdminWorkoutsPage() {
       </div>
     );
   }
-
-  const mockWorkouts = [
-    { id: 1, name: "Upper Body Power", exercises: 8, duration: "45 min", difficulty: "Advanced", category: "Strength" },
-    { id: 2, name: "HIIT Cardio Blast", exercises: 12, duration: "30 min", difficulty: "Intermediate", category: "Cardio" },
-    { id: 3, name: "Lower Body Hypertrophy", exercises: 10, duration: "60 min", difficulty: "Advanced", category: "Strength" },
-    { id: 4, name: "Core Stability", exercises: 6, duration: "20 min", difficulty: "Beginner", category: "Core" },
-    { id: 5, name: "Full Body Circuit", exercises: 15, duration: "40 min", difficulty: "Intermediate", category: "Circuit" },
-    { id: 6, name: "Mobility & Flexibility", exercises: 8, duration: "25 min", difficulty: "Beginner", category: "Recovery" },
-  ];
 
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
@@ -69,14 +107,14 @@ export default function AdminWorkoutsPage() {
             Manage workout library and exercises
           </Text>
         </div>
-        <Button>
+        <Button onClick={handleCreateWorkout}>
           <Icon icon={Plus} size="sm" className="mr-2" aria-hidden={true} />
           Create Workout
         </Button>
       </div>
 
       <div className="grid gap-4">
-        {mockWorkouts.map((workout) => (
+        {workouts.map((workout) => (
           <Card key={workout.id} className="hover:shadow-md transition-shadow">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
@@ -102,11 +140,11 @@ export default function AdminWorkoutsPage() {
                   <Badge variant="outline" className={getDifficultyColor(workout.difficulty)}>
                     {workout.difficulty}
                   </Badge>
-                  <Button variant="outline" size="sm">
+                  <Button variant="outline" size="sm" onClick={() => handleEdit(workout.id)}>
                     <Icon icon={Edit} size="sm" className="mr-2" aria-hidden={true} />
                     Edit
                   </Button>
-                  <Button variant="outline" size="sm">
+                  <Button variant="outline" size="sm" onClick={() => handleDelete(workout.id)}>
                     <Icon icon={Trash2} size="sm" aria-label="Delete workout" />
                   </Button>
                 </div>

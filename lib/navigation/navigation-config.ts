@@ -151,9 +151,10 @@ export const navigationByRole: NavigationConfig = {
       ],
     },
     {
-      section: "Community",
+      section: "Social",
       items: [
-        { label: "Feed", icon: "Users", path: "/member/community" },
+        { label: "Activity Feed", icon: "Home", path: "/member/feed" },
+        { label: "Find Friends", icon: "Users", path: "/member/social" },
         { label: "Challenges", icon: "Flag", path: "/member/challenges" },
         { label: "Leaderboard", icon: "Star", path: "/member/leaderboard" },
       ],

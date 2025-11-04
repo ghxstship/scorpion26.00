@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- App Information -->
+    <key>CFBundleDevelopmentRegion</key>
+    <string>$(DEVELOPMENT_LANGUAGE)</string>
+    
+    <key>CFBundleDisplayName</key>
+    <string>Scorpion26</string>
+    
+    <key>CFBundleExecutable</key>
+    <string>$(EXECUTABLE_NAME)</string>
+    
+    <key>CFBundleIdentifier</key>
+    <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+    
+    <key>CFBundleInfoDictionaryVersion</key>
+    <string>6.0</string>
+    
+    <key>CFBundleName</key>
+    <string>$(PRODUCT_NAME)</string>
+    
+    <key>CFBundlePackageType</key>
+    <string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
+    
+    <key>CFBundleShortVersionString</key>
+    <string>1.0.0</string>
+    
+    <key>CFBundleVersion</key>
+    <string>1</string>
+    
+    <!-- HealthKit Permissions -->
+    <key>NSHealthShareUsageDescription</key>
+    <string>We need access to read your health data including heart rate, calories, distance, and steps to accurately track your workouts and provide personalized fitness insights.</string>
+    
+    <key>NSHealthUpdateUsageDescription</key>
+    <string>We need access to save your workout data to the Health app so you can view your complete fitness history and share it with other health apps.</string>
+    
+    <!-- Location Permissions (for GPS workouts) -->
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>We need your location to track distance, pace, and route for outdoor workouts like running and cycling.</string>
+    
+    <!-- Background Modes -->
+    <key>WKBackgroundModes</key>
+    <array>
+        <string>workout-processing</string>
+        <string>extended-runtime</string>
+    </array>
+    
+    <key>UIBackgroundModes</key>
+    <array>
+        <string>workout-processing</string>
+        <string>location</string>
+        <string>remote-notification</string>
+    </array>
+    
+    <!-- Required Device Capabilities -->
+    <key>UIRequiredDeviceCapabilities</key>
+    <array>
+        <string>watch-companion</string>
+        <string>healthkit</string>
+    </array>
+    
+    <!-- Watch-Specific Settings -->
+    <key>WKWatchOnly</key>
+    <true/>
+    
+    <key>WKApplication</key>
+    <true/>
+    
+    <!-- Complications -->
+    <key>CLKComplicationPrincipalClass</key>
+    <string>$(PRODUCT_MODULE_NAME).ComplicationController</string>
+    
+    <key>CLKComplicationSupportedFamilies</key>
+    <array>
+        <string>CLKComplicationFamilyGraphicCircular</string>
+        <string>CLKComplicationFamilyGraphicRectangular</string>
+        <string>CLKComplicationFamilyGraphicCorner</string>
+    </array>
+    
+    <!-- App Transport Security -->
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <false/>
+        <!-- Add your API domain here -->
+        <key>NSExceptionDomains</key>
+        <dict>
+            <key>api.scorpion26.com</key>
+            <dict>
+                <key>NSExceptionAllowsInsecureHTTPLoads</key>
+                <false/>
+                <key>NSIncludesSubdomains</key>
+                <true/>
+                <key>NSExceptionMinimumTLSVersion</key>
+                <string>TLSv1.2</string>
+            </dict>
+        </dict>
+    </dict>
+    
+    <!-- Privacy - Motion Usage -->
+    <key>NSMotionUsageDescription</key>
+    <string>We use motion data to detect workout activity and improve tracking accuracy.</string>
+    
+    <!-- Supported Interface Orientations -->
+    <key>UISupportedInterfaceOrientations</key>
+    <array>
+        <string>UIInterfaceOrientationPortrait</string>
+    </array>
+</dict>
+</plist>

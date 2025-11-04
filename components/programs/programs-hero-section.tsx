@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { Heading } from "@/components/atoms/heading";
 import { Text } from "@/components/atoms/text";
 import { Icon } from "@/components/atoms/icon";
+import { heroClasses } from "@/lib/design-tokens";
 
 export default function ProgramsHeroSection() {
   const tracks = [
@@ -20,7 +21,7 @@ export default function ProgramsHeroSection() {
   ];
 
   return (
-    <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-muted/20 to-background pt-24 pb-12">
+    <section className={`relative ${heroClasses.xl} flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-muted/20 to-background pt-24 pb-12`}>
       {/* Animated background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 animate-pulse" style={{ animationDuration: '8s' }} />
       

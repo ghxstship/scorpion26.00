@@ -25,7 +25,7 @@ export default function FinalConversionSection() {
   });
 
   return (
-    <section ref={ref} className={`${sectionClasses.xl} bg-gradient-to-br from-primary to-blue-600 text-primary-foreground`}>
+    <section ref={ref} className={`${sectionClasses.xl} bg-gradient-to-br from-primary via-primary to-primary/80 text-primary-foreground`}>
       <div className={containerClasses.default}>
         <div className="mx-auto max-w-4xl">
           {/* Main CTA */}
@@ -103,7 +103,7 @@ export default function FinalConversionSection() {
                 variant="secondary"
                 size="lg"
                 asChild
-                className="min-w-[200px]"
+                className="min-w-50"
               >
                 <Link href="#app">
                   <svg className="mr-2 h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
@@ -116,7 +116,7 @@ export default function FinalConversionSection() {
                 variant="secondary"
                 size="lg"
                 asChild
-                className="min-w-[200px]"
+                className="min-w-50"
               >
                 <Link href="#app">
                   <svg className="mr-2 h-6 w-6" viewBox="0 0 24 24" fill="currentColor">

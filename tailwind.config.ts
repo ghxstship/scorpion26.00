@@ -28,8 +28,39 @@ const config: Config = {
   			mono: ['var(--font-body)', 'monospace'],
   		},
   		fontSize: {
+  			'2xs': '0.625rem',  // 10px - for badges and compact UI
   			'title': ['var(--text-title)', { lineHeight: 'var(--leading-tight)' }],
   			'subtitle': ['var(--text-subtitle)', { lineHeight: 'var(--leading-normal)' }],
+  		},
+  		height: {
+  			'0.5': '0.125rem',   // 2px
+  			'25': '6.25rem',     // 100px
+  			'50': '12.5rem',     // 200px
+  			'75': '18.75rem',    // 300px
+  			'100': '25rem',      // 400px
+  			'112': '28rem',      // 450px
+  			'125': '31.25rem',   // 500px
+  			'150': '37.5rem',    // 600px
+  			'250': '62.5rem',    // 1000px
+  		},
+  		width: {
+  			'15': '3.75rem',     // 60px
+  			'18': '4.5rem',      // 72px
+  			'20': '5rem',        // 80px
+  			'25': '6.25rem',     // 100px
+  			'50': '12.5rem',     // 200px
+  			'250': '62.5rem',    // 1000px
+  		},
+  		minWidth: {
+  			'15': '3.75rem',     // 60px
+  			'20': '5rem',        // 80px
+  			'50': '12.5rem',     // 200px
+  		},
+  		maxHeight: {
+  			'112': '28rem',      // 450px
+  		},
+  		blur: {
+  			'3xl': '150px',      // Extra large blur
   		},
   		colors: {
   			border: 'hsl(var(--border))',

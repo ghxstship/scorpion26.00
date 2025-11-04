@@ -1,503 +1,183 @@
-# Elite Fitness Personal Brand Website Template
+# Supabase CLI
 
-An enterprise-grade, full-stack fitness personal brand website built with Next.js 14, TypeScript, Tailwind CSS, and modern web technologies. This template is designed for fitness coaches, personal trainers, and wellness brands looking to create a high-converting online presence.
+[![Coverage Status](https://coveralls.io/repos/github/supabase/cli/badge.svg?branch=main)](https://coveralls.io/github/supabase/cli?branch=main) [![Bitbucket Pipelines](https://img.shields.io/bitbucket/pipelines/supabase-cli/setup-cli/master?style=flat-square&label=Bitbucket%20Canary)](https://bitbucket.org/supabase-cli/setup-cli/pipelines) [![Gitlab Pipeline Status](https://img.shields.io/gitlab/pipeline-status/sweatybridge%2Fsetup-cli?label=Gitlab%20Canary)
+](https://gitlab.com/sweatybridge/setup-cli/-/pipelines)
 
-## 🚀 Features
+[Supabase](https://supabase.io) is an open source Firebase alternative. We're building the features of Firebase using enterprise-grade open source tools.
 
-### Core Pages
-- **Homepage** - Hero section, social proof, value propositions, program showcase
-- **About/Story Page** - Founder journey, credentials, mission statement
-- **Programs/Services** - Detailed program pages with pricing and testimonials
-- **Content Hub** - Blog, videos, and resources with filtering
-- **Results/Testimonials** - Transformation gallery and success stories
-- **Shop/Store** - ✅ **FULLY IMPLEMENTED** - Complete e-commerce with cart and dual payment integration
-- **Community** - Member portal and social features
-- **Contact** - Multi-channel contact options
+This repository contains all the functionality for Supabase CLI.
 
-### Design & UX
-- ✅ Mobile-first responsive design
-- ✅ Modern, clean UI with Tailwind CSS
-- ✅ Smooth animations with Framer Motion
-- ✅ Intersection Observer for scroll animations
-- ✅ Dark mode support
-- ✅ Accessible (WCAG AA compliant)
-- ✅ Fast page loads (<3s)
-- ✅ Optimized images with Next.js Image
+- [x] Running Supabase locally
+- [x] Managing database migrations
+- [x] Creating and deploying Supabase Functions
+- [x] Generating types directly from your database schema
+- [x] Making authenticated HTTP requests to [Management API](https://supabase.com/docs/reference/api/introduction)
 
-### Technical Features
-- ✅ Next.js 14 with App Router
-- ✅ TypeScript for type safety
-- ✅ Server and Client Components
-- ✅ SEO optimized with metadata
-- ✅ Performance optimized
-- ✅ shadcn/ui component library
-- ✅ Lucide icons
-- ✅ Form validation ready
-- ✅ Toast notifications
-- ✅ **Shopping Cart** - Zustand state management with localStorage persistence
-- ✅ **Stripe Integration** - Complete checkout flow with hosted payment page
-- ✅ **Shopify Integration** - Native Shopify checkout support
+## Getting started
 
-### Conversion Optimization
-- ✅ Multiple CTA placements
-- ✅ Email capture forms
-- ✅ Social proof elements
-- ✅ Trust indicators
-- ✅ Urgency elements
-- ✅ Money-back guarantee sections
-- ✅ Mobile app download CTAs
+### Install the CLI
 
-## 📋 Prerequisites
-
-- Node.js 18+ 
-- npm, yarn, or pnpm
-
-## 🛠️ Installation
-
-1. **Install dependencies:**
+Available via [NPM](https://www.npmjs.com) as dev dependency. To install:
 
 ```bash
-npm install
+npm i supabase --save-dev
 ```
 
-2. **Run the development server:**
+To install the beta release channel:
 
 ```bash
-npm run dev
+npm i supabase@beta --save-dev
 ```
 
-3. **Open your browser:**
-
-Navigate to [http://localhost:3000](http://localhost:3000)
-
-## 📁 Project Structure
+When installing with yarn 4, you need to disable experimental fetch with the following nodejs config.
 
 ```
-├── app/                    # Next.js 14 App Router
-│   ├── api/                # API routes
-│   ├── admin/              # Admin dashboard
-│   ├── collaborator/       # Collaborator portal
-│   ├── (public)/           # Public pages (about, community, etc.)
-│   └── ...                 # Other app routes
-│
-├── components/             # React components
-│   ├── atoms/              # Atomic design - atoms
-│   ├── molecules/          # Atomic design - molecules
-│   ├── organisms/          # Atomic design - organisms
-│   ├── ui/                 # shadcn/ui components
-│   ├── layout/             # Layout components
-│   ├── dashboard/          # Dashboard widgets
-│   ├── shop/               # Shop components
-│   └── branding/           # Brand system
-│
-├── lib/                    # Utilities and helpers
-│   ├── api/                # API utilities
-│   ├── auth/               # Authentication & RBAC
-│   ├── branding/           # Brand configuration
-│   ├── supabase/           # Database client
-│   └── utils.ts            # General utilities
-│
-├── hooks/                  # Custom React hooks
-│
-├── types/                  # TypeScript types
-│
-├── config/                 # Configuration files
-│   ├── sentry.client.config.ts
-│   ├── sentry.edge.config.ts
-│   └── sentry.server.config.ts
-│
-├── scripts/                # Utility scripts
-│   ├── create-demo-users.js
-│   ├── seed-demo-data.sql
-│   ├── supabase-schema.sql
-│   └── deploy-to-github.sh
-│
-├── supabase/               # Supabase configuration
-│   └── migrations/         # Database migrations
-│
-├── docs/                   # 📚 Documentation
-│   ├── architecture/       # System architecture & design
-│   ├── guides/             # Quick start guides & tutorials
-│   ├── implementation/     # Technical implementation docs
-│   ├── reports/            # Audit & validation reports
-│   ├── deployment/         # Deployment guides
-│   ├── INDEX.md            # Documentation index
-│   └── README.md           # Documentation overview
-│
-└── public/                 # Static assets
+NODE_OPTIONS=--no-experimental-fetch yarn add supabase
 ```
 
-## 📚 Documentation
+> **Note**
+For Bun versions below v1.0.17, you must add `supabase` as a [trusted dependency](https://bun.sh/guides/install/trusted) before running `bun add -D supabase`.
 
-**All documentation has been organized into `/docs` with a clear structure:**
+<details>
+  <summary><b>macOS</b></summary>
 
-### 📖 Getting Started
-- **[Documentation Index](./docs/INDEX.md)** - Complete documentation navigation
-- **[Quick Start Guide](./docs/guides/QUICK_START_GUIDE.md)** - Get started in 5 minutes
-- **[Setup Instructions](./docs/guides/SETUP_INSTRUCTIONS.md)** - Detailed setup
-- **[Quick Reference](./docs/guides/QUICK_REFERENCE.md)** - Code snippets and patterns
+  Available via [Homebrew](https://brew.sh). To install:
 
-### 🏗️ Architecture & Implementation
-- **Dashboard**: [Dashboard System](./docs/implementation/DASHBOARD_SYSTEM.md)
-- **Security**: [RBAC System](./docs/implementation/RBAC_SYSTEM.md)
-- **Design**: [Atomic Design Guide](./docs/implementation/ATOMIC_DESIGN_IMPLEMENTATION_GUIDE.md)
-- **E-commerce**: [Shop Implementation](./docs/implementation/SHOP_IMPLEMENTATION.md)
-- **Database**: [Supabase Integration](./docs/architecture/SUPABASE_INTEGRATION_COMPLETE.md)
-- **Branding**: [White-Label System](./docs/implementation/BRAND_WHITE_LABEL_SYSTEM.md)
+  ```sh
+  brew install supabase/tap/supabase
+  ```
 
-### 🚀 Deployment
-- **[Deployment Guide](./docs/deployment/DEPLOYMENT_GUIDE.md)** - Production deployment
-- **[Deployment Checklist](./docs/deployment/DEPLOYMENT_CHECKLIST.md)** - Pre-deployment steps
+  To install the beta release channel:
+  
+  ```sh
+  brew install supabase/tap/supabase-beta
+  brew link --overwrite supabase-beta
+  ```
+  
+  To upgrade:
 
-### 📊 Reports & Validation
-- **[Audit Reports](./docs/reports/)** - System audits and validation
-- **[Production Validation](./docs/reports/PRODUCTION_VALIDATION_REPORT.md)** - Production readiness
+  ```sh
+  brew upgrade supabase
+  ```
+</details>
 
-## 🎨 Customization
+<details>
+  <summary><b>Windows</b></summary>
 
-### Brand Colors
+  Available via [Scoop](https://scoop.sh). To install:
 
-Edit `app/globals.css` to customize your brand colors:
+  ```powershell
+  scoop bucket add supabase https://github.com/supabase/scoop-bucket.git
+  scoop install supabase
+  ```
 
-```css
-:root {
-  --primary: 221.2 83.2% 53.3%;        /* Main brand color */
-  --secondary: 210 40% 96.1%;          /* Secondary color */
-  --accent: 210 40% 96.1%;             /* Accent color */
-  /* ... more colors */
-}
-```
+  To upgrade:
 
-### Content
+  ```powershell
+  scoop update supabase
+  ```
+</details>
 
-1. **Update site metadata** in `app/layout.tsx`
-2. **Replace placeholder images** with your own
-3. **Modify text content** in each section component
-4. **Update navigation links** in `components/layout/header.tsx`
-5. **Customize footer links** in `components/layout/footer.tsx`
+<details>
+  <summary><b>Linux</b></summary>
 
-### Fonts
+  Available via [Homebrew](https://brew.sh) and Linux packages.
 
-The template uses Inter and Montserrat from Google Fonts. Change in `app/layout.tsx`:
+  #### via Homebrew
 
-```typescript
-const inter = Inter({ subsets: ["latin"] });
-const montserrat = Montserrat({ subsets: ["latin"] });
-```
+  To install:
 
-## 🖼️ Images
+  ```sh
+  brew install supabase/tap/supabase
+  ```
 
-Replace placeholder images from Unsplash with your own:
+  To upgrade:
 
-- Hero images
-- Program thumbnails
-- Testimonial photos
-- Founder/coach photos
-- Content thumbnails
+  ```sh
+  brew upgrade supabase
+  ```
 
-Use the Next.js Image component for optimization:
+  #### via Linux packages
 
-```tsx
-import Image from "next/image";
+  Linux packages are provided in [Releases](https://github.com/supabase/cli/releases). To install, download the `.apk`/`.deb`/`.rpm`/`.pkg.tar.zst` file depending on your package manager and run the respective commands.
 
-<Image
-  src="/your-image.jpg"
-  alt="Description"
-  width={800}
-  height={600}
-  priority // for above-the-fold images
-/>
-```
+  ```sh
+  sudo apk add --allow-untrusted <...>.apk
+  ```
 
-## 📱 Responsive Design
+  ```sh
+  sudo dpkg -i <...>.deb
+  ```
 
-All components are mobile-first and responsive:
+  ```sh
+  sudo rpm -i <...>.rpm
+  ```
 
-- Mobile: < 768px
-- Tablet: 768px - 1199px
-- Desktop: 1200px+
+  ```sh
+  sudo pacman -U <...>.pkg.tar.zst
+  ```
+</details>
 
-## 🚀 Deployment
+<details>
+  <summary><b>Other Platforms</b></summary>
 
-### Vercel (Recommended)
+  You can also install the CLI via [go modules](https://go.dev/ref/mod#go-install) without the help of package managers.
 
-1. Push your code to GitHub
-2. Import project in Vercel
-3. Deploy automatically
+  ```sh
+  go install github.com/supabase/cli@latest
+  ```
 
-### Netlify
+  Add a symlink to the binary in `$PATH` for easier access:
 
-1. Build command: `npm run build`
-2. Publish directory: `.next`
-3. Deploy
+  ```sh
+  ln -s "$(go env GOPATH)/bin/cli" /usr/bin/supabase
+  ```
 
-### Other Platforms
+  This works on other non-standard Linux distros.
+</details>
 
-Build the production version:
+<details>
+  <summary><b>Community Maintained Packages</b></summary>
+
+  Available via [pkgx](https://pkgx.sh/). Package script [here](https://github.com/pkgxdev/pantry/blob/main/projects/supabase.com/cli/package.yml).
+  To install in your working directory:
+
+  ```bash
+  pkgx install supabase
+  ```
+
+  Available via [Nixpkgs](https://nixos.org/). Package script [here](https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/tools/supabase-cli/default.nix).
+</details>
+
+### Run the CLI
 
 ```bash
-npm run build
-npm start
+supabase bootstrap
 ```
 
-## 🔧 Environment Variables
-
-Create a `.env.local` file for environment variables:
-
-```env
-# Base URL
-NEXT_PUBLIC_BASE_URL=http://localhost:3000
-
-# Stripe (for shop checkout)
-NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_your_key
-STRIPE_SECRET_KEY=sk_test_your_key
-
-# Shopify (optional - for shop checkout)
-NEXT_PUBLIC_SHOPIFY_DOMAIN=your-store.myshopify.com
-NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_TOKEN=your_token
-
-# Analytics
-NEXT_PUBLIC_GA_ID=your-google-analytics-id
-
-# Email Service
-EMAIL_API_KEY=your-email-service-key
-
-# Database (if needed)
-DATABASE_URL=your-database-url
-```
-
-**See `.env.example` for complete shop configuration details.**
-
-## 📊 Analytics Integration
-
-Add Google Analytics in `app/layout.tsx`:
-
-```tsx
-import Script from 'next/script';
-
-// In the layout component
-<Script
-  src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
-  strategy="afterInteractive"
-/>
-```
-
-## 🔐 Authentication
-
-The template is ready for authentication integration:
-
-- NextAuth.js
-- Clerk
-- Supabase Auth
-- Auth0
-
-Add your preferred auth provider in the `/login` route.
-
-## 💳 Payment Integration
-
-**✅ FULLY IMPLEMENTED** in the shop section:
-
-- ✅ **Stripe** - Complete checkout flow with hosted payment page
-- ✅ **Shopify** - Native Shopify Buy SDK integration
-- 🔄 PayPal (ready to add)
-- 🔄 Square (ready to add)
-
-**Quick Start:**
-1. Copy `.env.example` to `.env.local`
-2. Add your Stripe/Shopify API keys
-3. Test with Stripe test card: `4242 4242 4242 4242`
-
-**Documentation:**
-- [Shop Quickstart](./docs/guides/SHOP_QUICKSTART.md) - Get started in 5 minutes
-- [Shop Implementation](./docs/implementation/SHOP_IMPLEMENTATION.md) - Complete technical docs
-- [Shop Summary](./docs/validation/SHOP_SUMMARY.md) - Implementation overview
-
-## 📧 Email Marketing
-
-Integrate with:
-
-- Mailchimp
-- ConvertKit
-- SendGrid
-- ActiveCampaign
-
-Add API calls in the email capture forms.
-
-## 🎯 SEO Optimization
-
-The template includes:
-
-- ✅ Semantic HTML
-- ✅ Meta tags
-- ✅ Open Graph tags
-- ✅ Twitter Card tags
-- ✅ Structured data (JSON-LD)
-- ✅ Sitemap generation
-- ✅ Robots.txt
-
-Add structured data for better SEO:
-
-```tsx
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Your Name",
-  "jobTitle": "Fitness Coach",
-  // ... more data
-}
-</script>
-```
-
-## ⚡ Performance Optimization
-
-- Image optimization with Next.js Image
-- Code splitting
-- Lazy loading
-- Font optimization
-- CSS optimization
-- Minimal JavaScript
-
-## 🧪 Testing
-
-Add testing with:
+Or using npx:
 
 ```bash
-npm install --save-dev @testing-library/react @testing-library/jest-dom jest
+npx supabase bootstrap
 ```
 
-## 📝 License
+The bootstrap command will guide you through the process of setting up a Supabase project using one of the [starter](https://github.com/supabase-community/supabase-samples/blob/main/samples.json) templates.
 
-This template is provided as-is for commercial and personal use.
+## Docs
 
-## 🤝 Support
+Command & config reference can be found [here](https://supabase.com/docs/reference/cli/about).
 
-For issues or questions:
-- Check the documentation
-- Review the code comments
-- Consult Next.js documentation
+## Breaking changes
 
-## 🎓 Learning Resources
+We follow semantic versioning for changes that directly impact CLI commands, flags, and configurations.
 
-- [Next.js Documentation](https://nextjs.org/docs)
-- [Tailwind CSS](https://tailwindcss.com/docs)
-- [shadcn/ui](https://ui.shadcn.com)
-- [Framer Motion](https://www.framer.com/motion)
+However, due to dependencies on other service images, we cannot guarantee that schema migrations, seed.sql, and generated types will always work for the same CLI major version. If you need such guarantees, we encourage you to pin a specific version of CLI in package.json.
 
-## 🔄 Updates
+## Developing
 
-Keep dependencies updated:
+To run from source:
 
-```bash
-npm update
+```sh
+# Go >= 1.22
+go run . help
 ```
-
-## 📦 Build for Production
-
-```bash
-npm run build
-```
-
-This creates an optimized production build in `.next/`
-
-## 🌟 Features to Add
-
-Consider adding:
-
-- [ ] Blog with MDX
-- [ ] Video streaming
-- [ ] Live chat
-- [ ] Member dashboard
-- [ ] Progress tracking
-- [ ] Workout builder
-- [ ] Meal planner
-- [ ] Community forum
-- [ ] Booking system
-- [ ] Subscription management
-
-## 🎨 Design System
-
-The template uses a consistent design system:
-
-- **Typography**: Inter (body), Montserrat (headings)
-- **Spacing**: 4px base unit
-- **Border Radius**: 0.5rem default
-- **Shadows**: Subtle, layered
-- **Colors**: HSL-based for easy theming
-
-## 🔍 Accessibility
-
-- Semantic HTML elements
-- ARIA labels where needed
-- Keyboard navigation
-- Focus indicators
-- Color contrast ratios
-- Screen reader friendly
-
-## 📱 Progressive Web App (PWA)
-
-Convert to PWA by adding:
-
-1. `manifest.json`
-2. Service worker
-3. Offline support
-4. Install prompts
-
-## 🌐 Internationalization (i18n)
-
-Add multi-language support with next-intl or next-i18next.
-
-## 🎯 Conversion Rate Optimization
-
-The template includes CRO best practices:
-
-- Clear value propositions
-- Social proof throughout
-- Multiple CTAs
-- Trust indicators
-- Urgency elements
-- Risk reversal (guarantees)
-- Mobile optimization
-- Fast loading times
-
-## 🛒 E-Commerce Shop Features
-
-The shop is **fully implemented** with production-ready features:
-
-### Shopping Cart
-- ✅ Persistent cart (survives page refresh)
-- ✅ Add/remove/update items
-- ✅ Real-time totals calculation
-- ✅ Item count badge
-- ✅ Slide-out cart drawer
-- ✅ Toast notifications
-
-### Product Management
-- ✅ Product catalog with images
-- ✅ Product detail pages
-- ✅ Product variants (sizes, colors)
-- ✅ Stock status tracking
-- ✅ Product search helpers
-- ✅ Category filtering
-
-### Checkout
-- ✅ Dual payment integration (Stripe + Shopify)
-- ✅ Tax calculation (configurable)
-- ✅ Shipping calculation
-- ✅ Free shipping threshold
-- ✅ Order success page
-- ✅ Error handling
-
-### Technical
-- ✅ Zustand state management
-- ✅ TypeScript types
-- ✅ API routes for checkout
-- ✅ Server-side payment processing
-- ✅ Responsive design
-- ✅ Optimized performance
-
-**Get Started:** See [Shop Quickstart](./docs/guides/SHOP_QUICKSTART.md) for setup instructions.
-
----
-
-**Built with ❤️ for fitness professionals who want to scale their impact online.**

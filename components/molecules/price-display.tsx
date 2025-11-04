@@ -60,7 +60,7 @@ export function PriceDisplay({
         )}
       </div>
       {showDiscount && discountPercent && (
-        <Badge variant="secondary" className="text-[10px] sm:text-xs bg-green-500/20 text-green-400 border-green-500/30">
+        <Badge variant="secondary" className="text-2xs sm:text-xs bg-green-500/20 text-green-400 border-green-500/30">
           Save {discountPercent}%
         </Badge>
       )}

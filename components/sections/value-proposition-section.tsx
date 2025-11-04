@@ -54,7 +54,7 @@ export default function ValuePropositionSection() {
   });
 
   return (
-    <section ref={ref} className={`${sectionClasses.md} bg-gradient-to-b from-zone-red-base via-zone-red-secondary/30 to-zone-red-base relative`}>
+    <section ref={ref} className={`${sectionClasses.md} bg-gradient-to-b from-muted/30 via-background to-muted/30 relative`}>
       {/* Red Zone Accent Line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-zone-red-primary to-transparent" />
       <div className={containerClasses.default}>
@@ -82,10 +82,10 @@ export default function ValuePropositionSection() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
             >
-              <Card className="h-full border-2 border-zone-red-secondary/30 bg-zone-red-base/50 backdrop-blur-sm transition-all hover:border-zone-red-primary hover:shadow-lg hover:shadow-zone-red-primary/20">
+              <Card className="h-full border-2 border-border bg-card/50 backdrop-blur-sm transition-all hover:border-primary hover:shadow-lg hover:shadow-primary/20">
                 <CardHeader className="p-5 sm:p-6">
-                  <div className="mb-3 sm:mb-4 flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-2xl bg-zone-red-primary/10 border border-zone-red-primary/20">
-                    <Icon icon={feature.icon} size="xl" className="text-zone-red-primary sm:h-10 sm:w-10" aria-hidden={true} />
+                  <div className="mb-3 sm:mb-4 flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-2xl bg-primary/10 border border-primary/20">
+                    <Icon icon={feature.icon} size="xl" className="text-primary sm:h-10 sm:w-10" aria-hidden={true} />
                   </div>
                   <CardTitle className="text-xl sm:text-2xl">{feature.title}</CardTitle>
                   <CardDescription className="text-sm sm:text-base">
@@ -96,8 +96,8 @@ export default function ValuePropositionSection() {
                   <ul className="space-y-2.5 sm:space-y-3">
                     {feature.benefits.map((benefit, i) => (
                       <li key={i} className="flex items-start">
-                        <Text variant="body-sm" className="mr-2 mt-0.5 text-zone-red-primary flex-shrink-0">✓</Text>
-                        <Text variant="body-sm" className="text-zone-red-metallic/90 text-sm">{benefit}</Text>
+                        <Text variant="body-sm" className="mr-2 mt-0.5 text-primary flex-shrink-0">✓</Text>
+                        <Text variant="body-sm" className="text-muted-foreground text-sm">{benefit}</Text>
                       </li>
                     ))}
                   </ul>

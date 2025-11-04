@@ -15,6 +15,14 @@
 
 ---
 
+## 🗺️ Project Roadmap
+
+**NEW:** See our comprehensive roadmap for upcoming features and milestones:
+- **[ROADMAP.md](../ROADMAP.md)** ⭐ - Detailed project roadmap with timelines
+- **[ROADMAP_VISUAL.md](../ROADMAP_VISUAL.md)** - Visual timeline and progress tracker
+
+---
+
 ## 📋 Documentation Structure
 
 ### 📖 Guides (`/docs/guides`)
@@ -58,6 +66,13 @@ Detailed technical documentation for implementing features and systems.
 - **[Shop Implementation](./implementation/SHOP_IMPLEMENTATION.md)** - E-commerce implementation
 - **[Shop Checklist](./implementation/SHOP_CHECKLIST.md)** - Shop setup checklist
 - **[Programs Structure](./implementation/PROGRAMS_STRUCTURE.md)** - Fitness programs architecture
+
+#### Health & Wearables
+- **[Health Quick Start](./HEALTH_QUICK_START.md)** ⭐ - Get health integration running in 5 minutes
+- **[Wearable Integration Guide](./WEARABLE_INTEGRATION_GUIDE.md)** - Complete setup and usage guide
+- **[Wearable Integration Complete](./WEARABLE_INTEGRATION_COMPLETE.md)** - Implementation summary
+- **[Health Testing Checklist](./HEALTH_TESTING_CHECKLIST.md)** - Comprehensive testing guide
+- **[Health Deployment Checklist](./HEALTH_DEPLOYMENT_CHECKLIST.md)** - Production deployment guide
 
 #### Branding
 - **[Brand System README](./implementation/BRAND_SYSTEM_README.md)** - Brand system documentation

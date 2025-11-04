@@ -43,7 +43,7 @@ export default function MemberSchedulePage() {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="h-[500px] flex items-center justify-center border rounded-lg bg-muted/20">
+          <div className="h-125 flex items-center justify-center border rounded-lg bg-muted/20">
             <div className="text-center">
               <Calendar className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
               <p className="text-muted-foreground">Calendar view would be displayed here</p>

@@ -50,9 +50,9 @@ export default function ContentHubSection() {
   });
 
   return (
-    <section ref={ref} className={`${sectionClasses.xl} bg-gradient-to-b from-zone-green-base via-zone-green-secondary/20 to-zone-green-base relative`}>
-      {/* Green Zone Accent Line */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-zone-green-primary to-transparent" />
+    <section ref={ref} className={`${sectionClasses.xl} bg-gradient-to-b from-muted/30 via-background to-muted/30 relative`}>
+      {/* Accent Line */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
       <div className={containerClasses.default}>
         {/* Section Header */}
         <motion.div
@@ -78,7 +78,7 @@ export default function ContentHubSection() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
             >
-              <Card className="group h-full overflow-hidden transition-all border-2 border-zone-green-secondary/30 bg-zone-green-base/50 backdrop-blur-sm hover:border-zone-green-primary hover:shadow-lg hover:shadow-zone-green-primary/20">
+              <Card className="group h-full overflow-hidden transition-all border-2 border-border bg-card/50 backdrop-blur-sm hover:border-primary hover:shadow-lg hover:shadow-primary/20">
                 {/* Image */}
                 <div className="relative h-48 overflow-hidden">
                   <Image
@@ -87,13 +87,13 @@ export default function ContentHubSection() {
                     fill
                     className="object-cover transition-transform duration-300 group-hover:scale-110"
                   />
-                  <Badge className="absolute left-4 top-4 bg-zone-green-primary/90 text-white">
+                  <Badge className="absolute left-4 top-4 bg-primary/90 text-primary-foreground">
                     {item.type}
                   </Badge>
                 </div>
 
                 <CardHeader>
-                  <Text variant="label" className="mb-2 text-zone-green-primary">
+                  <Text variant="label" className="mb-2 text-primary">
                     {item.category}
                   </Text>
                   <CardTitle className="line-clamp-2 text-xl">

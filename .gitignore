@@ -51,6 +51,7 @@ next-env.d.ts
 .temp/
 supabase/.branches
 supabase/.temp
+supabase-cli-binary
 
 # Sentry
 .sentryclirc

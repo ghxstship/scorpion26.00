@@ -79,11 +79,11 @@ export default function CustomProgramsSection() {
               <TabsTrigger value="weekly" className="text-xs sm:text-sm">Weekly</TabsTrigger>
               <TabsTrigger value="monthly" className="text-xs sm:text-sm">
                 Monthly
-                <Badge variant="secondary" className="ml-1 sm:ml-2 text-[10px] sm:text-xs px-1 sm:px-2">Popular</Badge>
+                <Badge variant="secondary" className="ml-1 sm:ml-2 text-2xs sm:text-xs px-1 sm:px-2">Popular</Badge>
               </TabsTrigger>
               <TabsTrigger value="annual" className="text-xs sm:text-sm">
                 Annual
-                <Badge variant="secondary" className="ml-1 sm:ml-2 text-[10px] sm:text-xs px-1 sm:px-2 bg-green-500/20 text-green-400">-17%</Badge>
+                <Badge variant="secondary" className="ml-1 sm:ml-2 text-2xs sm:text-xs px-1 sm:px-2 bg-green-500/20 text-green-400">-17%</Badge>
               </TabsTrigger>
             </TabsList>
           </Tabs>
@@ -131,7 +131,7 @@ export default function CustomProgramsSection() {
                   {/* Premium Badge */}
                   <div className="p-3 sm:p-4 pb-0 pt-5 sm:pt-6 relative z-10">
                     <Badge 
-                      className="text-[10px] sm:text-xs"
+                      className="text-2xs sm:text-xs"
                       style={{ 
                         backgroundColor: zone.colors.primary,
                         color: '#fff'
@@ -173,7 +173,7 @@ export default function CustomProgramsSection() {
                         <span className="text-xs sm:text-sm text-muted-foreground">{periodLabel}</span>
                       </div>
                       {pricingPeriod === 'annual' && (
-                        <p className="text-[10px] sm:text-xs text-green-400 mt-1">Save 17% vs monthly</p>
+                        <p className="text-2xs sm:text-xs text-green-400 mt-1">Save 17% vs monthly</p>
                       )}
                     </div>
 
@@ -186,7 +186,7 @@ export default function CustomProgramsSection() {
                           borderColor: `${zone.colors.accent}40`
                         }}
                       >
-                        <p className="text-[10px] sm:text-xs font-medium" style={{ color: zone.colors.accent }}>
+                        <p className="text-2xs sm:text-xs font-medium" style={{ color: zone.colors.accent }}>
                           Limited to {program.maxParticipants} members
                         </p>
                       </div>

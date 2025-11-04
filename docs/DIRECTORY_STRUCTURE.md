@@ -7,6 +7,7 @@ Complete directory structure of the Scorpion26.00 project.
 ```
 Scorpion26.00/
 ├── app/                        # Next.js 14 App Router
+├── apple-watch/                # Apple Watch companion app
 ├── components/                 # React components
 ├── lib/                        # Utilities & business logic
 ├── hooks/                      # Custom React hooks
@@ -187,7 +188,17 @@ supabase/
 ├── .temp/                      # Temporary CLI files (gitignored)
 └── migrations/                 # Database migrations
     ├── 20251104000828_initial_schema.sql
-    └── 20251104010000_extended_schema.sql
+    ├── 20251104010000_extended_schema.sql
+    ├── 20251104020000_rpc_functions.sql
+    ├── 20251104040000_gamification_system.sql
+    ├── 20251104040001_gamification_functions.sql
+    ├── 20251104040002_gamification_seed_badges.sql
+    ├── 20251104050000_social_features.sql
+    ├── 20251104090000_ai_personalization.sql
+    ├── 20251105000000_add_demo_user_flag.sql
+    ├── 20251105000001_seed_demo_users.sql
+    ├── 20251105000002_update_new_user_trigger.sql
+    └── 20251105000003_seed_demo_data.sql
 ```
 
 ### `/docs` - Documentation
@@ -203,8 +214,10 @@ docs/
 │   ├── ENTERPRISE_IMPLEMENTATION_SUMMARY.md
 │   ├── FINAL_MIGRATION_STATUS.md
 │   ├── MIGRATION_SUCCESS.md
-│   └── SUPABASE_INTEGRATION_COMPLETE.md
+│   ├── SUPABASE_INTEGRATION_COMPLETE.md
+│   └── SUPABASE_SETUP.md
 ├── guides/                     # User guides
+│   ├── ACTIVITY_TRACKING_SETUP.md
 │   ├── BRAND_QUICKSTART.md
 │   ├── DASHBOARD_QUICKSTART.md
 │   ├── DEMO_CREDENTIALS_CARD.md
@@ -212,6 +225,7 @@ docs/
 │   ├── DEMO_LOGIN_README.md
 │   ├── DEMO_LOGIN_TEST_GUIDE.md
 │   ├── DEMO_USER_CREATION_GUIDE.md
+│   ├── FINAL_SETUP_INSTRUCTIONS.md
 │   ├── NEXT_STEPS.md
 │   ├── PROGRAMS_USAGE_GUIDE.md
 │   ├── QUICK_DEPLOY.md
@@ -221,21 +235,25 @@ docs/
 │   ├── QUICK_START_GUIDE.md
 │   ├── RBAC_QUICK_START.md
 │   ├── SETUP_INSTRUCTIONS.md
-│   └── SHOP_QUICKSTART.md
+│   ├── SHOP_QUICKSTART.md
+│   └── START_HERE_HEALTH_INTEGRATION.md
 ├── implementation/             # Technical docs
 │   ├── ACCESSIBILITY_COMPLIANCE.md
+│   ├── AI_PERSONALIZATION_README.md
 │   ├── ANIMATION_SYSTEM_GUIDE.md
 │   ├── ATOMIC_DESIGN_IMPLEMENTATION_GUIDE.md
 │   ├── BRAND_SYSTEM_README.md
 │   ├── BRAND_WHITE_LABEL_SYSTEM.md
 │   ├── DASHBOARD_IMPLEMENTATION_SUMMARY.md
 │   ├── DASHBOARD_SYSTEM.md
+│   ├── GAMIFICATION_README.md
 │   ├── GYM_COLOR_ZONES_IMPLEMENTATION.md
 │   ├── PROGRAMS_STRUCTURE.md
 │   ├── RBAC_IMPLEMENTATION_SUMMARY.md
 │   ├── RBAC_README.md
 │   ├── RBAC_SYSTEM.md
 │   ├── README_UI_UX_SYSTEM.md
+│   ├── README_VIDEO_STREAMING.md
 │   ├── RESPONSIVE_DESIGN_SYSTEM.md
 │   ├── RESPONSIVE_TESTING_GUIDE.md
 │   ├── SHOP_CHECKLIST.md
@@ -247,6 +265,7 @@ docs/
 │   ├── ATOMIC_DESIGN_AUDIT_CHECKLIST.md
 │   ├── ATOMIC_DESIGN_AUDIT_RESULTS.md
 │   ├── COMPLETE_REMEDIATION_STATUS.md
+│   ├── ENTERPRISE_ARCHITECTURE_ROADMAP.md
 │   ├── FINAL_REMEDIATION_REPORT.md
 │   ├── FULL_STACK_AUDIT_REPORT.md
 │   ├── PAGE_IMPLEMENTATION_VERIFICATION.md
@@ -254,24 +273,55 @@ docs/
 │   ├── REMEDIATION_FINAL_STATUS.md
 │   ├── REMEDIATION_PROGRESS_SUMMARY.md
 │   ├── RESPONSIVE_OPTIMIZATION_REPORT.md
-│   ├── SUPABASE_AUDIT_REPORT.md
-│   └── [validation reports...]
+│   └── SUPABASE_AUDIT_REPORT.md
 ├── deployment/                 # Deployment guides
 │   ├── DEPLOYMENT_CHECKLIST.md
 │   ├── DEPLOYMENT_COMPLETE.md
 │   ├── DEPLOYMENT_GUIDE.md
-│   └── DEPLOYMENT_READINESS.md
-├── API_DOCUMENTATION.md        # API reference
+│   ├── DEPLOYMENT_INSTRUCTIONS.md
+│   ├── DEPLOYMENT_READINESS.md
+│   ├── FINAL_DEPLOYMENT_SUMMARY.md
+│   └── GAMIFICATION_DEPLOYMENT_SUMMARY.md
+├── project-status/             # Project status & milestones
+│   ├── AGENT_8_COMPLETE.md
+│   ├── AI_VERIFICATION_COMPLETE.md
+│   ├── APPLE_WATCH_SUMMARY.md
+│   ├── HEALTH_ACTION_ITEMS.md
+│   ├── HEALTH_INTEGRATION_SUMMARY.md
+│   ├── IMPLEMENTATION_COMPLETE.md
+│   ├── MIGRATION_INSTRUCTIONS.md
+│   ├── NEXT_ACTIONS.md
+│   ├── PROJECT_STATUS.md
+│   └── SOCIAL_FEATURES_COMPLETE.md
+├── roadmap/                    # Product roadmap
+│   ├── ROADMAP.md
+│   ├── ROADMAP_UPDATED.md
+│   ├── ROADMAP_UPDATES.md
+│   └── ROADMAP_VISUAL.md
+├── AI_DEPLOYMENT_GUIDE.md
+├── AI_QUICK_REFERENCE.md
+├── API_DOCUMENTATION.md
 ├── DIRECTORY_STRUCTURE.md      # This file
+├── GAMIFICATION_QUICKSTART.md
+├── HEALTH_DEPLOYMENT_CHECKLIST.md
+├── HEALTH_QUICK_START.md
 ├── INDEX.md                    # Documentation index
-└── README.md                   # Documentation overview
+├── PROJECT_README.md
+├── README.md                   # Documentation overview
+├── SOCIAL_FEATURES_QUICK_REFERENCE.md
+├── SOCIAL_FEATURES_README.md
+└── VIDEO_STREAMING_QUICKSTART.md
 ```
 
 ### `/types` - TypeScript Definitions
 
 ```
 types/
-└── shop.ts                     # Shop type definitions
+├── ai.ts                       # AI personalization types
+├── health.ts                   # Health & fitness types
+├── shop.ts                     # Shop type definitions
+├── social.ts                   # Social features types
+└── workout.ts                  # Workout tracking types
 ```
 
 ## 🔍 Quick Reference
@@ -309,11 +359,13 @@ types/
 
 ## 📊 Statistics
 
-- **Total Directories:** 60+
-- **Documentation Files:** 70+
-- **Component Categories:** 23
-- **Library Modules:** 15
-- **API Routes:** 12+
+- **Total Directories:** 65+
+- **Documentation Files:** 80+
+- **Component Categories:** 30
+- **Library Modules:** 17
+- **API Routes:** 23
+- **Type Definition Files:** 5
+- **Database Migrations:** 12
 
 ## 🎯 Organization Principles
 
@@ -326,5 +378,11 @@ types/
 ---
 
 **Last Updated:** November 4, 2025
+
+**Reorganization:** Completed comprehensive cleanup on November 4, 2025
+- Consolidated duplicate documentation files
+- Merged migration directories
+- Organized documentation into logical categories
+- Removed empty and redundant files
 
 For navigation help, see [INDEX.md](./INDEX.md)
