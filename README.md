@@ -73,10 +73,9 @@ Navigate to [http://localhost:3000](http://localhost:3000)
 ## 📁 Project Structure
 
 ```
-├── app/
-│   ├── layout.tsx          # Root layout with fonts, metadata
-│   ├── page.tsx            # Homepage
-│   ├── globals.css         # Global styles
+├── app/                    # Next.js 14 App Router
+│   ├── api/                # API routes
+│   ├── admin/              # Admin dashboard
 │   ├── about/              # About page
 │   ├── programs/           # Programs pages
 │   ├── content/            # Content hub
@@ -85,35 +84,54 @@ Navigate to [http://localhost:3000](http://localhost:3000)
 │   ├── contact/            # Contact page
 │   └── login/              # Authentication
 │
-├── components/
+├── components/             # React components
+│   ├── atoms/              # Atomic design - atoms
+│   ├── molecules/          # Atomic design - molecules
 │   ├── ui/                 # shadcn/ui components
-│   │   ├── button.tsx
-│   │   ├── card.tsx
-│   │   ├── input.tsx
-│   │   ├── badge.tsx
-│   │   └── toast.tsx
 │   ├── layout/             # Layout components
-│   │   ├── header.tsx
-│   │   └── footer.tsx
-│   ├── sections/           # Homepage sections
-│   │   ├── hero-section.tsx
-│   │   ├── social-proof-section.tsx
-│   │   ├── value-proposition-section.tsx
-│   │   ├── program-showcase-section.tsx
-│   │   ├── founder-section.tsx
-│   │   ├── media-features-section.tsx
-│   │   ├── content-hub-section.tsx
-│   │   └── final-conversion-section.tsx
-│   └── theme-provider.tsx
+│   ├── sections/           # Page sections
+│   ├── dashboard/          # Dashboard widgets
+│   ├── shop/               # Shop components
+│   └── branding/           # Brand system
 │
-├── lib/
-│   └── utils.ts            # Utility functions
+├── lib/                    # Utilities and helpers
+│   ├── api/                # API utilities
+│   ├── auth/               # Authentication
+│   ├── branding/           # Brand configuration
+│   ├── supabase/           # Database client
+│   └── utils.ts            # General utilities
 │
-├── hooks/
-│   └── use-toast.ts        # Toast notification hook
+├── hooks/                  # Custom React hooks
+│
+├── types/                  # TypeScript types
+│
+├── docs/                   # 📚 Documentation
+│   ├── guides/             # Quick start guides
+│   ├── implementation/     # Technical docs
+│   ├── validation/         # Testing & validation
+│   ├── systems/            # Database & infrastructure
+│   ├── deployment/         # Deployment guides
+│   └── README.md           # Documentation index
 │
 └── public/                 # Static assets
 ```
+
+## 📚 Documentation
+
+**All documentation has been organized into `/docs`**
+
+- **[Documentation Index](./docs/README.md)** - Complete documentation guide
+- **[Quick Start Guide](./docs/guides/QUICK_START_GUIDE.md)** - Get started in 5 minutes
+- **[Quick Reference](./docs/guides/QUICK_REFERENCE.md)** - Code snippets and patterns
+- **[Deployment Guide](./docs/deployment/DEPLOYMENT_GUIDE.md)** - Production deployment
+
+**By Topic:**
+- **Dashboard**: [Dashboard System](./docs/implementation/DASHBOARD_SYSTEM.md)
+- **Security**: [RBAC System](./docs/implementation/RBAC_SYSTEM.md)
+- **Design**: [Atomic Design Guide](./docs/implementation/ATOMIC_DESIGN_IMPLEMENTATION_GUIDE.md)
+- **E-commerce**: [Shop Implementation](./docs/implementation/SHOP_IMPLEMENTATION.md)
+- **Database**: [Supabase Integration](./docs/systems/SUPABASE_INTEGRATION_COMPLETE.md)
+- **Testing**: [Validation Reports](./docs/validation/)
 
 ## 🎨 Customization
 
@@ -270,9 +288,9 @@ Add your preferred auth provider in the `/login` route.
 3. Test with Stripe test card: `4242 4242 4242 4242`
 
 **Documentation:**
-- [SHOP_QUICKSTART.md](./SHOP_QUICKSTART.md) - Get started in 5 minutes
-- [SHOP_IMPLEMENTATION.md](./SHOP_IMPLEMENTATION.md) - Complete technical docs
-- [SHOP_SUMMARY.md](./SHOP_SUMMARY.md) - Implementation overview
+- [Shop Quickstart](./docs/guides/SHOP_QUICKSTART.md) - Get started in 5 minutes
+- [Shop Implementation](./docs/implementation/SHOP_IMPLEMENTATION.md) - Complete technical docs
+- [Shop Summary](./docs/validation/SHOP_SUMMARY.md) - Implementation overview
 
 ## 📧 Email Marketing
 
@@ -458,7 +476,7 @@ The shop is **fully implemented** with production-ready features:
 - ✅ Responsive design
 - ✅ Optimized performance
 
-**Get Started:** See [SHOP_QUICKSTART.md](./SHOP_QUICKSTART.md) for setup instructions.
+**Get Started:** See [Shop Quickstart](./docs/guides/SHOP_QUICKSTART.md) for setup instructions.
 
 ---
 
