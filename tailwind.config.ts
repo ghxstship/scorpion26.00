@@ -17,6 +17,20 @@ const config: Config = {
   		}
   	},
   	extend: {
+  		fontFamily: {
+  			title: ['var(--font-title)'],
+  			subtitle: ['var(--font-subtitle)'],
+  			heading: ['var(--font-heading-1)'],
+  			body: ['var(--font-body)'],
+  			button: ['var(--font-button)'],
+  			caption: ['var(--font-caption)'],
+  			sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+  			mono: ['var(--font-body)', 'monospace'],
+  		},
+  		fontSize: {
+  			'title': ['var(--text-title)', { lineHeight: 'var(--leading-tight)' }],
+  			'subtitle': ['var(--text-subtitle)', { lineHeight: 'var(--leading-normal)' }],
+  		},
   		colors: {
   			border: 'hsl(var(--border))',
   			input: 'hsl(var(--input))',

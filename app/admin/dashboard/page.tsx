@@ -1,43 +1,35 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { getCurrentUser } from "@/lib/auth/demo-auth";
 import { hasPermission } from "@/lib/auth/rbac-utils";
 import { Permission } from "@/lib/auth/rbac-types";
 import AdminDashboard from "@/components/dashboard/admin-dashboard";
 
+/**
+ * Admin Dashboard Page
+ * 
+ * Renders admin dashboard content with permission check.
+ * Authentication is handled by the parent layout.
+ */
 export default function AdminDashboardPage() {
   const router = useRouter();
-  const [user, setUser] = useState<any>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const user = getCurrentUser();
 
   useEffect(() => {
-    const currentUser = getCurrentUser();
-    
-    if (!currentUser) {
-      router.push("/login");
-      return;
-    }
-
-    if (!hasPermission(currentUser.role, Permission.ACCESS_ADMIN_PANEL)) {
+    // Permission check - redirect non-admins
+    if (user && !hasPermission(user.role, Permission.ACCESS_ADMIN_PANEL)) {
       router.push("/member/dashboard");
-      return;
     }
-
-    setUser(currentUser);
-    setIsLoading(false);
-  }, [router]);
-
-  if (isLoading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
-      </div>
-    );
-  }
+  }, [router, user]);
 
   if (!user) return null;
+
+  // Additional permission check before rendering
+  if (!hasPermission(user.role, Permission.ACCESS_ADMIN_PANEL)) {
+    return null;
+  }
 
   return <AdminDashboard user={user} />;
 }

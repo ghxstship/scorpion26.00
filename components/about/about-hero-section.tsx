@@ -5,12 +5,12 @@ import { Award } from "lucide-react";
 import { Heading } from "@/components/atoms/heading";
 import { Text } from "@/components/atoms/text";
 import { Icon } from "@/components/atoms/icon";
-import { spacingClasses } from "@/lib/design-tokens";
+import { spacingClasses, sectionClasses } from "@/lib/design-tokens";
 import { motion } from "framer-motion";
 
 export default function AboutHeroSection() {
   return (
-    <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-b from-background to-muted/20">
+    <section className={`${sectionClasses.md} bg-gradient-to-b from-background to-muted/20`}>
       <div className="container mx-auto px-4 sm:px-6">
         <div className={`max-w-3xl mx-auto text-center ${spacingClasses.gap.lg}`}>
           {/* Content */}

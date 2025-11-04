@@ -1,13 +1,15 @@
+import DashboardLayoutWrapper from "@/components/layouts/dashboard-layout-wrapper";
+
+/**
+ * Member Layout
+ * 
+ * Wraps all member routes with DashboardLayout.
+ * Handles authentication and provides consistent navigation.
+ */
 export default function MemberLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  // This layout intentionally excludes the main Header and Footer
-  // since dashboard pages use their own DashboardLayout component
-  return (
-    <div className="relative min-h-screen">
-      {children}
-    </div>
-  );
+  return <DashboardLayoutWrapper>{children}</DashboardLayoutWrapper>;
 }

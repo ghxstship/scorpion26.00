@@ -13,6 +13,7 @@ import { PROGRAMS } from "@/lib/programs-list";
 import { TRACKS, TRACK_ORDER, CUSTOM_LEVEL } from "@/lib/programs-data";
 import { PricingPeriod } from "@/types/shop";
 import { gymZones } from "@/lib/gym-colors";
+import { containerClasses, sectionClasses } from "@/lib/design-tokens";
 
 const iconMap = {
   Dumbbell,
@@ -42,11 +43,11 @@ export default function CustomProgramsSection() {
   };
 
   return (
-    <section id="custom" ref={ref} className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gradient-to-b from-muted/20 via-background to-muted/20 relative overflow-hidden">
+    <section id="custom" ref={ref} className={`${sectionClasses.lg} bg-gradient-to-b from-muted/20 via-background to-muted/20 relative overflow-hidden`}>
       {/* Background decoration */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 pointer-events-none" />
       
-      <div className="container mx-auto px-3 sm:px-4 lg:px-8 relative z-10">
+      <div className={`${containerClasses.default} relative z-10`}>
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

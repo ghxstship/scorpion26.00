@@ -27,7 +27,7 @@
     --radius: 0.5rem;
     
     /* Brand system variables - populated by BrandProvider */
-    --font-title: "Anton SC", sans-serif;
+    --font-title: "Anton", sans-serif;
     --font-subtitle: "Contrail One", sans-serif;
     --font-heading-1: "Bebas Neue", sans-serif;
     --font-heading-2: "Bebas Neue", sans-serif;
@@ -77,7 +77,50 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-body);
     font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  /* Apply brand typography to headings */
+  h1 {
+    font-family: var(--font-heading-1);
+    font-size: var(--text-h1);
+    line-height: var(--leading-tight);
+  }
+  
+  h2 {
+    font-family: var(--font-heading-2);
+    font-size: var(--text-h2);
+    line-height: var(--leading-tight);
+  }
+  
+  h3 {
+    font-family: var(--font-heading-3);
+    font-size: var(--text-h3);
+    line-height: var(--leading-normal);
+  }
+  
+  h4 {
+    font-family: var(--font-heading-4);
+    font-size: var(--text-h4);
+    line-height: var(--leading-normal);
+  }
+  
+  h5 {
+    font-family: var(--font-heading-4);
+    font-size: var(--text-h5);
+    line-height: var(--leading-normal);
+  }
+  
+  h6 {
+    font-family: var(--font-heading-4);
+    font-size: var(--text-h6);
+    line-height: var(--leading-normal);
+  }
+  
+  /* Apply to buttons */
+  button {
+    font-family: var(--font-button);
   }
 }
 

@@ -1,11 +1,12 @@
 "use client";
 
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Mail } from "lucide-react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { formClasses } from "@/lib/design-tokens";
 
 export default function NewsletterSection() {
   const [ref, inView] = useInView({
@@ -31,7 +32,7 @@ export default function NewsletterSection() {
               <p className="mb-6 text-muted-foreground">
                 Get weekly fitness tips, workout videos, and nutrition guides delivered to your inbox
               </p>
-              <form className="flex flex-col gap-3 sm:flex-row">
+              <form className={formClasses.inline}>
                 <Input
                   type="email"
                   placeholder="Enter your email"

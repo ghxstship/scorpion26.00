@@ -1,12 +1,12 @@
 import DashboardLayoutWrapper from "@/components/layouts/dashboard-layout-wrapper";
 
 /**
- * Admin Layout
+ * Collaborator Layout
  * 
- * Wraps all admin routes with DashboardLayout.
+ * Wraps all collaborator routes with DashboardLayout.
  * Handles authentication and provides consistent navigation.
  */
-export default function AdminLayout({
+export default function CollaboratorLayout({
   children,
 }: {
   children: React.ReactNode;

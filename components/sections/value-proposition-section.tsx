@@ -9,6 +9,7 @@ import { useInView } from "react-intersection-observer";
 import { Heading } from "@/components/atoms/heading";
 import { Text } from "@/components/atoms/text";
 import { Icon } from "@/components/atoms/icon";
+import { containerClasses, sectionClasses } from "@/lib/design-tokens";
 
 const features = [
   {
@@ -53,10 +54,10 @@ export default function ValuePropositionSection() {
   });
 
   return (
-    <section ref={ref} className="py-16 sm:py-20 md:py-24 bg-gradient-to-b from-zone-red-base via-zone-red-secondary/30 to-zone-red-base relative">
+    <section ref={ref} className={`${sectionClasses.md} bg-gradient-to-b from-zone-red-base via-zone-red-secondary/30 to-zone-red-base relative`}>
       {/* Red Zone Accent Line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-zone-red-primary to-transparent" />
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className={containerClasses.default}>
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

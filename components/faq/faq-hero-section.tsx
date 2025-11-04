@@ -3,11 +3,12 @@
 import { motion } from "framer-motion";
 import { Heading } from "@/components/atoms/heading";
 import { Text } from "@/components/atoms/text";
+import { containerClasses, heroClasses } from "@/lib/design-tokens";
 
 export default function FAQHeroSection() {
   return (
-    <section className="relative min-h-[40vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/10 via-background to-secondary/10 pt-24">
-      <div className="container mx-auto px-4 lg:px-8">
+    <section className={`relative ${heroClasses.md} flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/10 via-background to-secondary/10 pt-24`}>
+      <div className={containerClasses.default}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

@@ -12,6 +12,8 @@ import { useInView } from "react-intersection-observer";
 import { BUNDLES } from "@/lib/programs-list";
 import { LEVELS } from "@/lib/programs-data";
 import { PricingPeriod } from "@/types/shop";
+import { gymZones } from "@/lib/gym-colors";
+import { containerClasses, sectionClasses } from "@/lib/design-tokens";
 import { Heading } from "@/components/atoms/heading";
 import { Text } from "@/components/atoms/text";
 
@@ -33,8 +35,8 @@ export default function BundlesSection() {
   };
 
   return (
-    <section ref={ref} className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gradient-to-b from-muted/20 via-background to-muted/20 relative">
-      <div className="container mx-auto px-3 sm:px-4 lg:px-8">
+    <section ref={ref} className={`${sectionClasses.lg} bg-gradient-to-b from-muted/20 via-background to-muted/20 relative`}>
+      <div className={containerClasses.default}>
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

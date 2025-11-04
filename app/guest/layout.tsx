@@ -1,12 +1,12 @@
 import DashboardLayoutWrapper from "@/components/layouts/dashboard-layout-wrapper";
 
 /**
- * Admin Layout
+ * Guest Layout
  * 
- * Wraps all admin routes with DashboardLayout.
+ * Wraps all guest/trial routes with DashboardLayout.
  * Handles authentication and provides consistent navigation.
  */
-export default function AdminLayout({
+export default function GuestLayout({
   children,
 }: {
   children: React.ReactNode;

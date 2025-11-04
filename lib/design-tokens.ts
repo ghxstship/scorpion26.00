@@ -271,32 +271,33 @@ export const spacingClasses = {
 
 /**
  * Typography class generator
+ * Uses brand typography font families from CSS variables
  */
 export const typographyClasses = {
-  // Display (Hero headings)
+  // Display (Hero headings) - Uses title font
   display: {
-    sm: 'text-4xl sm:text-5xl md:text-6xl font-bold leading-tight tracking-tight',
-    md: 'text-5xl sm:text-6xl md:text-7xl font-bold leading-tight tracking-tight',
-    lg: 'text-6xl sm:text-7xl md:text-8xl font-bold leading-tight tracking-tight',
+    sm: 'font-title text-4xl sm:text-5xl md:text-6xl font-bold leading-tight tracking-tight',
+    md: 'font-title text-5xl sm:text-6xl md:text-7xl font-bold leading-tight tracking-tight',
+    lg: 'font-title text-6xl sm:text-7xl md:text-8xl font-bold leading-tight tracking-tight',
   },
-  // Headings
-  h1: 'text-3xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight',
-  h2: 'text-2xl sm:text-3xl md:text-4xl font-bold leading-tight tracking-tight',
-  h3: 'text-xl sm:text-2xl md:text-3xl font-semibold leading-snug tracking-tight',
-  h4: 'text-lg sm:text-xl md:text-2xl font-semibold leading-snug',
-  h5: 'text-base sm:text-lg md:text-xl font-semibold leading-snug',
-  h6: 'text-sm sm:text-base md:text-lg font-semibold leading-snug',
-  // Body text
+  // Headings - Uses heading font
+  h1: 'font-heading text-3xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight',
+  h2: 'font-heading text-2xl sm:text-3xl md:text-4xl font-bold leading-tight tracking-tight',
+  h3: 'font-heading text-xl sm:text-2xl md:text-3xl font-semibold leading-snug tracking-tight',
+  h4: 'font-heading text-lg sm:text-xl md:text-2xl font-semibold leading-snug',
+  h5: 'font-heading text-base sm:text-lg md:text-xl font-semibold leading-snug',
+  h6: 'font-heading text-sm sm:text-base md:text-lg font-semibold leading-snug',
+  // Body text - Uses body font
   body: {
-    lg: 'text-lg md:text-xl leading-relaxed',
-    md: 'text-base md:text-lg leading-relaxed',
-    sm: 'text-sm md:text-base leading-normal',
-    xs: 'text-xs md:text-sm leading-normal',
+    lg: 'font-body text-lg md:text-xl leading-relaxed',
+    md: 'font-body text-base md:text-lg leading-relaxed',
+    sm: 'font-body text-sm md:text-base leading-normal',
+    xs: 'font-body text-xs md:text-sm leading-normal',
   },
   // Special
-  caption: 'text-xs text-muted-foreground leading-normal',
-  label: 'text-sm font-medium leading-none',
-  button: 'text-sm font-semibold leading-none tracking-wide',
+  caption: 'font-caption text-xs text-muted-foreground leading-normal',
+  label: 'font-body text-sm font-medium leading-none',
+  button: 'font-button text-sm font-semibold leading-none tracking-wide',
 };
 
 /**
@@ -314,6 +315,48 @@ export const gridClasses = {
     '2col': 'grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12',
     '3col': 'grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8',
   },
+};
+
+/**
+ * Section padding classes
+ * Standardized vertical padding for sections
+ */
+export const sectionClasses = {
+  sm: 'py-12 md:py-16',  // Small sections (48px → 64px)
+  md: 'py-16 md:py-20',  // Medium sections (64px → 80px)
+  lg: 'py-20 md:py-24',  // Large sections (80px → 96px)
+  xl: 'py-24 md:py-32',  // Extra large sections (96px → 128px)
+};
+
+/**
+ * Hero section classes
+ * Standardized minimum heights for hero sections
+ */
+export const heroClasses = {
+  sm: 'min-h-[35vh] sm:min-h-[40vh]',  // Small hero
+  md: 'min-h-[40vh] sm:min-h-[50vh]',  // Medium hero
+  lg: 'min-h-[50vh] sm:min-h-[60vh]',  // Large hero
+  xl: 'min-h-[60vh] sm:min-h-[70vh]',  // Extra large hero
+};
+
+/**
+ * Form layout classes
+ * Common form responsive patterns
+ */
+export const formClasses = {
+  inline: 'flex flex-col gap-3 sm:flex-row',      // Stack on mobile, inline on desktop
+  stacked: 'flex flex-col gap-4',                  // Always stacked
+  inlineWithGap: 'flex flex-col gap-4 sm:flex-row sm:gap-3', // With larger gap
+};
+
+/**
+ * Container classes
+ * Standardized container with responsive padding
+ */
+export const containerClasses = {
+  default: 'container mx-auto px-4 sm:px-6 lg:px-8',  // Standard container
+  tight: 'container mx-auto px-4 sm:px-6',            // Tighter padding
+  wide: 'container mx-auto px-6 sm:px-8 lg:px-12',   // Wider padding
 };
 
 export default designTokens;

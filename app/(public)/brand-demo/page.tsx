@@ -47,7 +47,7 @@ export default function BrandDemoPage() {
               Font: {theme.typography.title}
             </Text>
           </div>
-          <BrandTitle>TITLE ANTON SC</BrandTitle>
+          <BrandTitle>TITLE ANTON</BrandTitle>
           <Text variant="body-sm" className="text-muted-foreground">
             Size: {theme.typography.sizes.title} | Usage: Main page titles, hero headlines
           </Text>

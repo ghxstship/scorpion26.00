@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Heading } from "@/components/atoms/heading";
 import { Text } from "@/components/atoms/text";
+import { containerClasses, heroClasses } from "@/lib/design-tokens";
 
 export default function ShopHeroSection() {
   return (

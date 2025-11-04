@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Heading } from "@/components/atoms/heading";
 import { Text } from "@/components/atoms/text";
 import { Icon } from "@/components/atoms/icon";
+import { containerClasses, formClasses } from "@/lib/design-tokens";
 
 const footerLinks = {
   programs: [
@@ -54,7 +55,7 @@ export default function Footer() {
             <Text variant="body-md" className="mb-4 sm:mb-6 text-sm sm:text-base text-primary-foreground/90">
               Join 100K+ members and get exclusive fitness tips, nutrition guides, and workout plans delivered to your inbox.
             </Text>
-            <form className="flex flex-col gap-3 sm:flex-row" aria-label="Newsletter signup">
+            <form className={formClasses.inline} aria-label="Newsletter signup">
               <Input
                 type="email"
                 placeholder="Enter your email"

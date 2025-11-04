@@ -3,7 +3,7 @@ import { BrandTheme } from '../types';
 /**
  * Scorpion Fitness Brand Preset
  * Typography based on the provided design:
- * - Title: Anton SC
+ * - Title: Anton
  * - Subtitle: Contrail One
  * - Heading 1: Bebas Neue
  * - Heading 2: Bebas Neue
@@ -18,7 +18,7 @@ export const scorpionPreset: BrandTheme = {
   
   typography: {
     // Font families
-    title: '"Anton SC", sans-serif',
+    title: '"Anton", sans-serif',
     subtitle: '"Contrail One", sans-serif',
     heading1: '"Bebas Neue", sans-serif',
     heading2: '"Bebas Neue", sans-serif',
@@ -224,9 +224,9 @@ export const scorpionPreset: BrandTheme = {
   customCSS: `
     /* Scorpion Fitness Custom Styles */
     
-    /* Title styling - Anton SC */
+    /* Title styling - Anton */
     .brand-title {
-      font-family: "Anton SC", sans-serif;
+      font-family: "Anton", sans-serif;
       font-size: 4.5rem;
       font-weight: 400;
       line-height: 1.1;

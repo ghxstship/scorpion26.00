@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { getCurrentUser } from "@/lib/auth/demo-auth";
 import { UserRole } from "@/lib/auth/rbac-types";
@@ -13,27 +13,29 @@ import { Icon } from "@/components/atoms/icon";
 import { spacingClasses } from "@/lib/design-tokens";
 import Link from "next/link";
 
+/**
+ * Guest Dashboard Page
+ * 
+ * Dashboard for trial/guest users.
+ * Authentication is handled by the parent layout.
+ */
 export default function GuestDashboardPage() {
   const router = useRouter();
-  const [user, setUser] = useState<any>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const user = getCurrentUser();
 
   useEffect(() => {
-    const currentUser = getCurrentUser();
-    if (!currentUser) {
-      router.push("/login");
-      return;
-    }
-    if (currentUser.role !== UserRole.GUEST) {
+    // Role check - redirect non-guests
+    if (user && user.role !== UserRole.GUEST) {
       router.push("/member/dashboard");
-      return;
     }
-    setUser(currentUser);
-    setIsLoading(false);
-  }, [router]);
+  }, [router, user]);
 
-  if (isLoading) return <div className="min-h-screen flex items-center justify-center"><div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div></div>;
   if (!user) return null;
+
+  // Additional role check before rendering
+  if (user.role !== UserRole.GUEST) {
+    return null;
+  }
 
   return (
     <div className={spacingClasses.gap.lg}>

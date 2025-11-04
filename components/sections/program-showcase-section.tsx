@@ -12,6 +12,7 @@ import { LEVELS } from "@/lib/programs-data";
 import { Heading } from "@/components/atoms/heading";
 import { Text } from "@/components/atoms/text";
 import { Icon } from "@/components/atoms/icon";
+import { containerClasses, sectionClasses } from "@/lib/design-tokens";
 
 const tierIcons = {
   starter: Star,
@@ -29,8 +30,8 @@ export default function ProgramShowcaseSection() {
   const tierBundles = BUNDLES.filter(b => b.type === 'single-tier-all-tracks');
 
   return (
-    <section ref={ref} className="py-16 sm:py-20 md:py-24 bg-background">
-      <div className="container mx-auto px-3 sm:px-4 lg:px-8">
+    <section ref={ref} className={`${sectionClasses.md} bg-background`}>
+      <div className={containerClasses.default}>
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
