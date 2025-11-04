@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/accordion";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { containerClasses, sectionClasses } from "@/lib/design-tokens";
 
 const faqCategories = [
   {
@@ -70,8 +71,8 @@ export default function FAQContentSection() {
   });
 
   return (
-    <section ref={ref} className="py-24 bg-background">
-      <div className="container mx-auto px-4 lg:px-8">
+    <section ref={ref} className={`${sectionClasses.xl} bg-background`}>
+      <div className={containerClasses.default}>
         <div className="mx-auto max-w-4xl space-y-12">
           {faqCategories.map((category, catIndex) => (
             <motion.div

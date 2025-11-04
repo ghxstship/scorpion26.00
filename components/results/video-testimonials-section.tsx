@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Play } from "lucide-react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { containerClasses, sectionClasses } from "@/lib/design-tokens";
 
 const videos = [
   {
@@ -30,10 +31,10 @@ export default function VideoTestimonialsSection() {
   });
 
   return (
-    <section ref={ref} className="py-24 bg-gradient-to-b from-zone-purple-base via-zone-purple-secondary/20 to-zone-purple-base relative">
+    <section ref={ref} className={`${sectionClasses.xl} bg-gradient-to-b from-zone-purple-base via-zone-purple-secondary/20 to-zone-purple-base relative`}>
       {/* Purple Zone Accent Line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-zone-purple-primary to-transparent" />
-      <div className="container mx-auto px-4 lg:px-8">
+      <div className={containerClasses.default}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}

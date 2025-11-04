@@ -8,6 +8,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { containerClasses, sectionClasses } from "@/lib/design-tokens";
 import { Heading } from "@/components/atoms/heading";
 import { Text } from "@/components/atoms/text";
 import { Icon } from "@/components/atoms/icon";
@@ -49,10 +50,10 @@ export default function ContentHubSection() {
   });
 
   return (
-    <section ref={ref} className="py-24 bg-gradient-to-b from-zone-green-base via-zone-green-secondary/20 to-zone-green-base relative">
+    <section ref={ref} className={`${sectionClasses.xl} bg-gradient-to-b from-zone-green-base via-zone-green-secondary/20 to-zone-green-base relative`}>
       {/* Green Zone Accent Line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-zone-green-primary to-transparent" />
-      <div className="container mx-auto px-4 lg:px-8">
+      <div className={containerClasses.default}>
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

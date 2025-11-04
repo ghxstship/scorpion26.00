@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { containerClasses, sectionClasses } from "@/lib/design-tokens";
 import { Heading } from "@/components/atoms/heading";
 import { Text } from "@/components/atoms/text";
 import { Icon } from "@/components/atoms/icon";
@@ -23,8 +24,8 @@ export default function FounderSection() {
   });
 
   return (
-    <section ref={ref} className="py-24 bg-muted/30">
-      <div className="container mx-auto px-4 lg:px-8">
+    <section ref={ref} className={`${sectionClasses.xl} bg-muted/30`}>
+      <div className={containerClasses.default}>
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
           {/* Image */}
           <motion.div

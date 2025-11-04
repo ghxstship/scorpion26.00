@@ -6,6 +6,7 @@ import { CheckCircle2, Mail, Smartphone } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { containerClasses, sectionClasses } from "@/lib/design-tokens";
 import { Heading } from "@/components/atoms/heading";
 import { Text } from "@/components/atoms/text";
 import { Icon } from "@/components/atoms/icon";
@@ -24,8 +25,8 @@ export default function FinalConversionSection() {
   });
 
   return (
-    <section ref={ref} className="py-24 bg-gradient-to-br from-primary to-blue-600 text-primary-foreground">
-      <div className="container mx-auto px-4 lg:px-8">
+    <section ref={ref} className={`${sectionClasses.xl} bg-gradient-to-br from-primary to-blue-600 text-primary-foreground`}>
+      <div className={containerClasses.default}>
         <div className="mx-auto max-w-4xl">
           {/* Main CTA */}
           <motion.div

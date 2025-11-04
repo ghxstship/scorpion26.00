@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Check, X } from "lucide-react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { containerClasses, sectionClasses } from "@/lib/design-tokens";
 
 const features = [
   "Personalized workout plans",
@@ -31,8 +32,8 @@ export default function ComparisonSection() {
   });
 
   return (
-    <section ref={ref} className="py-24 bg-muted/30">
-      <div className="container mx-auto px-4 lg:px-8">
+    <section ref={ref} className={`${sectionClasses.xl} bg-muted/30`}>
+      <div className={containerClasses.default}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}

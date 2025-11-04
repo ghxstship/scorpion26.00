@@ -8,6 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { containerClasses, sectionClasses } from "@/lib/design-tokens";
 import { useState } from "react";
 
 const categories = ["All", "Workouts", "Nutrition", "Mindset", "Success Stories"];
@@ -88,8 +89,8 @@ export default function ContentGridSection() {
     : contentItems.filter(item => item.category === activeCategory);
 
   return (
-    <section ref={ref} className="py-24 bg-background">
-      <div className="container mx-auto px-4 lg:px-8">
+    <section ref={ref} className={`${sectionClasses.xl} bg-background`}>
+      <div className={containerClasses.default}>
         {/* Category Filter */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

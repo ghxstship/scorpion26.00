@@ -9,6 +9,7 @@ import { Check, Lock, Dumbbell, Zap, Activity, Apple, Brain, Heart, Users, Crown
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { containerClasses, sectionClasses } from "@/lib/design-tokens";
 import { PROGRAMS } from "@/lib/programs-list";
 import { TRACKS, LEVELS, CUSTOM_LEVEL } from "@/lib/programs-data";
 import { ProgramTrack, ProgramLevel, PricingPeriod } from "@/types/shop";
@@ -68,8 +69,8 @@ export default function ProgramsGridSection() {
   };
 
   return (
-    <section id="programs" ref={ref} className="py-24 bg-gradient-to-b from-background via-muted/20 to-background relative">
-      <div className="container mx-auto px-4 lg:px-8">
+    <section id="programs" ref={ref} className={`${sectionClasses.xl} bg-gradient-to-b from-background via-muted/20 to-background relative`}>
+      <div className={containerClasses.default}>
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -7,6 +7,7 @@ import { Text } from "@/components/atoms/text";
 import { spacingClasses, gridClasses } from "@/lib/design-tokens";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { containerClasses, sectionClasses } from "@/lib/design-tokens";
 
 const team = [
   {
@@ -42,8 +43,8 @@ export default function TeamSection() {
   });
 
   return (
-    <section ref={ref} className="py-24 bg-background">
-      <div className="container mx-auto px-4 lg:px-8">
+    <section ref={ref} className={`${sectionClasses.xl} bg-background`}>
+      <div className={containerClasses.default}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}

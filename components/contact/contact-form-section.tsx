@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { containerClasses, sectionClasses } from "@/lib/design-tokens";
 
 export default function ContactFormSection() {
   const [ref, inView] = useInView({
@@ -15,8 +16,8 @@ export default function ContactFormSection() {
   });
 
   return (
-    <section ref={ref} className="py-24 bg-background">
-      <div className="container mx-auto px-4 lg:px-8">
+    <section ref={ref} className={`${sectionClasses.xl} bg-background`}>
+      <div className={containerClasses.default}>
         <div className="mx-auto max-w-2xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

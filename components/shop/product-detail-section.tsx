@@ -12,6 +12,7 @@ import { useCartStore } from "@/lib/store/cart-store";
 import { useToast } from "@/hooks/use-toast";
 import { Product } from "@/types/shop";
 import { motion } from "framer-motion";
+import { containerClasses, sectionClasses } from "@/lib/design-tokens";
 import { getProductById } from "@/lib/products/product-data";
 
 interface ProductDetailSectionProps {
@@ -49,8 +50,8 @@ export default function ProductDetailSection({ productId }: ProductDetailSection
   };
 
   return (
-    <section className="py-24 bg-background min-h-screen">
-      <div className="container mx-auto px-4 lg:px-8">
+    <section className={`${sectionClasses.xl} bg-background min-h-screen`}>
+      <div className={containerClasses.default}>
         <Button
           variant="ghost"
           className="mb-8"

@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useCartStore } from "@/lib/store/cart-store";
 import { motion } from "framer-motion";
+import { containerClasses, sectionClasses } from "@/lib/design-tokens";
 
 export default function SuccessSection() {
   const router = useRouter();
@@ -18,8 +19,8 @@ export default function SuccessSection() {
   }, [clearCart]);
 
   return (
-    <section className="min-h-screen flex items-center justify-center py-24 bg-background">
-      <div className="container mx-auto px-4 lg:px-8">
+    <section className={`min-h-screen flex items-center justify-center ${sectionClasses.xl} bg-background`}>
+      <div className={containerClasses.default}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

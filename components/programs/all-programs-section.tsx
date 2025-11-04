@@ -7,6 +7,7 @@ import { Check, Clock, Dumbbell, Target, Users } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { containerClasses, sectionClasses } from "@/lib/design-tokens";
 import { Heading } from "@/components/atoms/heading";
 import { Text } from "@/components/atoms/text";
 import { Icon } from "@/components/atoms/icon";
@@ -135,10 +136,10 @@ export default function AllProgramsSection() {
   });
 
   return (
-    <section id="programs" ref={ref} className="py-24 bg-gradient-to-b from-zone-yellow-base via-zone-yellow-secondary/20 to-zone-orange-base relative">
+    <section id="programs" ref={ref} className={`${sectionClasses.xl} bg-gradient-to-b from-zone-yellow-base via-zone-yellow-secondary/20 to-zone-orange-base relative`}>
       {/* Zone transition gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-zone-yellow-base/50 via-transparent to-zone-orange-base/50 pointer-events-none" />
-      <div className="container mx-auto px-4 lg:px-8 relative z-10">
+      <div className={`${containerClasses.default} relative z-10`}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
