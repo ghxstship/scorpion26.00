@@ -73,14 +73,14 @@ export default function AdminDashboard({ user }: AdminDashboardProps) {
             { 
               label: "Total Users", 
               value: "1,456",
-              icon: <Users className="h-4 w-4 text-muted-foreground" />
+              icon: <Icon icon={Users} size="sm" className="text-muted-foreground" aria-hidden={true} />
             },
             { 
               label: "Active Today", 
               value: "342",
               change: "+8%",
               trend: "up",
-              icon: <UserPlus className="h-4 w-4 text-muted-foreground" />
+              icon: <Icon icon={UserPlus} size="sm" className="text-muted-foreground" aria-hidden={true} />
             },
           ]}
         />
@@ -91,13 +91,13 @@ export default function AdminDashboard({ user }: AdminDashboardProps) {
             { 
               label: "This Month", 
               value: "$24.5K",
-              icon: <DollarSign className="h-4 w-4 text-muted-foreground" />
+              icon: <Icon icon={DollarSign} size="sm" className="text-muted-foreground" aria-hidden={true} />
             },
             { 
               label: "Growth", 
               value: "+12%",
               trend: "up",
-              icon: <TrendingUp className="h-4 w-4 text-muted-foreground" />
+              icon: <Icon icon={TrendingUp} size="sm" className="text-muted-foreground" aria-hidden={true} />
             },
           ]}
         />
@@ -108,12 +108,12 @@ export default function AdminDashboard({ user }: AdminDashboardProps) {
             { 
               label: "Critical", 
               value: "0",
-              icon: <AlertTriangle className="h-4 w-4 text-green-600" />
+              icon: <Icon icon={AlertTriangle} size="sm" className="text-green-600" aria-hidden={true} />
             },
             { 
               label: "Warnings", 
               value: "3",
-              icon: <AlertTriangle className="h-4 w-4 text-yellow-600" />
+              icon: <Icon icon={AlertTriangle} size="sm" className="text-yellow-600" aria-hidden={true} />
             },
           ]}
         />
@@ -129,18 +129,18 @@ export default function AdminDashboard({ user }: AdminDashboardProps) {
           <CardContent className="space-y-3">
             <Button className="w-full justify-start" variant="outline" asChild>
               <Link href="/admin/users">
-                <Users className="mr-2 h-4 w-4" />
+                <Icon icon={Users} size="sm" className="mr-2" aria-hidden={true} />
                 Manage Users
               </Link>
             </Button>
             <Button className="w-full justify-start" variant="outline" asChild>
               <Link href="/admin/roles">
-                <Shield className="mr-2 h-4 w-4" />
+                <Icon icon={Shield} size="sm" className="mr-2" aria-hidden={true} />
                 Role Management
               </Link>
             </Button>
             <Button className="w-full justify-start" variant="outline">
-              <Users className="mr-2 h-4 w-4" />
+              <Icon icon={Users} size="sm" className="mr-2" aria-hidden={true} />
               Bulk Operations
             </Button>
           </CardContent>
@@ -153,15 +153,15 @@ export default function AdminDashboard({ user }: AdminDashboardProps) {
           </CardHeader>
           <CardContent className="space-y-3">
             <Button className="w-full justify-start" variant="outline">
-              <Settings className="mr-2 h-4 w-4" />
+              <Icon icon={Settings} size="sm" className="mr-2" aria-hidden={true} />
               System Settings
             </Button>
             <Button className="w-full justify-start" variant="outline">
-              <Database className="mr-2 h-4 w-4" />
+              <Icon icon={Database} size="sm" className="mr-2" aria-hidden={true} />
               Database Management
             </Button>
             <Button className="w-full justify-start" variant="outline">
-              <DollarSign className="mr-2 h-4 w-4" />
+              <Icon icon={DollarSign} size="sm" className="mr-2" aria-hidden={true} />
               Billing Configuration
             </Button>
           </CardContent>
@@ -172,7 +172,7 @@ export default function AdminDashboard({ user }: AdminDashboardProps) {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <Activity className="h-5 w-5" />
+            <Icon icon={Activity} size="md" aria-hidden={true} />
             Recent System Activity
           </CardTitle>
           <CardDescription>Latest administrative actions</CardDescription>
@@ -181,7 +181,7 @@ export default function AdminDashboard({ user }: AdminDashboardProps) {
           <div className="space-y-4">
             <div className="flex items-start gap-4 p-3 rounded-lg border">
               <div className="h-10 w-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
-                <Users className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                <Icon icon={Users} size="md" className="text-blue-600 dark:text-blue-400" aria-hidden={true} />
               </div>
               <div className="flex-1">
                 <Text variant="body-sm" className="font-semibold">User role updated</Text>
@@ -190,7 +190,7 @@ export default function AdminDashboard({ user }: AdminDashboardProps) {
             </div>
             <div className="flex items-start gap-4 p-3 rounded-lg border">
               <div className="h-10 w-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
-                <Settings className="h-5 w-5 text-green-600 dark:text-green-400" />
+                <Icon icon={Settings} size="md" className="text-green-600 dark:text-green-400" aria-hidden={true} />
               </div>
               <div className="flex-1">
                 <Text variant="body-sm" className="font-semibold">System configuration changed</Text>
@@ -199,7 +199,7 @@ export default function AdminDashboard({ user }: AdminDashboardProps) {
             </div>
             <div className="flex items-start gap-4 p-3 rounded-lg border">
               <div className="h-10 w-10 rounded-full bg-yellow-100 dark:bg-yellow-900/30 flex items-center justify-center">
-                <AlertTriangle className="h-5 w-5 text-yellow-600 dark:text-yellow-400" />
+                <Icon icon={AlertTriangle} size="md" className="text-yellow-600 dark:text-yellow-400" aria-hidden={true} />
               </div>
               <div className="flex-1">
                 <Text variant="body-sm" className="font-semibold">Security alert resolved</Text>
@@ -214,7 +214,7 @@ export default function AdminDashboard({ user }: AdminDashboardProps) {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <BarChart3 className="h-5 w-5" />
+            <Icon icon={BarChart3} size="md" aria-hidden={true} />
             Platform Analytics
           </CardTitle>
           <CardDescription>Comprehensive platform metrics</CardDescription>

@@ -4,6 +4,7 @@ import { Clock, Lock, TrendingUp, Zap } from "lucide-react";
 import Link from "next/link";
 import { responsiveSpacing, responsiveGrid, responsiveCard } from "@/lib/responsive-utils";
 import { Text } from "@/components/atoms/text";
+import { Icon } from "@/components/atoms/icon";
 
 export default function GuestDashboard() {
   return (
@@ -12,7 +13,7 @@ export default function GuestDashboard() {
       <Card className="border-primary/50 bg-gradient-to-r from-primary/5 to-primary/10">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <Zap className="h-5 w-5 text-primary" />
+            <Icon icon={Zap} size="md" className="text-primary" aria-hidden={true} />
             Trial Access Active
           </CardTitle>
           <CardDescription>
@@ -44,7 +45,7 @@ export default function GuestDashboard() {
           <div className={responsiveGrid.cols[2]}>
             <div className="flex items-start gap-3 p-3 rounded-lg border">
               <div className="h-10 w-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
-                <Clock className="h-5 w-5 text-green-600 dark:text-green-400" />
+                <Icon icon={Clock} size="md" className="text-green-600 dark:text-green-400" aria-hidden={true} />
               </div>
               <div>
                 <Text variant="body-sm" className="font-semibold">Basic Workouts</Text>
@@ -55,7 +56,7 @@ export default function GuestDashboard() {
             </div>
             <div className="flex items-start gap-3 p-3 rounded-lg border">
               <div className="h-10 w-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
-                <TrendingUp className="h-5 w-5 text-green-600 dark:text-green-400" />
+                <Icon icon={TrendingUp} size="md" className="text-green-600 dark:text-green-400" aria-hidden={true} />
               </div>
               <div>
                 <Text variant="body-sm" className="font-semibold">Community Access</Text>
@@ -72,7 +73,7 @@ export default function GuestDashboard() {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <Lock className="h-5 w-5" />
+            <Icon icon={Lock} size="md" aria-hidden={true} />
             Unlock with Membership
           </CardTitle>
           <CardDescription>Premium features available after upgrade</CardDescription>
@@ -86,7 +87,7 @@ export default function GuestDashboard() {
                   Advanced training programs and custom workouts
                 </Text>
               </div>
-              <Lock className="h-4 w-4 text-muted-foreground" />
+              <Icon icon={Lock} size="sm" className="text-muted-foreground" aria-hidden={true} />
             </div>
             <div className="flex items-center justify-between p-3 rounded-lg bg-muted/50">
               <div>
@@ -95,7 +96,7 @@ export default function GuestDashboard() {
                   Detailed tracking and performance insights
                 </Text>
               </div>
-              <Lock className="h-4 w-4 text-muted-foreground" />
+              <Icon icon={Lock} size="sm" className="text-muted-foreground" aria-hidden={true} />
             </div>
             <div className="flex items-center justify-between p-3 rounded-lg bg-muted/50">
               <div>
@@ -104,7 +105,7 @@ export default function GuestDashboard() {
                   Exclusive pricing on shop products
                 </Text>
               </div>
-              <Lock className="h-4 w-4 text-muted-foreground" />
+              <Icon icon={Lock} size="sm" className="text-muted-foreground" aria-hidden={true} />
             </div>
           </div>
         </CardContent>

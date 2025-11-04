@@ -6,6 +6,7 @@ import MetricWidget from "@/components/widgets/metric-widget";
 import ActionWidget from "@/components/widgets/action-widget";
 import ListWidget from "@/components/widgets/list-widget";
 import { Text } from "@/components/atoms/text";
+import { Icon } from "@/components/atoms/icon";
 
 interface MemberDashboardProps {
   user: DemoUser;
@@ -18,7 +19,7 @@ export default function MemberDashboard({ user }: MemberDashboardProps) {
       <Card className="md:col-span-2 lg:col-span-3">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <Trophy className="h-5 w-5 text-primary" />
+            <Icon icon={Trophy} size="md" className="text-primary" aria-hidden={true} />
             {user.membershipType && user.membershipType.charAt(0).toUpperCase() + user.membershipType.slice(1)} Membership
           </CardTitle>
           <CardDescription>
@@ -48,17 +49,17 @@ export default function MemberDashboard({ user }: MemberDashboardProps) {
             value: "12",
             change: "+3",
             trend: "up",
-            icon: <Dumbbell className="h-4 w-4 text-muted-foreground" />
+            icon: <Icon icon={Dumbbell} size="sm" className="text-muted-foreground" aria-hidden={true} />
           },
           { 
             label: "Hours Trained", 
             value: "18",
-            icon: <Clock className="h-4 w-4 text-muted-foreground" />
+            icon: <Icon icon={Clock} size="sm" className="text-muted-foreground" aria-hidden={true} />
           },
           { 
             label: "Current Streak", 
             value: "7 days",
-            icon: <Flame className="h-4 w-4 text-orange-500" />
+            icon: <Icon icon={Flame} size="sm" className="text-orange-500" aria-hidden={true} />
           },
         ]}
       />
@@ -67,7 +68,7 @@ export default function MemberDashboard({ user }: MemberDashboardProps) {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <TrendingUp className="h-5 w-5" />
+            <Icon icon={TrendingUp} size="md" aria-hidden={true} />
             Progress
           </CardTitle>
           <CardDescription>Your improvements</CardDescription>
@@ -98,21 +99,21 @@ export default function MemberDashboard({ user }: MemberDashboardProps) {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <Award className="h-5 w-5" />
+            <Icon icon={Award} size="md" aria-hidden={true} />
             Achievements
           </CardTitle>
           <CardDescription>Recent milestones</CardDescription>
         </CardHeader>
         <CardContent className="space-y-3">
           <div className="flex items-center gap-3 p-2 rounded-lg bg-primary/10">
-            <Trophy className="h-8 w-8 text-primary" />
+            <Icon icon={Trophy} size="xl" className="text-primary" aria-hidden={true} />
             <div>
               <Text variant="body-sm" className="font-semibold">30-Day Streak</Text>
               <Text variant="caption" className="text-muted-foreground">Completed</Text>
             </div>
           </div>
           <div className="flex items-center gap-3 p-2 rounded-lg bg-primary/10">
-            <Trophy className="h-8 w-8 text-primary" />
+            <Icon icon={Trophy} size="xl" className="text-primary" aria-hidden={true} />
             <div>
               <Text variant="body-sm" className="font-semibold">First PR</Text>
               <Text variant="caption" className="text-muted-foreground">Completed</Text>

@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { motion } from "framer-motion";
+import { Icon } from "@/components/atoms/icon";
 
 export default function ForgotPasswordForm() {
   return (
@@ -46,7 +47,7 @@ export default function ForgotPasswordForm() {
                 href="/login"
                 className="inline-flex items-center text-sm text-primary hover:underline"
               >
-                <ArrowLeft className="mr-2 h-4 w-4" />
+                <Icon icon={ArrowLeft} size="sm" className="mr-2" aria-hidden={true} />
                 Back to Login
               </Link>
             </div>

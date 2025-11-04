@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { FileText, FolderOpen, MessageSquare, Users } from "lucide-react";
 import type { DemoUser } from "@/lib/auth/demo-auth";
 import { Text } from "@/components/atoms/text";
+import { Icon } from "@/components/atoms/icon";
 
 interface CollaboratorDashboardProps {
   user: DemoUser;
@@ -17,7 +18,7 @@ export default function CollaboratorDashboard({ user }: CollaboratorDashboardPro
       <Card className="border-purple-500/50 bg-gradient-to-r from-purple-500/5 to-purple-500/10">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <Users className="h-5 w-5 text-purple-600" />
+            <Icon icon={Users} size="md" className="text-purple-600" aria-hidden={true} />
             Collaborator Access
           </CardTitle>
           <CardDescription>
@@ -41,7 +42,7 @@ export default function CollaboratorDashboard({ user }: CollaboratorDashboardPro
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <FolderOpen className="h-5 w-5" />
+            <Icon icon={FolderOpen} size="md" aria-hidden={true} />
             Your Projects
           </CardTitle>
           <CardDescription>Projects you have access to</CardDescription>
@@ -53,7 +54,7 @@ export default function CollaboratorDashboard({ user }: CollaboratorDashboardPro
                 <div key={index} className="flex items-center justify-between p-4 rounded-lg border hover:bg-accent transition-colors">
                   <div className="flex items-center gap-3">
                     <div className="h-10 w-10 rounded-lg bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center">
-                      <FolderOpen className="h-5 w-5 text-purple-600 dark:text-purple-400" />
+                      <Icon icon={FolderOpen} size="md" className="text-purple-600 dark:text-purple-400" aria-hidden={true} />
                     </div>
                     <div>
                       <Text variant="body-md" className="font-semibold">{project}</Text>
@@ -76,7 +77,7 @@ export default function CollaboratorDashboard({ user }: CollaboratorDashboardPro
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <FileText className="h-5 w-5" />
+            <Icon icon={FileText} size="md" aria-hidden={true} />
             Recent Activity
           </CardTitle>
           <CardDescription>Your latest contributions</CardDescription>
@@ -85,7 +86,7 @@ export default function CollaboratorDashboard({ user }: CollaboratorDashboardPro
           <div className="space-y-4">
             <div className="flex items-start gap-4 p-3 rounded-lg border">
               <div className="h-10 w-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
-                <FileText className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                <Icon icon={FileText} size="md" className="text-blue-600 dark:text-blue-400" aria-hidden={true} />
               </div>
               <div className="flex-1">
                 <Text variant="body-sm" className="font-semibold">Updated project documentation</Text>
@@ -94,7 +95,7 @@ export default function CollaboratorDashboard({ user }: CollaboratorDashboardPro
             </div>
             <div className="flex items-start gap-4 p-3 rounded-lg border">
               <div className="h-10 w-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
-                <MessageSquare className="h-5 w-5 text-green-600 dark:text-green-400" />
+                <Icon icon={MessageSquare} size="md" className="text-green-600 dark:text-green-400" aria-hidden={true} />
               </div>
               <div className="flex-1">
                 <Text variant="body-sm" className="font-semibold">Added comment on review</Text>
@@ -114,11 +115,11 @@ export default function CollaboratorDashboard({ user }: CollaboratorDashboardPro
         <CardContent>
           <div className="grid gap-4 sm:grid-cols-2">
             <Button className="h-auto py-4 flex-col gap-2" variant="outline">
-              <MessageSquare className="h-6 w-6" />
+              <Icon icon={MessageSquare} size="lg" aria-hidden={true} />
               <Text variant="body-sm">Comments</Text>
             </Button>
             <Button className="h-auto py-4 flex-col gap-2" variant="outline">
-              <FileText className="h-6 w-6" />
+              <Icon icon={FileText} size="lg" aria-hidden={true} />
               <Text variant="body-sm">Documents</Text>
             </Button>
           </div>

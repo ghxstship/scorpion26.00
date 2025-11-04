@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { BarChart3, FileText, Mail, MessageSquare, Users, Zap } from "lucide-react";
 import type { DemoUser } from "@/lib/auth/demo-auth";
 import { Text } from "@/components/atoms/text";
+import { Icon } from "@/components/atoms/icon";
 
 interface TeamDashboardProps {
   user: DemoUser;
@@ -15,7 +16,7 @@ export default function TeamDashboard({ user }: TeamDashboardProps) {
       <Card className="border-green-500/50 bg-gradient-to-r from-green-500/5 to-green-500/10">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <Zap className="h-5 w-5 text-green-600" />
+            <Icon icon={Zap} size="md" className="text-green-600" aria-hidden={true} />
             Team Member Dashboard
           </CardTitle>
           <CardDescription>
@@ -40,7 +41,7 @@ export default function TeamDashboard({ user }: TeamDashboardProps) {
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <BarChart3 className="h-5 w-5" />
+              <Icon icon={BarChart3} size="md" aria-hidden={true} />
               Analytics
             </CardTitle>
             <CardDescription>Platform metrics</CardDescription>
@@ -65,22 +66,22 @@ export default function TeamDashboard({ user }: TeamDashboardProps) {
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <FileText className="h-5 w-5" />
+              <Icon icon={FileText} size="md" aria-hidden={true} />
               Content
             </CardTitle>
             <CardDescription>Manage platform content</CardDescription>
           </CardHeader>
           <CardContent className="space-y-3">
             <Button className="w-full justify-start" variant="outline">
-              <FileText className="mr-2 h-4 w-4" />
+              <Icon icon={FileText} size="sm" className="mr-2" aria-hidden={true} />
               Create New Post
             </Button>
             <Button className="w-full justify-start" variant="outline">
-              <FileText className="mr-2 h-4 w-4" />
+              <Icon icon={FileText} size="sm" className="mr-2" aria-hidden={true} />
               Edit Programs
             </Button>
             <Button className="w-full justify-start" variant="outline">
-              <FileText className="mr-2 h-4 w-4" />
+              <Icon icon={FileText} size="sm" className="mr-2" aria-hidden={true} />
               Manage Media
             </Button>
           </CardContent>
@@ -90,7 +91,7 @@ export default function TeamDashboard({ user }: TeamDashboardProps) {
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <Mail className="h-5 w-5" />
+              <Icon icon={Mail} size="md" aria-hidden={true} />
               Support Queue
             </CardTitle>
             <CardDescription>Pending inquiries</CardDescription>
@@ -113,7 +114,7 @@ export default function TeamDashboard({ user }: TeamDashboardProps) {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <Users className="h-5 w-5" />
+            <Icon icon={Users} size="md" aria-hidden={true} />
             Recent Member Activity
           </CardTitle>
           <CardDescription>Latest platform updates</CardDescription>
@@ -122,7 +123,7 @@ export default function TeamDashboard({ user }: TeamDashboardProps) {
           <div className="space-y-4">
             <div className="flex items-start gap-4 p-3 rounded-lg border">
               <div className="h-10 w-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
-                <Users className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                <Icon icon={Users} size="md" className="text-blue-600 dark:text-blue-400" aria-hidden={true} />
               </div>
               <div className="flex-1">
                 <Text variant="body-sm" className="font-semibold">New member registration</Text>
@@ -131,7 +132,7 @@ export default function TeamDashboard({ user }: TeamDashboardProps) {
             </div>
             <div className="flex items-start gap-4 p-3 rounded-lg border">
               <div className="h-10 w-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
-                <MessageSquare className="h-5 w-5 text-green-600 dark:text-green-400" />
+                <Icon icon={MessageSquare} size="md" className="text-green-600 dark:text-green-400" aria-hidden={true} />
               </div>
               <div className="flex-1">
                 <Text variant="body-sm" className="font-semibold">Community post flagged</Text>
@@ -140,7 +141,7 @@ export default function TeamDashboard({ user }: TeamDashboardProps) {
             </div>
             <div className="flex items-start gap-4 p-3 rounded-lg border">
               <div className="h-10 w-10 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center">
-                <FileText className="h-5 w-5 text-purple-600 dark:text-purple-400" />
+                <Icon icon={FileText} size="md" className="text-purple-600 dark:text-purple-400" aria-hidden={true} />
               </div>
               <div className="flex-1">
                 <Text variant="body-sm" className="font-semibold">Content published</Text>
@@ -160,19 +161,19 @@ export default function TeamDashboard({ user }: TeamDashboardProps) {
         <CardContent>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <Button className="h-auto py-4 flex-col gap-2" variant="outline">
-              <BarChart3 className="h-6 w-6" />
+              <Icon icon={BarChart3} size="lg" aria-hidden={true} />
               <Text variant="body-sm">View Reports</Text>
             </Button>
             <Button className="h-auto py-4 flex-col gap-2" variant="outline">
-              <MessageSquare className="h-6 w-6" />
+              <Icon icon={MessageSquare} size="lg" aria-hidden={true} />
               <Text variant="body-sm">Moderate</Text>
             </Button>
             <Button className="h-auto py-4 flex-col gap-2" variant="outline">
-              <Mail className="h-6 w-6" />
+              <Icon icon={Mail} size="lg" aria-hidden={true} />
               <Text variant="body-sm">Support</Text>
             </Button>
             <Button className="h-auto py-4 flex-col gap-2" variant="outline">
-              <FileText className="h-6 w-6" />
+              <Icon icon={FileText} size="lg" aria-hidden={true} />
               <Text variant="body-sm">Content</Text>
             </Button>
           </div>

@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Heading } from "@/components/atoms/heading";
 import { Text } from "@/components/atoms/text";
+import { Icon } from "@/components/atoms/icon";
 
 const programs = [
   {
@@ -188,11 +189,11 @@ export default function AllProgramsSection() {
 
                   <div className="mb-4 flex flex-wrap gap-4 text-sm">
                     <div className="flex items-center gap-1">
-                      <Clock className={`h-4 w-4 ${program.zone === 'yellow' ? 'text-zone-yellow-primary' : 'text-zone-orange-primary'}`} />
+                      <Icon icon={Clock} size="sm" className={program.zone === 'yellow' ? 'text-zone-yellow-primary' : 'text-zone-orange-primary'} aria-hidden={true} />
                       {program.duration}
                     </div>
                     <div className="flex items-center gap-1">
-                      <Dumbbell className={`h-4 w-4 ${program.zone === 'yellow' ? 'text-zone-yellow-primary' : 'text-zone-orange-primary'}`} />
+                      <Icon icon={Dumbbell} size="sm" className={program.zone === 'yellow' ? 'text-zone-yellow-primary' : 'text-zone-orange-primary'} aria-hidden={true} />
                       {program.difficulty}
                     </div>
                   </div>
@@ -205,7 +206,7 @@ export default function AllProgramsSection() {
                     <div className={`flex items-center gap-2 text-sm font-semibold ${
                       program.zone === 'yellow' ? 'text-zone-yellow-primary' : 'text-zone-orange-primary'
                     }`}>
-                      <Target className="h-4 w-4" />
+                      <Icon icon={Target} size="sm" aria-hidden={true} />
                       {program.results}
                     </div>
                   </div>
@@ -213,9 +214,9 @@ export default function AllProgramsSection() {
                   <ul className="space-y-2">
                     {program.features.map((feature, i) => (
                       <li key={i} className="flex items-start text-sm">
-                        <Check className={`mr-2 mt-0.5 h-4 w-4 flex-shrink-0 ${
+                        <Icon icon={Check} size="sm" className={`mr-2 mt-0.5 flex-shrink-0 ${
                           program.zone === 'yellow' ? 'text-zone-yellow-primary' : 'text-zone-orange-primary'
-                        }`} />
+                        }`} aria-hidden={true} />
                         <Text variant="body-sm" className={program.zone === 'yellow' ? 'text-zone-yellow-metallic/90' : 'text-zone-orange-metallic/90'}>{feature}</Text>
                       </li>
                     ))}
