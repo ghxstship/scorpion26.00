@@ -3,11 +3,11 @@
 import { motion } from "framer-motion";
 import { Heading } from "@/components/atoms/heading";
 import { Text } from "@/components/atoms/text";
-import { containerClasses, heroClasses } from "@/lib/design-tokens";
+import { containerClasses, heroClasses, spacingClasses } from "@/lib/design-tokens";
 
 export default function ResultsHeroSection() {
   return (
-    <section className={`relative ${heroClasses.lg} flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/10 via-background to-secondary/10 pt-32 pb-20 md:pt-40 md:pb-24`}>
+    <section className={`relative ${heroClasses.lg} ${spacingClasses.sectionY.lg} flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/10 via-background to-secondary/10`}>
       <div className={containerClasses.default}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}

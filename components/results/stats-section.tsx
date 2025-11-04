@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { TrendingUp, Users, Award, Target } from "lucide-react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { spacingClasses } from "@/lib/design-tokens";
 
 const stats = [
   { icon: Users, value: "100,000+", label: "Members Transformed" },
@@ -19,7 +20,7 @@ export default function StatsSection() {
   });
 
   return (
-    <section ref={ref} className="py-16 md:py-20 bg-gradient-to-b from-zone-blue-base via-zone-blue-secondary/20 to-zone-blue-base relative">
+    <section ref={ref} className={`${spacingClasses.sectionY.lg} bg-gradient-to-b from-zone-blue-base via-zone-blue-secondary/20 to-zone-blue-base relative`}>
       {/* Blue Zone Accent Lines */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-zone-blue-primary to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-zone-blue-accent to-transparent" />
