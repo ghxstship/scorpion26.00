@@ -49,7 +49,7 @@ export default function Footer() {
         <div className="mb-12 rounded-lg bg-primary p-6 sm:p-8 text-primary-foreground">
           <div className="mx-auto max-w-2xl text-center">
             <Icon icon={Mail} size="xl" className="mx-auto mb-3 sm:mb-4 sm:h-12 sm:w-12" aria-hidden={true} />
-            <Heading level={3} className="mb-2 font-montserrat text-xl sm:text-2xl">
+            <Heading level={3} className="mb-2 font-heading text-xl sm:text-2xl">
               Get 7 Free Workout Videos
             </Heading>
             <Text variant="body-md" className="mb-4 sm:mb-6 text-sm sm:text-base text-primary-foreground/90">
@@ -81,11 +81,11 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <Link href="/" className="mb-4 flex items-center space-x-2">
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
-                <span className="font-montserrat text-xl font-bold text-primary-foreground">
+                <span className="font-heading text-xl font-bold text-primary-foreground">
                   EF
                 </span>
               </div>
-              <span className="font-montserrat text-xl font-bold">
+              <span className="font-heading text-xl font-bold">
                 Elite Fitness
               </span>
             </Link>

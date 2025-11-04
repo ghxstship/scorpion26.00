@@ -25,7 +25,7 @@ export default function CTASection() {
           transition={{ duration: 0.6 }}
           className="mx-auto max-w-3xl text-center"
         >
-          <Heading level={2} className="font-montserrat text-4xl sm:text-5xl">
+          <Heading level={2} className="font-heading text-4xl sm:text-5xl">
             Ready to Start Your Transformation?
           </Heading>
           <Text variant="body-lg" className="mt-6 opacity-90">

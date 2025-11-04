@@ -40,7 +40,7 @@ export default function BundleDetailPage({ params }: { params: { id: string } })
     <main className="min-h-screen py-24">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <Heading level={1} className="text-4xl font-montserrat mb-4">
+          <Heading level={1} className="text-4xl font-heading mb-4">
             {bundle.name}
           </Heading>
           <Text variant="body-lg" className="mb-8 text-muted-foreground">
@@ -65,7 +65,7 @@ export default function BundleDetailPage({ params }: { params: { id: string } })
             <CardContent className="pt-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <Heading level={2} className="text-3xl font-montserrat mb-2">
+                  <Heading level={2} className="text-3xl font-heading mb-2">
                     ${bundle.price}
                   </Heading>
                   <Text variant="body-sm" className="text-muted-foreground">

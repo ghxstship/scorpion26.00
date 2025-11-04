@@ -19,7 +19,7 @@ export default function StatsSection() {
   });
 
   return (
-    <section ref={ref} className="py-16 bg-gradient-to-b from-zone-blue-base via-zone-blue-secondary/20 to-zone-blue-base relative">
+    <section ref={ref} className="py-16 md:py-20 bg-gradient-to-b from-zone-blue-base via-zone-blue-secondary/20 to-zone-blue-base relative">
       {/* Blue Zone Accent Lines */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-zone-blue-primary to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-zone-blue-accent to-transparent" />
@@ -37,7 +37,7 @@ export default function StatsSection() {
                   <div className="mb-4 flex h-12 w-12 mx-auto items-center justify-center rounded-full bg-zone-blue-primary/10 border border-zone-blue-primary/20">
                     <stat.icon className="h-6 w-6 text-zone-blue-accent" />
                   </div>
-                  <div className="font-montserrat text-4xl font-bold text-zone-blue-primary">
+                  <div className="font-heading text-4xl font-bold text-zone-blue-primary">
                     {stat.value}
                   </div>
                   <div className="mt-2 text-sm text-muted-foreground">

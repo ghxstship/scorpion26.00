@@ -42,7 +42,7 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <Heading level={1} display="md" className="font-montserrat text-foreground">
+            <Heading level={1} display="md" className="font-heading text-foreground">
               Transform Your Body in{" "}
               <span className="bg-gradient-to-r from-zone-red-primary via-zone-red-accent to-zone-red-primary bg-clip-text text-transparent">
                 90 Days

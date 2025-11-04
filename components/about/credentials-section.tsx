@@ -73,7 +73,7 @@ export default function CredentialsSection() {
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
-          <Heading level={2} className="font-montserrat text-4xl sm:text-5xl">
+          <Heading level={2} className="font-heading text-4xl sm:text-5xl">
             Credentials & Achievements
           </Heading>
           <TextAtom variant="body-lg" className="mt-4 text-muted-foreground">

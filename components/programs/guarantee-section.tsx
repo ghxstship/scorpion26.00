@@ -24,7 +24,7 @@ export default function GuaranteeSection() {
             <CardContent className="p-8 lg:p-12">
               <div className="mx-auto max-w-3xl text-center">
                 <Shield className="mx-auto mb-6 h-16 w-16 text-primary" />
-                <h2 className="mb-4 font-montserrat text-3xl font-bold sm:text-4xl">
+                <h2 className="mb-4 font-heading text-3xl font-bold sm:text-4xl">
                   30-Day Money-Back Guarantee
                 </h2>
                 <p className="mb-8 text-lg text-muted-foreground">

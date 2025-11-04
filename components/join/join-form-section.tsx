@@ -18,7 +18,7 @@ export default function JoinFormSection() {
       >
         <Card>
           <CardHeader className="text-center">
-            <CardTitle className="text-3xl font-montserrat">Join Elite Fitness</CardTitle>
+            <CardTitle className="text-3xl font-heading">Join Elite Fitness</CardTitle>
             <CardDescription>
               Start your transformation journey today
             </CardDescription>

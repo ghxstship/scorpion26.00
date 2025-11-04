@@ -62,7 +62,7 @@ export default function ProgramsCardsGrid() {
           transition={{ duration: 0.6 }}
           className={`${spacingClasses.mb.xl} text-center`}
         >
-          <Heading level={2} className="font-montserrat mb-4">
+          <Heading level={2} className="font-heading mb-4">
             Choose Your Program
           </Heading>
           <Text variant="body-lg" className="text-muted-foreground max-w-3xl mx-auto">

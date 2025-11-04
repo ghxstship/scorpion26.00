@@ -7,7 +7,7 @@ import { containerClasses, heroClasses } from "@/lib/design-tokens";
 
 export default function ResultsHeroSection() {
   return (
-    <section className={`relative ${heroClasses.lg} flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/10 via-background to-secondary/10 pt-24`}>
+    <section className={`relative ${heroClasses.lg} flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/10 via-background to-secondary/10 pt-32 pb-20 md:pt-40 md:pb-24`}>
       <div className={containerClasses.default}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -15,7 +15,7 @@ export default function ResultsHeroSection() {
           transition={{ duration: 0.6 }}
           className="mx-auto max-w-4xl text-center"
         >
-          <Heading level={1} className="font-montserrat text-5xl leading-tight sm:text-6xl lg:text-7xl">
+          <Heading level={1} className="font-heading text-5xl leading-tight sm:text-6xl lg:text-7xl">
             Real People, Real Results
           </Heading>
           <Text variant="body-lg" className="mt-6 text-muted-foreground sm:text-2xl">

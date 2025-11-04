@@ -20,7 +20,7 @@ export default function ForgotPasswordForm() {
       >
         <Card>
           <CardHeader className="text-center">
-            <CardTitle className="text-3xl font-montserrat">Reset Password</CardTitle>
+            <CardTitle className="text-3xl font-heading">Reset Password</CardTitle>
             <CardDescription>
               Enter your email and we&apos;ll send you a reset link
             </CardDescription>

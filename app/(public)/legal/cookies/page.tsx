@@ -12,7 +12,7 @@ export default function CookiesPage() {
     <main className="min-h-screen py-24">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-4xl mx-auto prose prose-slate dark:prose-invert">
-          <Heading level={1} className="text-4xl font-montserrat mb-4">
+          <Heading level={1} className="text-4xl font-heading mb-4">
             Cookie Policy
           </Heading>
           <Text variant="body-sm" className="text-muted-foreground mb-8">
@@ -20,7 +20,7 @@ export default function CookiesPage() {
           </Text>
 
           <section className="mb-8">
-            <Heading level={2} className="text-2xl font-montserrat mb-4">
+            <Heading level={2} className="text-2xl font-heading mb-4">
               What Are Cookies
             </Heading>
             <Text variant="body-md" className="mb-4">
@@ -29,7 +29,7 @@ export default function CookiesPage() {
           </section>
 
           <section className="mb-8">
-            <Heading level={2} className="text-2xl font-montserrat mb-4">
+            <Heading level={2} className="text-2xl font-heading mb-4">
               How We Use Cookies
             </Heading>
             <Text variant="body-md" className="mb-4">
@@ -44,7 +44,7 @@ export default function CookiesPage() {
           </section>
 
           <section className="mb-8">
-            <Heading level={2} className="text-2xl font-montserrat mb-4">
+            <Heading level={2} className="text-2xl font-heading mb-4">
               Managing Cookies
             </Heading>
             <Text variant="body-md" className="mb-4">
@@ -53,7 +53,7 @@ export default function CookiesPage() {
           </section>
 
           <section className="mb-8">
-            <Heading level={2} className="text-2xl font-montserrat mb-4">
+            <Heading level={2} className="text-2xl font-heading mb-4">
               Contact Us
             </Heading>
             <Text variant="body-md">

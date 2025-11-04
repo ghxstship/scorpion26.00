@@ -78,7 +78,7 @@ export default function ProgramsGridSection() {
           transition={{ duration: 0.6 }}
           className="mb-12 text-center"
         >
-          <h2 className="font-montserrat text-4xl font-bold sm:text-5xl mb-4">
+          <h2 className="font-heading text-4xl font-bold sm:text-5xl mb-4">
             Choose Your Training Path
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">

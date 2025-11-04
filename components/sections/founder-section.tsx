@@ -57,7 +57,7 @@ export default function FounderSection() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <Heading level={2} className="font-montserrat text-4xl sm:text-5xl">
+            <Heading level={2} className="font-heading text-4xl sm:text-5xl">
               Meet Your Coach
             </Heading>
             <Text variant="body-lg" className="mt-4 text-muted-foreground">

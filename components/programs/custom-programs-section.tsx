@@ -59,7 +59,7 @@ export default function CustomProgramsSection() {
             <Crown className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
             <span className="text-xs sm:text-sm font-semibold text-primary">Private 1-on-1 Coaching</span>
           </div>
-          <h2 className="font-montserrat text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
             Custom Private Training
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-4">

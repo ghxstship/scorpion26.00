@@ -15,7 +15,7 @@ export default function PressPage() {
     <main className="min-h-screen py-24">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <Heading level={1} className="text-4xl font-montserrat mb-4 text-center">
+          <Heading level={1} className="text-4xl font-heading mb-4 text-center">
             Press & Media
           </Heading>
           <Text variant="body-lg" className="mb-12 text-center text-muted-foreground">
@@ -23,7 +23,7 @@ export default function PressPage() {
           </Text>
 
           <section className="mb-16">
-            <Heading level={2} className="text-2xl font-montserrat mb-6">
+            <Heading level={2} className="text-2xl font-heading mb-6">
               Press Releases
             </Heading>
             <div className="space-y-4">
@@ -40,7 +40,7 @@ export default function PressPage() {
           </section>
 
           <section className="mb-16">
-            <Heading level={2} className="text-2xl font-montserrat mb-6">
+            <Heading level={2} className="text-2xl font-heading mb-6">
               Media Inquiries
             </Heading>
             <Card>

@@ -11,7 +11,7 @@ export default function TermsPage() {
   return (
     <div className="container mx-auto px-4 py-24 lg:px-8">
       <div className="mx-auto max-w-4xl">
-        <Heading level={1} className="mb-8 font-montserrat text-4xl">Terms of Service</Heading>
+        <Heading level={1} className="mb-8 font-heading text-4xl">Terms of Service</Heading>
         <div className="prose prose-lg max-w-none space-y-6">
           <Text variant="body-md" className="text-muted-foreground">Last updated: March 2024</Text>
           

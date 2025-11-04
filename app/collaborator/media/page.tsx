@@ -31,7 +31,7 @@ export default function CollaboratorMediaPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-montserrat font-bold">My Media</h1>
+          <h1 className="text-3xl font-heading font-bold">My Media</h1>
           <p className="text-muted-foreground">Manage your media library</p>
         </div>
         <Button><Upload className="mr-2 h-4 w-4" />Upload Media</Button>

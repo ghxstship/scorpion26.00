@@ -29,7 +29,7 @@ export default function CollaboratorAnalyticsPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-montserrat font-bold">Analytics</h1>
+        <h1 className="text-3xl font-heading font-bold">Analytics</h1>
         <p className="text-muted-foreground">Track your content performance</p>
       </div>
 

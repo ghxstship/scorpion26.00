@@ -79,7 +79,7 @@ export default function AdminPanelPage() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <Icon icon={Shield} size="lg" className="text-red-600" aria-hidden={true} />
-              <Heading level={1} className="text-2xl font-montserrat">Admin Panel</Heading>
+              <Heading level={1} className="text-2xl font-heading">Admin Panel</Heading>
             </div>
             <Button variant="outline" asChild>
               <Link href="/member/dashboard">Back to Dashboard</Link>

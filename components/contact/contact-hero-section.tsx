@@ -15,7 +15,7 @@ export default function ContactHeroSection() {
           transition={{ duration: 0.6 }}
           className="mx-auto max-w-3xl text-center"
         >
-          <Heading level={1} className="font-montserrat text-3xl leading-tight sm:text-5xl md:text-6xl lg:text-7xl">
+          <Heading level={1} className="font-heading text-3xl leading-tight sm:text-5xl md:text-6xl lg:text-7xl">
             Get In Touch
           </Heading>
           <Text variant="body-lg" className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground px-4">

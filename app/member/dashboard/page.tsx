@@ -48,7 +48,7 @@ export default function DashboardPage() {
     <div className="space-y-6">
       {/* Welcome Header */}
       <div>
-        <Heading level={1} className="text-3xl font-montserrat">Welcome back, {user.name}!</Heading>
+        <Heading level={1} className="text-3xl font-heading">Welcome back, {user.name}!</Heading>
         <Text variant="body-md" className="text-muted-foreground mt-1 flex items-center gap-2">
           <Icon icon={Calendar} size="sm" aria-hidden={true} />
           Here&apos;s what&apos;s happening with your account today.

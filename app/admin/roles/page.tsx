@@ -56,7 +56,7 @@ export default function RoleManagementPage() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <Shield className="h-6 w-6 text-red-600" />
-              <h1 className="text-2xl font-montserrat font-bold">Role Management</h1>
+              <h1 className="text-2xl font-heading font-bold">Role Management</h1>
             </div>
             <Button variant="outline" asChild>
               <Link href="/admin">

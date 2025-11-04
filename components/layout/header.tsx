@@ -80,11 +80,11 @@ export default function Header() {
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-1.5 sm:space-x-2" aria-label="Elite Fitness home">
           <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-lg bg-primary">
-            <span className="font-montserrat text-base sm:text-xl font-bold text-primary-foreground">
+            <span className="font-heading text-base sm:text-xl font-bold text-primary-foreground">
               EF
             </span>
           </div>
-          <span className="font-montserrat text-base sm:text-xl font-bold">
+          <span className="font-heading text-base sm:text-xl font-bold">
             Elite Fitness
           </span>
         </Link>

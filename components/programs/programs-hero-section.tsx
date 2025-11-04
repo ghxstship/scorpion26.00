@@ -36,7 +36,7 @@ export default function ProgramsHeroSection() {
             7 Tracks • 4 Tiers • Custom Training
           </Badge>
           
-          <Heading level={1} className="font-montserrat text-5xl leading-tight sm:text-6xl lg:text-7xl mb-6">
+          <Heading level={1} className="font-heading text-5xl leading-tight sm:text-6xl lg:text-7xl mb-6">
             Your Complete Fitness
             <br />
             <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">

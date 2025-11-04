@@ -36,7 +36,7 @@ export default function FinalConversionSection() {
             className="text-center"
           >
             <Icon icon={Mail} size="2xl" className="mx-auto mb-6 h-16 w-16" aria-hidden={true} />
-            <Heading level={2} className="font-montserrat text-4xl sm:text-5xl">
+            <Heading level={2} className="font-heading text-4xl sm:text-5xl">
               Start Your Transformation Today
             </Heading>
             <Text variant="body-lg" className="mt-4 opacity-90">

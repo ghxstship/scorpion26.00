@@ -26,7 +26,7 @@ export default function NewsletterSection() {
           <Card className="border-2 border-primary/20 bg-primary/5">
             <CardContent className="p-8 text-center">
               <Mail className="mx-auto mb-4 h-12 w-12 text-primary" />
-              <h2 className="mb-2 font-montserrat text-3xl font-bold">
+              <h2 className="mb-2 font-heading text-3xl font-bold">
                 Never Miss New Content
               </h2>
               <p className="mb-6 text-muted-foreground">

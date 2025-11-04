@@ -61,7 +61,7 @@ export default function DashboardLayout({ user, children, onLogout }: DashboardL
           </div>
           {sidebarOpen && (
             <div>
-              <h2 className="font-montserrat font-bold text-lg">Scorpion26</h2>
+              <h2 className="font-heading font-bold text-lg">Scorpion26</h2>
               <p className="text-xs text-muted-foreground">{roleInfo.label} Portal</p>
             </div>
           )}

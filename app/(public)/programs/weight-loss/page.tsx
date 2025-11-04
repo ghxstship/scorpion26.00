@@ -19,7 +19,7 @@ export default function WeightLossPage() {
       <section className="py-24 bg-gradient-to-br from-primary/10 via-background to-background">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <Heading level={1} className="text-4xl md:text-5xl font-montserrat mb-6">
+            <Heading level={1} className="text-4xl md:text-5xl font-heading mb-6">
               Weight Loss Program
             </Heading>
             <Text variant="body-lg" className="mb-8 text-muted-foreground">
@@ -85,7 +85,7 @@ export default function WeightLossPage() {
       <section className="py-16 bg-muted/50">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto">
-            <Heading level={2} className="text-3xl font-montserrat mb-8 text-center">
+            <Heading level={2} className="text-3xl font-heading mb-8 text-center">
               What You Get
             </Heading>
             <div className="space-y-4">
@@ -129,7 +129,7 @@ export default function WeightLossPage() {
       {/* CTA Section */}
       <section className="py-16 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 lg:px-8 text-center">
-          <Heading level={2} className="text-3xl font-montserrat mb-4">
+          <Heading level={2} className="text-3xl font-heading mb-4">
             Start Your Weight Loss Journey
           </Heading>
           <Text variant="body-lg" className="mb-8 max-w-2xl mx-auto">

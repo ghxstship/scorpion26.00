@@ -48,7 +48,7 @@ export default function ContactInfoSection() {
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
-          <h2 className="font-montserrat text-4xl font-bold sm:text-5xl">
+          <h2 className="font-heading text-4xl font-bold sm:text-5xl">
             Other Ways to Reach Us
           </h2>
         </motion.div>

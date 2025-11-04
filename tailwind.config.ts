@@ -24,7 +24,7 @@ const config: Config = {
   			body: ['var(--font-body)'],
   			button: ['var(--font-button)'],
   			caption: ['var(--font-caption)'],
-  			sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+  			sans: ['var(--font-body)', 'system-ui', 'sans-serif'],
   			mono: ['var(--font-body)', 'monospace'],
   		},
   		fontSize: {

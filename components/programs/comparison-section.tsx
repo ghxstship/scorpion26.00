@@ -40,7 +40,7 @@ export default function ComparisonSection() {
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
-          <h2 className="font-montserrat text-4xl font-bold sm:text-5xl">
+          <h2 className="font-heading text-4xl font-bold sm:text-5xl">
             Compare Programs
           </h2>
           <p className="mt-4 text-xl text-muted-foreground">

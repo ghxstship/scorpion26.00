@@ -39,7 +39,7 @@ export default function ProgramShowcaseSection() {
           transition={{ duration: 0.6 }}
           className="mb-12 sm:mb-14 md:mb-16 text-center"
         >
-          <Heading level={2} className="font-montserrat text-3xl sm:text-4xl md:text-5xl">
+          <Heading level={2} className="font-heading text-3xl sm:text-4xl md:text-5xl">
             Choose Your Tier
           </Heading>
           <Text variant="body-lg" className="mt-3 sm:mt-4 text-muted-foreground px-4">

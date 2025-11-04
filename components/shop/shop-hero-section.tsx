@@ -15,7 +15,7 @@ export default function ShopHeroSection() {
           transition={{ duration: 0.6 }}
           className="mx-auto max-w-3xl text-center"
         >
-          <Heading level={1} className="font-montserrat text-5xl leading-tight sm:text-6xl lg:text-7xl">
+          <Heading level={1} className="font-heading text-5xl leading-tight sm:text-6xl lg:text-7xl">
             Shop
           </Heading>
           <Text variant="body-lg" className="mt-6 text-muted-foreground sm:text-2xl">

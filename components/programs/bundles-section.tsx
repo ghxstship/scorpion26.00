@@ -48,7 +48,7 @@ export default function BundlesSection() {
             <Package className="h-5 w-5 text-primary" />
             <Text variant="body-sm" className="font-semibold text-primary">Save up to 45%</Text>
           </div>
-          <Heading level={2} className="font-montserrat text-3xl sm:text-4xl md:text-5xl mb-3 sm:mb-4">
+          <Heading level={2} className="font-heading text-3xl sm:text-4xl md:text-5xl mb-3 sm:mb-4">
             Bundled Packages
           </Heading>
           <Text variant="body-lg" className="text-muted-foreground max-w-3xl mx-auto px-4">

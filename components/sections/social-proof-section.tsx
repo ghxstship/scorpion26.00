@@ -63,7 +63,7 @@ export default function SocialProofSection() {
           transition={{ duration: 0.6 }}
           className={`${spacingClasses.mb.xl} text-center`}
         >
-          <Heading level={2} className="font-montserrat">
+          <Heading level={2} className="font-heading">
             Real People, Real Results
           </Heading>
           <Text variant="body-lg" className={`${spacingClasses.mt.md} text-muted-foreground`}>
@@ -81,7 +81,7 @@ export default function SocialProofSection() {
           {stats.map((stat, index) => (
             <Card key={index} className="border-2">
               <CardContent className="p-4 sm:p-6 text-center">
-                <Heading level={3} className="font-montserrat text-2xl sm:text-3xl md:text-4xl text-primary">
+                <Heading level={3} className="font-heading text-2xl sm:text-3xl md:text-4xl text-primary">
                   {stat.value}
                 </Heading>
                 <Text variant="body-sm" className="mt-2 sm:mt-4 text-xs sm:text-sm text-muted-foreground">

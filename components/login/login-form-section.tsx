@@ -50,7 +50,7 @@ export default function LoginFormSection() {
       >
         <Card>
           <CardHeader className="text-center">
-            <CardTitle className="text-3xl font-montserrat">Welcome Back</CardTitle>
+            <CardTitle className="text-3xl font-heading">Welcome Back</CardTitle>
             <CardDescription>
               Log in to access your member dashboard
             </CardDescription>

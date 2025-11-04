@@ -34,7 +34,7 @@ export default function CommunityStatsSection() {
                   <div className="mb-4 flex h-12 w-12 mx-auto items-center justify-center rounded-full bg-primary/10">
                     <stat.icon className="h-6 w-6 text-primary" />
                   </div>
-                  <div className="font-montserrat text-4xl font-bold text-primary">
+                  <div className="font-heading text-4xl font-bold text-primary">
                     {stat.value}
                   </div>
                   <div className="mt-2 text-sm text-muted-foreground">
